@@ -1,5 +1,7 @@
 package alotra.milktea.entity;
 
+import java.io.Serializable;
+
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.Entity;
@@ -17,7 +19,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="customer")
-public class Customer {
+public class Customer implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long customerID;

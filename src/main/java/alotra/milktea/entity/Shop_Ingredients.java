@@ -2,15 +2,13 @@ package alotra.milktea.entity;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.Length;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +17,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="category")
-public class Category implements Serializable{
+@Table(name="shop_ingredients")
+public class Shop_Ingredients implements Serializable{
 	/**
 	 * 
 	 */
@@ -28,10 +26,15 @@ public class Category implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long categoryID;
+	private int id;
 	
-	@NotEmpty
-	@Length(min=5)
-	@Column(columnDefinition = "NVARCHAR(255)")
-	private String categoryName;
+	@ManyToOne
+	@JoinColumn(name="shopID")
+	private Shop shop;
+	
+	@ManyToOne
+	@JoinColumn(name="ingredientsID")
+	private Ingredients ingredients;
+	
+	private int amount;
 }

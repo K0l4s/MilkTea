@@ -3,6 +3,8 @@ package alotra.milktea;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import alotra.milktea.service.Email;
+
 @SpringBootApplication
 public class MilkTeaShopsChainManagementApplication {
 
