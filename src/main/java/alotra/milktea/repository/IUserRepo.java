@@ -12,10 +12,11 @@ import alotra.milktea.entity.User;
 @Repository
 public interface IUserRepo extends JpaRepository<User, String>{
 
-	User findByUsername(String username);
+	User findUserByUsername(String username);
 	
-	boolean findUserByEmailAndCode(String email, String code);
+//	@Query("SELECT u FROM User u WHERE (u.username = :username AND u.code = :code)")
+	List<User> findUserByUsernameAndCode(@Param("username") String username,@Param("code") String code);
 	
-	@Query("SELECT u FROM User u WHERE (u.email = :email OR u.username = :email) AND u.password = :password")
-	boolean login(@Param("email") String emailOrUsername,@Param("password") String password);
+//	@Query("SELECT u FROM User u WHERE u.username = :email AND u.password = :password")
+	List<User> findUserByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
 }
