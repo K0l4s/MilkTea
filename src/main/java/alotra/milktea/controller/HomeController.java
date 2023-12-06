@@ -48,7 +48,17 @@ public class HomeController {
 	}
 
 	@GetMapping("/register")
-	protected String showRegisterForm(Model model) {
+	protected String showRegisterForm(HttpSession session, @CookieValue(value = "username", defaultValue = "") String username, Model model) {
+		// Check Session
+		if (session.getAttribute("username") != null) {
+			return "redirect:/home";
+		}
+
+		// Check Cookie
+		if (!username.isEmpty()) {
+			session.setAttribute("username", username);
+			return "redirect:/home";
+		}
 		User user = new User();
 		model.addAttribute("user", user);
 		return "home/register";
@@ -79,9 +89,18 @@ public class HomeController {
 	}
 
 	@PostMapping("/vetifyRegister")
-	protected String vetifyRegis(@ModelAttribute("user") User user) {
-		if (userService.vetifyUserCode(user))
+	protected String vetifyRegis(@ModelAttribute("user") User user, HttpSession session,
+								 HttpServletResponse response){
+		if (userService.vetifyUserCode(user)) {
+			String username = user.getUsername();
+			session.setAttribute("username", username);
+
+			// Thiết lập Cookie
+			Cookie usernameCookie = new Cookie("username", username);
+			usernameCookie.setMaxAge(3600);
+			response.addCookie(usernameCookie);
 			return "redirect:/home";
+		}
 		return "redirect:/vetifyRegister?username=" + user.getUsername();
 	}
 

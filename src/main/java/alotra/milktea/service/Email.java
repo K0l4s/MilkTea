@@ -40,7 +40,7 @@ public class Email {
 	public String sendEmailCode(User user) {
 		try {
 		String toEmail = user.getEmail();
-		String code = getRandom();
+		String code = user.getCode();
 		String subject = "[No reply] ALOTRA - Confirm Register!";
 		String body = "You registered ALOTRA!"
 				+ " Please input your CODE: " +code +" to complete your register!";
