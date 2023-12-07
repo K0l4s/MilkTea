@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>Xác nhận Đăng Ký!</h1>
+	<p>Xin vui lòng nhập 06 chữ số mã Code nhận được qua Email bạn đã cung cấp vào ô bên dưới để hoàn tất quá trình đăng
+		ký! Xin cảm ơn!</p>
+	<form method="POST" th:action="@{vetifyRegister}" th:object="${user}">
+		<p>Mã xác nhận</p>
+		<input type="text" th:field="*{code}" required />
+		<input type="submit" value="Xác nhận">
+		<input type="hidden" th:field="*{username}" required />
+	</form>
+	<p>Lưu ý: Nếu chưa tìm được mail xác nhận thì kiểm tra các mục thư Rác, Spam hoặc nhấn nút Gửi Lại Mã Xác Nhận bên dưới!
+	</p>
+	<form>
+		<button>Gửi lại Mã Xác Nhận</button>
+	</form>
+</body>
