@@ -65,4 +65,5 @@ public class UserServiceImpl implements IUserService{
 		userRepo.save(updateUser);
 		return true;
 	}
+
 }

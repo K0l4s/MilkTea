@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<div align="center">
+    <h1>User List</h1>
+    <a th:href="@{/employee/add}"><button>Add</button></a>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Role ID</th>
+            <th>Citizen ID</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>UserName</th>
+            <th>Shop ID</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.employeeID}"></td>
+            <td th:text="${employee.roleID.getName()}"></td>
+            <td th:text="${employee.citizenID}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.photo}"></td>
+            <td th:text="${employee.username.username}"></td>
+            <td th:text="${employee.shop.getName()}"></td>
+            <td>
+                <a th:href="@{'/edit/' + ${employee.employeeID}}"><button>Edit</button></a>
+                <a th:href="@{'/delete/' + ${employee.employeeID}}"><button>Delete</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

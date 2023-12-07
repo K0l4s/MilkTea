@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Add Employee</title>
+        </head>
+        <body>
+        <div class="container">
+            <h1>Add Employee</h1>
+            <form th:action="@{/save}" th:object="${employee}" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" th:field="*{name}"/><br/><br/>
+
+                <label for="roleID">role ID:</label>
+                <input type="text" id="roleID" name="roleID" th:field="*{roleID}"/><br/><br/>
+
+                <label for="citizenID">citizen ID:</label>
+                <input type="text" id="citizenID" name="citizenID" th:field="*{citizenID}"/><br/><br/>
+
+                <label for="photo">photo:</label>
+                <input type="text" id="photo" name="photo" th:field="*{photo}"/><br/><br/>
+
+                <!-- More fields can be added similarly for other attributes -->
+
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+        </body>
+</html>
