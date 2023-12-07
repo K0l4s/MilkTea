@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/CartProducts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout-web.html" afterDir="false" />
     </list>
@@ -23,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -144,6 +146,8 @@
       <workItem from="1701886612586" duration="224000" />
       <workItem from="1701887022217" duration="3904000" />
       <workItem from="1701933401578" duration="1703000" />
+      <workItem from="1701947450718" duration="2850000" />
+      <workItem from="1701965607686" duration="2319000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />

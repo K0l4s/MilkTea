@@ -9,14 +9,14 @@
 
 <body>
 	<section layout:fragment="content">
-	<form method="POST" th:action="@{login}" th:object="${user}">
-		Tên đăng nhập: <input type="text" th:field="*{username}" required><br>
-		Mật khẩu: <input type="password" th:field="*{password}" required><br>
-		<input type="submit" value="Đăng nhập">
-	</form>
-	<div >
-		<p th:text="${message}"></p>
-	</div>
+		<form method="POST" th:action="@{login}" th:object="${user}">
+			Tên đăng nhập: <input type="text" th:field="*{username}" required><br>
+			Mật khẩu: <input type="password" th:field="*{password}" required><br>
+			<input type="submit" value="Đăng nhập">
+		</form>
+		<div >
+			<p th:text="${message}"></p>
+		</div>
 	</section>
 </body>
 
