@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-web.html}">>
 
 <body>
+    <section layout:fragment="content">
 	<h1>Đây là trang chủ!!!</h1>
-</body>
+
 <!-- Thêm vào sau phần form -->
 <div th:if="${param.error}">
     <p>Đăng ký không thành công. Vui lòng kiểm tra lại thông tin đăng ký.</p>
 </div>
+
+</section>
+</body>
 </html>
