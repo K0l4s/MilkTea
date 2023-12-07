@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity">
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/CartProducts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a0b4a726-ca12-4aa1-a181-c338241b501b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/BillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IBillRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/ICustomerRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/BillServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IBillService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/listBill.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout-web.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-<<<<<<< HEAD
         <option value="Class" />
-        <option value="Interface" />
-=======
->>>>>>> bf11c42e9935865a10dd60ce84b6b235e2200c8b
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -87,23 +83,12 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-<<<<<<< HEAD
     &quot;git-widget-placeholder&quot;: &quot;khai&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/eclipse-workspace/SpringBootThymeleaf&quot;,
-=======
-    &quot;git-widget-placeholder&quot;: &quot;new__branch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kolas/Downloads/MilkTeaShopsChainManagement-/src/main/resources/templates/static&quot;,
->>>>>>> bf11c42e9935865a10dd60ce84b6b235e2200c8b
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -151,7 +136,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="" />
+      <changelist id="a0b4a726-ca12-4aa1-a181-c338241b501b" name="Changes" comment="" />
       <created>1700317402125</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -173,18 +158,18 @@
       <workItem from="1701802349130" duration="7331000" />
       <workItem from="1701876931048" duration="5567000" />
       <workItem from="1701886612586" duration="224000" />
-<<<<<<< HEAD
       <workItem from="1701887022217" duration="3558000" />
       <workItem from="1701934837851" duration="335000" />
       <workItem from="1701935201938" duration="14962000" />
       <workItem from="1701960141578" duration="5392000" />
       <workItem from="1701965758973" duration="2659000" />
-=======
       <workItem from="1701887022217" duration="3904000" />
       <workItem from="1701933401578" duration="1703000" />
       <workItem from="1701947450718" duration="2850000" />
       <workItem from="1701965607686" duration="2319000" />
->>>>>>> bf11c42e9935865a10dd60ce84b6b235e2200c8b
+      <workItem from="1701970378637" duration="891000" />
+      <workItem from="1701971284203" duration="1585000" />
+      <workItem from="1701972905585" duration="1749000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />

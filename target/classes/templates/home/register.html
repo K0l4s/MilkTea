@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<form method="POST" th:action="@{register}" th:object="${user}">
+		Tên đăng nhập: <input type="text" th:field="*{username}" required><br>
+		Email: <input type="email" th:field="*{email}" required><br>
+		Mật khẩu: <input type="password" th:field="*{password}" required><br>
+		<input type="submit" value="Đăng ký">
+	</form>
+
+	<div th:if="${param.error}">
+		<p>Đăng ký không thành công. Vui lòng kiểm tra lại thông tin đăng ký.</p>
+	</div>
+</body>
+
+</html>

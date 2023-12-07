@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Bills</title>
+</head>
+    <body>
+        <h1>List of Bills</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Creation Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bill : ${bills}">
+            <td th:text="${bill.id}"></td>
+            <td th:text="${bill.getCustomer().getCustomertName()}"></td>
+            <td th:text="${bill.employee.name}"></td>
+            <td th:text="${bill.createDay}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
