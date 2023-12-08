@@ -12,23 +12,37 @@ public class EmployeeController {
     @Autowired
     IEmployeeService employeeService = new EmployeeServiceImpl();
 
-    @GetMapping("/employee")
+    @GetMapping("/admin/employee")
     public String findAll(Model model){
         model.addAttribute("employees",employeeService.findAll());
-        return "/employee/listEmployee";
+        return "employee/listEmployee";
     }
 
-    @GetMapping("/employee/id={employeeID}")
+    @GetMapping("/admin/employee/edit/{employeeID}")
     public String findOne(@PathVariable("employeeID") int employeeID, Model model){
-        model.addAttribute("employees",employeeService.findOne(employeeID));
-        return "/employee/listEmployee";
+        model.addAttribute("employee",employeeService.findOne(employeeID));
+        return "employee/listEmployee";
     }
 
-    @GetMapping("/employee/add")
+    @GetMapping("admin/employee/add")
     public String addEmployee(Model model){
         Employee employee = new Employee();
         model.addAttribute("employee",employee);
-        return "/employee/addEmployee";
+        return "employee/addEmployee";
+    }
+
+    @GetMapping("/admin/employee/delete/{employeeID}")
+    public String deleteEmployee(@PathVariable(value = "employeeID") int employeeID)
+    {
+        employeeService.deleteEmployee(employeeID);
+        return "redirect:/admin/employee";
+    }
+
+    @PostMapping("/save")
+    public String saveAddEmployee(@ModelAttribute("employee") Employee employee)
+    {
+        employeeService.saveEmployee(employee);
+        return "redirect:/admin/employee";
     }
 
 }

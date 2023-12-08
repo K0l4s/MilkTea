@@ -7,7 +7,7 @@
 <body>
 <div align="center">
     <h1>User List</h1>
-    <a th:href="@{/employee/add}"><button>Add</button></a>
+    <a th:href="@{employee/add}"><button>Add</button></a>
     <table border="1">
         <thead>
         <tr>
@@ -28,11 +28,15 @@
             <td th:text="${employee.citizenID}"></td>
             <td th:text="${employee.name}"></td>
             <td th:text="${employee.photo}"></td>
-            <td th:text="${employee.username.username}"></td>
+            <td th:text="${employee.username.getUsername()}"></td>
             <td th:text="${employee.shop.getName()}"></td>
             <td>
-                <a th:href="@{'/edit/' + ${employee.employeeID}}"><button>Edit</button></a>
-                <a th:href="@{'/delete/' + ${employee.employeeID}}"><button>Delete</button></a>
+                <a th:href="@{/admin/employee/edit/{employeeID}(employeeID=${employee.employeeID})}">
+                    <button>Edit</button>
+                </a>
+
+                <a th:href="@{/admin/employee/delete/{employeeID}(employeeID=${employee.employeeID})}">
+                    <button>Delete</button></a>
             </td>
         </tr>
         </tbody>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+</head>
+<body>
+<div class="container">
+    <h1>Update Employee</h1>
+    <form action="#" th:action="@{/submit}" th:object="${employee}" method="POST">
+
+        <label>Name: </label>
+        <input type="text" th:field="*{employe.name}" />
+
+
+        <input type="submit" value="Update"/>
+    </form>
+</div>
+</body>
+</html>
