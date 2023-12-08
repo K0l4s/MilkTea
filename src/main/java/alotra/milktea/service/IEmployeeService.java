@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface IEmployeeService {
     List<Employee> findAll();
 
-    Employee findOne(int id);
+    Optional<Employee> findOne(int id);
 
     void saveEmployee(Employee employee);
 

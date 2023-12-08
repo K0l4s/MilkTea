@@ -20,8 +20,8 @@ public class EmployeeServiceImpl implements  IEmployeeService{
     }
 
     @Override
-    public Employee findOne(int id) {
-        return employeeRepo.findEmployeeByEmployeeID(id);
+    public Optional<Employee> findOne(int id) {
+        return employeeRepo.findById(id);
     }
 
     @Override
