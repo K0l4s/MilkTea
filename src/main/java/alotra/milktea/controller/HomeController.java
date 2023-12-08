@@ -15,7 +15,6 @@ import alotra.milktea.service.UserServiceImpl;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.transaction.Transactional;
 
 @Controller
 public class HomeController {
@@ -26,7 +25,7 @@ public class HomeController {
 
 	@GetMapping("/home")
 	protected String home() {
-		return "home/home";
+		return "index";
 	}
 
 	@GetMapping("/login")

@@ -5,15 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home/home.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout-web.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/static.css/ajax-loader.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/ajax-loader.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/static.css/normalize.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/normalize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/static.css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/static.css/vendor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/vendor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home/home.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout-web.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout-web.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/static.css/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/static.css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/static.css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/static.css/vendor.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,46 +79,52 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2YLuraX5ieLp02thmtBi821N39m" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;new__branch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kolas/Downloads/MilkTeaShopsChainManagement-/src/main/resources/templates/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "thuan",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/UTE/Docs/Web/Source/MilkTea/src/main/resources/static/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "0d090a4126dcdba6e9832e4cc7c1faee",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\images" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\js" />
       <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static" />
       <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static\css" />
       <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\common\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static.css" />
-      <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates" />
-      <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static" />
-      <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static\css" />
-      <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static\js" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\js" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\css" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -144,6 +166,8 @@
       <workItem from="1701886612586" duration="224000" />
       <workItem from="1701887022217" duration="3904000" />
       <workItem from="1701933401578" duration="1703000" />
+      <workItem from="1702025053805" duration="6001000" />
+      <workItem from="1702038711898" duration="9809000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />

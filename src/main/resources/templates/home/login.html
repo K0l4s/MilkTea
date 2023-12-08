@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  xmlns: layout:decorate="~{layout-web.html}">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<title>Đăng nhập</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-
 <body>
-	<section layout:fragment="content">
-	<form method="POST" th:action="@{login}" th:object="${user}">
-		Tên đăng nhập: <input type="text" th:field="*{username}" required><br>
-		Mật khẩu: <input type="password" th:field="*{password}" required><br>
-		<input type="submit" value="Đăng nhập">
-	</form>
-	<div >
-		<p th:text="${message}"></p>
+<form method="POST" th:action="@{register}" th:object="${user}">
+	<div class="container">
+		<div class="row">
+			<div class="col-4"></div>
+			<div class="col-4 mt-5">
+				<div class="card">
+					<div class="card-header">Đăng nhập</div>
+					<div class="card-body">
+						<label for="username">Tên đăng nhập:</label>
+						<input type="text" id="username" th:field="*{username}" required class="form-control" />
+						<br>
+						<label for="password">Mật khẩu:</label>
+						<input type="password" id="password" th:field="*{password}" required class="form-control" />
+						<br>
+						<input type="submit" value="Đăng nhập" class="btn btn-primary w-100" />
+					</div>
+				</div>
+				<div class="card-footer">
+					<p class="mb-0">Chưa có tài khoản? <a href="register">Đăng ký ngay</a></p>
+				</div>
+			</div>
+		</div>
 	</div>
-	</section>
+</form>
+<div th:if="${message}">
+	<p th:text="${message}" class="alert alert-danger" role="alert"></p>
+</div>
 </body>
-
 </html>
