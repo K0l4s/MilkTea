@@ -27,7 +27,10 @@ public class HomeController {
 	protected String home() {
 		return "index";
 	}
-
+	@GetMapping("/admin")
+	protected  String admin() {
+		return "admin/home";
+	}
 	@GetMapping("/login")
 	protected String showLoginForm(HttpSession session, @CookieValue(value = "username", defaultValue = "") String username, Model model) {
 		// Check Session
@@ -102,7 +105,11 @@ public class HomeController {
 		}
 		return "redirect:/vetifyRegister?username=" + user.getUsername();
 	}
-
+	@GetMapping("/forgot")
+	protected  String forgotPassword() {
+		return "home/forgot";
+	}
+	
 	@PostMapping("/resendReqCode")
 	protected String resendReqCode() {
 		return null;
