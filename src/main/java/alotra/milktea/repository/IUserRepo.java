@@ -1,13 +1,12 @@
 package alotra.milktea.repository;
 
-import java.util.List;
-
+import alotra.milktea.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import alotra.milktea.entity.User;
+import java.util.List;
 
 @Repository
 public interface IUserRepo extends JpaRepository<User, String>{
@@ -19,4 +18,7 @@ public interface IUserRepo extends JpaRepository<User, String>{
 	
 //	@Query("SELECT u FROM User u WHERE u.username = :email AND u.password = :password")
 	List<User> findUserByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
+
+	@Query("SELECT u FROM User u WHERE u.email = :email")
+	List<User> findUserByEmail(@Param("email") String email);
 }
