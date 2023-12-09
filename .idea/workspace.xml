@@ -5,61 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b4a726-ca12-4aa1-a181-c338241b501b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/IngredientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/ICategoryRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IIngredientRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IRoleRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/ICategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IIngredientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IngredientServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/category/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/category/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/category/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/role/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/role/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/role/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IProductRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/listForUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IBillRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IBillRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/BillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/BillServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/CustomerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IBillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IBillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/ICustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bill/listBill.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employee/addEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employee/addEmployee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employee/editEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employee/editEmployee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employee/listEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employee/listEmployee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ingredient/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ingredient/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ingredient/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/role/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/role/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/role/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/role/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/BillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/BillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/entity/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/entity/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/entity/Bill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/entity/Bill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/repository/IBillRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/repository/IBillRepo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/BillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/BillServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/CustomerServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/IBillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/IBillService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/ICustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/ICustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/bill/listBill.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/bill/listBill.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/employee/addEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employee/addEmployee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/employee/editEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employee/editEmployee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/category/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/category/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/category/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/customer/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/customer/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/customer/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/employee/listEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employee/listEmployee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/ingredient/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ingredient/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/ingredient/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ingredient/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/ingredient/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ingredient/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/role/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/role/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/role/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/role/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +57,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
         <option value="Class" />
         <option value="HTML File" />
       </list>
@@ -137,7 +125,7 @@
     "git-widget-placeholder": "khai",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/ingredient",
+    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/bill",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -148,11 +136,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\bill" />
       <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\ingredient" />
       <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\category" />
       <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static" />
       <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static\css" />
-      <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\common\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Kolas\Downloads\MilkTeaShopsChainManagement-\src\main\resources\templates\static.css" />
@@ -251,7 +239,7 @@
       <workItem from="1702023211482" duration="1060000" />
       <workItem from="1702027480514" duration="8188000" />
       <workItem from="1702048106747" duration="11496000" />
-      <workItem from="1702093000838" duration="1810000" />
+      <workItem from="1702093000838" duration="18553000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />
@@ -290,6 +278,11 @@
     <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="ae07677e-7d07-46dc-ad1b-8e42d939910e" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -307,6 +300,11 @@
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+        <entry key="ae07677e-7d07-46dc-ad1b-8e42d939910e">
+          <value>
+            <State />
           </value>
         </entry>
       </map>

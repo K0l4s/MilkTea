@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Role</title>
+    <title>Edit Ingredient</title>
 </head>
 <body>
 <div class="container">
-    <h1>Add Employee</h1>
+    <h1>Edit Ingredient</h1>
     <form th:action="@{/ingredient/save}" th:object="${ingredients}" method="POST" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}"/>
 

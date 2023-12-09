@@ -5,7 +5,9 @@ import alotra.milktea.repository.IBillRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BillServiceImpl implements IBillService{
@@ -18,8 +20,22 @@ public class BillServiceImpl implements IBillService{
     }
 
     @Override
+    public Optional<Bill> findOne(int id) {
+        return billRepo.findById(id);
+    }
+
+    @Override
     public void saveBill(Bill bill) {
         billRepo.save(bill);
     }
 
+    @Override
+    public void deleteBill(int id) {
+        billRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Bill> findBillsByCustomerID(int id) {
+        return billRepo.findBillByCustomerCustomerID(id);
+    }
 }
