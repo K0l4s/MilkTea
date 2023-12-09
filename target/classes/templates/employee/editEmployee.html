@@ -1,0 +1,35 @@
+<!-- editEmployee.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+</head>
+<body>
+<h1>Edit Employee</h1>
+<form th:action="@{/employee/save}" th:object="${employee}" method="POST">
+
+    <input type="hidden" th:field="*{employeeID}"/>
+
+    <label for="name">Name :</label>
+    <input type="text" id="name" th:field="*{name}" /><br/><br/>
+
+    <label for="username">Username :</label>
+    <input type="text" id="username" th:field="*{username.username}"/><br/><br/>
+
+    <label for="roleID">roleID :</label>
+    <input type="text" id="roleID" th:field="*{roleID.roleId}"/><br/><br/>
+
+    <label for="citizenID">CitizenID :</label>
+    <input type="text" id="citizenID" th:field="*{citizenID}"/><br/><br/>
+
+    <label for="photo">CitizenID :</label>
+    <input type="text" id="photo" th:field="*{photo}"/><br/><br/>
+
+    <label for="shop">Shop :</label>
+    <input type="text" id="shop" th:field="*{shop.shopID}"/><br/><br/>
+
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>

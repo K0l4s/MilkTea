@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+</head>
+<body>
+<div class="container">
+    <h1>Add Employee</h1>
+    <form th:action="@{/employee/save}" th:object="${employee}" method="POST" enctype="multipart/form-data">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required/><br/><br/>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" th:field="*{username.username}" required/><br/><br/>
+
+        <label for="roleID">Role ID:</label>
+        <input type="text" id="roleID" name = "roleID" th:field="*{roleID.roleId}" required/><br/><br/>
+
+        <label for="citizenID">Citizen ID:</label>
+        <input type="text" id="citizenID" th:field="*{citizenID}" required/><br/><br/>
+
+        <label for="photo">Photo:</label>
+        <input type="text" id="photo" name="photo"  th:field="*{photo}" required/><br/><br/>
+
+        <label for="shop">Shop:</label>
+        <input type="text" id="shop" name="shop" th:field="*{shop.shopID}" required/><br/><br/>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

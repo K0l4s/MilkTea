@@ -6,21 +6,23 @@ import alotra.milktea.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin/user")
 public class UserController {
     @Autowired
-    IUserService userService = new UserServiceImpl();
+    private IUserService userService = new UserServiceImpl();
+    @GetMapping("/admin/user")
+    public String findAll(Model model){
+        model.addAttribute("users", userService.findAll());
+        return "/user/list";
+    }
 
-    @GetMapping("/view")
-    protected String getView(Model model){
-        List<User> listUser = userService.findAll();
-        model.addAttribute("list",listUser);
-        return "user/viewUser";
+    @GetMapping("/admin/user/{username}")
+    public String findOne(@PathVariable("username") String username, Model model){
+        model.addAttribute("users", userService.findOne(username));
+        return "/user/list";
     }
 }
