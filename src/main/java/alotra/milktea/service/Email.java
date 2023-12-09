@@ -1,15 +1,12 @@
 package alotra.milktea.service;
 
-import java.time.LocalDateTime;
 import java.util.Random;
 
+import alotra.milktea.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-
-import alotra.milktea.entity.User;
-import jakarta.mail.search.DateTerm;
 
 @Service
 public class Email {
@@ -47,6 +44,19 @@ public class Email {
 		return sendEmail(toEmail, subject, body);
 		} catch(Exception e) {
 			 e.printStackTrace();
+			return e.toString();
+		}
+	}
+	public String sendResetPassCode(User user){
+		try {
+			String toEmail = user.getEmail();
+			String code = user.getCode();
+			String subject = "[No reply] ALOTRA - Reset your password!";
+			String body = "This is email to reset password for your ALOTRA account!"
+					+ " Please input your CODE: " +code +" to complete your action!";
+			return sendEmail(toEmail, subject, body);
+		} catch(Exception e) {
+			e.printStackTrace();
 			return e.toString();
 		}
 	}
