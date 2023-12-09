@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity">
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/CartProducts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/Wallet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/model/ResetPasswordModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/model/SendCodeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home/forgotPassword.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home/sendReqPass.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/viewUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IUserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IUserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/repository/IUserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/repository/IUserRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/Email.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/IUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +75,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging thuan",
+    "git-widget-placeholder": "thuan",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "F:/MilkTea/src/main/resources/templates/home",
     "node.js.detected.package.eslint": "true",
