@@ -29,7 +29,7 @@ public class HomeController {
 	}
 	@GetMapping("/admin")
 	protected  String admin() {
-		return "admin/home";
+		return "admin/others/dashboard";
 	}
 	@GetMapping("/login")
 	protected String showLoginForm(HttpSession session, @CookieValue(value = "username", defaultValue = "") String username, Model model) {

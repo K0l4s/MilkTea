@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity" />
+    <list default="true" id="d666ae30-f25a-4c06-9669-1ed2c1b86983" name="Changes" comment="Edit Entity">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/alotra.milktea/MilkTeaShopsChainManagement/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/alotra.milktea/MilkTeaShopsChainManagement/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,11 +108,11 @@
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin\others" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\js" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\css" />
-      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static" />
-      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -144,6 +158,9 @@
       <workItem from="1702038711898" duration="13980000" />
       <workItem from="1702083852588" duration="8461000" />
       <workItem from="1702099053565" duration="343000" />
+      <workItem from="1702117505244" duration="2884000" />
+      <workItem from="1702124830062" duration="5999000" />
+      <workItem from="1702132147441" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />
