@@ -57,5 +57,16 @@ public class BillController {
         model.addAttribute("bills", billService.findBillsByCustomerID(id));
         return "bill/listForUser";
     }
-
+    @GetMapping("/admin/bill/search")
+    public String searchBillByName(@RequestParam("name") String name, Model model){
+        if (name != "") {
+            model.addAttribute("name", name);
+            model.addAttribute("bills",billService.findBillByName(name));
+            return "/bill/list";
+        }
+        else {
+            model.addAttribute("bills",billService.findAll());
+            return "redirect:/admin/bill";
+        }
+    }
 }

@@ -8,6 +8,10 @@
 <div align="center">
     <h1>Role List</h1>
     <a th:href="@{ role/add}"><button>Add</button></a>
+    <form th:action="@{/admin/role/search}" method="get">
+        <label for="search">Search by Name:</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
+        <input type="submit" value="Search">
     <table border="1">
         <thead>
         <tr>
@@ -21,8 +25,8 @@
             <td th:text="${role.getRoleId()}"></td>
             <td th:text="${role.getName()}"></td>
             <td>
-                <a th:href="@{'/admin/role/edit/' + ${role.roleId}}"><button>Edit</button></a>
-                <a th:href="@{'/admin/role/delete/' + ${role.roleId}}"><button>Delete</button></a>
+                <a th:href="@{'/admin/role/edit/' + ${role.roleId}}">Edit</a>
+                <a th:href="@{'/admin/role/delete/' + ${role.roleId}}">Delete</a>
             </td>
         </tr>
         </tbody>

@@ -12,4 +12,6 @@ public interface ICategoryService {
 
     void saveCategory(Category category);
     void deleteCategory(int id);
+
+    List<Category> findProductByName(String name);
 }

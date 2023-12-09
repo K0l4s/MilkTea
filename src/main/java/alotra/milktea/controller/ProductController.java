@@ -46,11 +46,10 @@ public class ProductController {
         return "redirect:/admin/product";
     }
     @GetMapping("/admin/product/search")
-    public String searchProByCateName(@RequestParam("categoryName") String name,Model model){
-//        productService.findProductByCategoryName(name);
+    public String searchProByName(@RequestParam("name") String name,Model model){
         if (name != "") {
-            model.addAttribute("categoryName", name);
-            model.addAttribute("products",productService.findProductByCategoryName(name));
+            model.addAttribute("name", name);
+            model.addAttribute("products",productService.findProductByName(name));
             return "/product/list";
         }
         else {

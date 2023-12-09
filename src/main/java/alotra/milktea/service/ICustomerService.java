@@ -10,4 +10,5 @@ public interface ICustomerService {
     Optional<Customer> findOne(int id);
     void saveCustomer(Customer customer);
     void deleteCustomer(int id);
+    List<Customer> findCustomerByName(String name);
 }

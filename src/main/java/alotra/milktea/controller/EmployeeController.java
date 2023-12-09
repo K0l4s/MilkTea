@@ -49,5 +49,16 @@ public class EmployeeController {
         employeeService.saveEmployee(employee);
         return "redirect:/admin/employee";
     }
-
+    @GetMapping("/admin/employee/search")
+    public String searchEmployeeByName(@RequestParam("name") String name, Model model){
+        if (name != "") {
+            model.addAttribute("name", name);
+            model.addAttribute("employees",employeeService.findEmployeeByName(name));
+            return "/employee/listEmployee";
+        }
+        else {
+            model.addAttribute("employees",employeeService.findAll());
+            return "redirect:/admin/employee";
+        }
+    }
 }

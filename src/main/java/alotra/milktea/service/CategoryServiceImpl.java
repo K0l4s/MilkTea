@@ -31,4 +31,9 @@ public class CategoryServiceImpl implements ICategoryService{
     public void deleteCategory(int id) {
         categoryRepo.deleteById(id);
     }
+
+    @Override
+    public List<Category> findProductByName(String name) {
+        return categoryRepo.findCategoryByKeyWord(name);
+    }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Cart</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Cart</h1>
+    <form th:action="@{/cart/save}" th:object="${cart}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label for="customerID">Customer ID:</label>
+        <input type="text" id="customerID" th:field="*{customer.customerID}" required/><br/><br/>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

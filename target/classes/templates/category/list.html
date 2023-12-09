@@ -8,6 +8,11 @@
 <div align="center">
     <h1>User List</h1>
     <a th:href="@{ category/add}"><button>Add</button></a>
+    <form th:action="@{/admin/category/search}" method="get">
+        <label for="search">Search by Name :</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
+        <input type="submit" value="Search">
+    </form>
     <table border="1">
         <thead>
         <tr>

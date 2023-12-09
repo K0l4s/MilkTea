@@ -31,4 +31,9 @@ public class IngredientServiceImpl implements IIngredientService{
     public void deleteIngredients(int id) {
         ingredientRepo.deleteById(id);
     }
+
+    @Override
+    public List<Ingredients> finIngredientByName(String name) {
+        return ingredientRepo.findIngredientsByKeyWord(name);
+    }
 }

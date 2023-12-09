@@ -9,8 +9,8 @@
     <h1>Product List</h1>
     <a th:href="@{ product/add}"><button>Add</button></a>
     <form th:action="@{/admin/product/search}" method="get">
-        <label for="search">Search by Name category:</label>
-        <input type="text" id="search" name="categoryName" th:value="*{categoryName}">
+        <label for="search">Search by Name :</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
         <input type="submit" value="Search">
     </form>
 
