@@ -1,9 +1,10 @@
 package alotra.milktea.service;
 
-import java.util.List;
-
-
 import alotra.milktea.entity.User;
+import alotra.milktea.model.ResetPasswordModel;
+import alotra.milktea.model.SendCodeModel;
+
+import java.util.List;
 
 public interface IUserService {
 	boolean register(User user);
@@ -11,4 +12,10 @@ public interface IUserService {
 	User findOne(String username);
 	boolean vetifyUserCode(User user);
 	boolean login(String username, String password);
+
+	User findByEmail(String email);
+
+	boolean sendRequestPassCode(SendCodeModel sendCodeModel);
+
+	boolean resetPassw(ResetPasswordModel resetModel);
 }
