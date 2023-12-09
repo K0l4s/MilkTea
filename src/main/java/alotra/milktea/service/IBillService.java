@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IBillService {
     List<Bill> findAll();
+
+    void saveBill(Bill bill);
 }

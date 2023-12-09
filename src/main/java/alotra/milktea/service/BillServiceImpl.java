@@ -17,4 +17,9 @@ public class BillServiceImpl implements IBillService{
         return billRepo.findAll();
     }
 
+    @Override
+    public void saveBill(Bill bill) {
+        billRepo.save(bill);
+    }
+
 }

@@ -1,5 +1,6 @@
 package alotra.milktea.controller;
 
+import alotra.milktea.entity.Bill;
 import alotra.milktea.service.BillServiceImpl;
 import alotra.milktea.service.IBillService;
 
@@ -13,9 +14,9 @@ public class BillController {
     @Autowired
     IBillService billService = new BillServiceImpl();
 
-    @GetMapping("/bill")
+    @GetMapping("/admin/bill")
     public String findAll(Model model){
         model.addAttribute("bills",billService.findAll());
-        return "/bill/listBill";
+        return "/bill/list";
     }
 }

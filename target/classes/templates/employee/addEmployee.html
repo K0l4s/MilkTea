@@ -7,7 +7,7 @@
 <body>
 <div class="container">
     <h1>Add Employee</h1>
-    <form th:action="@{/save}" th:object="${employee}" method="POST" enctype="multipart/form-data">
+    <form th:action="@{/employee/save}" th:object="${employee}" method="POST" enctype="multipart/form-data">
 
         <label for="name">Name:</label>
         <input type="text" id="name" th:field="*{name}" required/><br/><br/>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Edit Employee</h1>
-<form th:action="@{/save}" th:object="${employee}" method="POST">
+<form th:action="@{/employee/save}" th:object="${employee}" method="POST">
 
     <input type="hidden" th:field="*{employeeID}"/>
 

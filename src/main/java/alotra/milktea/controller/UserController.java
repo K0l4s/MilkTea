@@ -14,13 +14,13 @@ import java.util.List;
 public class UserController {
     @Autowired
     private IUserService userService = new UserServiceImpl();
-    @GetMapping("/user")
+    @GetMapping("/admin/user")
     public String findAll(Model model){
         model.addAttribute("users", userService.findAll());
         return "/user/list";
     }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/admin/user/{username}")
     public String findOne(@PathVariable("username") String username, Model model){
         model.addAttribute("users", userService.findOne(username));
         return "/user/list";
