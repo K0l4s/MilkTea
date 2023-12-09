@@ -48,7 +48,10 @@ public class HomeController {
 		model.addAttribute("user", user);
         return "home/login"; // Assuming you have a login template named "login.html"
 	}
-
+	@GetMapping("/forgotPassword")
+	protected  String forgotPassword() {
+		return "home/forgot";
+	}
 	@GetMapping("/register")
 	protected String showRegisterForm(HttpSession session, @CookieValue(value = "username", defaultValue = "") String username, Model model) {
 		// Check Session
