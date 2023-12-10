@@ -5,60 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b4a726-ca12-4aa1-a181-c338241b501b" name="Changes" comment="Edit Entity">
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/Bill_ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/Cart_ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/Product_IngredientsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/Shop_IngredientsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/Shop_ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/WalletController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IBill_ProductsRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/ICartProductsRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IProduct_IngredientsRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IShop_IngredientsRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IShop_ProductsRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/repository/IWalletRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/Bill_ProductsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/CartProductsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IBill_ProductsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/ICartProductsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IProduct_IngredientsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IShop_IngredientsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IShop_ProductsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/IWalletService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/Product_IngredientsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/Shop_IngredientsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/Shop_ProductsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/service/WalletServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill_products/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill_products/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bill_products/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cart_products/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cart_products/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cart_products/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product_ingredients/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product_ingredients/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/product_ingredients/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop_ingredients/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop_ingredients/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop_ingredients/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop_products/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop_products/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop_products/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wallet/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wallet/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wallet/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Cart/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Cart/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bill/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bill/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bill/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bill/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employee/listEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employee/listEmployee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ingredient/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ingredient/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/product/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/role/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/role/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/shop/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/shop/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +200,7 @@
       <workItem from="1702048106747" duration="11496000" />
       <workItem from="1702093000838" duration="21306000" />
       <workItem from="1702126459473" duration="20005000" />
-      <workItem from="1702179709248" duration="11874000" />
+      <workItem from="1702179709248" duration="12805000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />
