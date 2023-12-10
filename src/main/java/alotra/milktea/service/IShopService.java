@@ -14,4 +14,5 @@ public interface IShopService {
     void deleteShop(int id);
 
     List<Shop> findShopByName(String name);
+    boolean isShopIdUnique(String id);
 }

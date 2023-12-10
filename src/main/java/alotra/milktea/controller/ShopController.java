@@ -17,14 +17,14 @@ public class ShopController {
     @GetMapping("/admin/shop")
     public String findAll(Model model){
         model.addAttribute("shops", shopService.findAll());
-        return "shop/list";
+        return "admin/shop/list";
     }
     @GetMapping("/admin/shop/edit/{id}")
     public String findOne(@PathVariable("id") int id, Model model){
         Optional<Shop> shop = shopService.findOne(id);
         if(shop.isPresent()){
             model.addAttribute("shop",shop.get());
-            return "shop/edit";
+            return "admin/shop/edit";
         }
         return "error";
     }
@@ -32,12 +32,21 @@ public class ShopController {
     public String addShop(Model model){
         Shop shop = new Shop();
         model.addAttribute("shop",shop);
-        return "/shop/add";
+        return "admin/shop/add";
+    }
+    @PostMapping("/shop/update")
+    public String updateShop(@ModelAttribute("shop") Shop shop){
+        shopService.saveShop(shop);
+        return "redirect:/admin/shop";
     }
     @PostMapping("/shop/save")
     public String saveShop(@ModelAttribute("shop") Shop shop){
-        shopService.saveShop(shop);
-        return "redirect:/admin/shop";
+        if (!shopService.isShopIdUnique(shop.getShopID())) {
+            return "error";
+        } else {
+            shopService.saveShop(shop);
+            return "redirect:/admin/shop";
+        }
     }
     @GetMapping("/admin/shop/delete/{id}")
     public String deleteShop(@PathVariable("id") int id){
@@ -49,7 +58,7 @@ public class ShopController {
         if (name != "") {
             model.addAttribute("name", name);
             model.addAttribute("shops",shopService.findShopByName(name));
-            return "/shop/list";
+            return "admin/shop/list";
         }
         else {
             model.addAttribute("shops",shopService.findAll());
