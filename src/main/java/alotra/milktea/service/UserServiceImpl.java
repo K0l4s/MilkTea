@@ -6,6 +6,7 @@ import alotra.milktea.model.SendCodeModel;
 import alotra.milktea.repository.IUserRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class UserServiceImpl implements IUserService{
 	public boolean register(User user) {
 		try {
 //			Kiểm tra trùng lặp username
+
 			List<User> listUser = findAll();
 			for(User item:listUser)
 				if(item.getUsername().equals(user.getUsername()))
@@ -62,7 +64,15 @@ public class UserServiceImpl implements IUserService{
 	public List<User> findAll() {
 		return userRepo.findAll();
 	}
-
+	@Override
+	public List<User> findAll(int start, int pageSize){
+		PageRequest pageRequest = PageRequest.of(start,pageSize);
+		return userRepo.findAll(pageRequest);
+	}
+	@Override
+	public Long countAll(){
+		return userRepo.count();
+	}
 	@Override
 	public User findOne(String username) {
 		return userRepo.findUserByUsername(username);

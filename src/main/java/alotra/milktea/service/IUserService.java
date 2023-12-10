@@ -9,6 +9,11 @@ import java.util.List;
 public interface IUserService {
 	boolean register(User user);
 	List<User> findAll();
+
+	List<User> findAll(int start, int pageSize);
+
+	Long countAll();
+
 	User findOne(String username);
 	boolean vetifyUserCode(User user);
 	boolean login(String username, String password);
