@@ -23,4 +23,10 @@ public interface IUserService {
 	boolean sendRequestPassCode(SendCodeModel sendCodeModel);
 
 	boolean resetPassw(ResetPasswordModel resetModel);
+
+	boolean delete(String username);
+
+	boolean enableAccount(String username);
+
+	boolean updateUser(User user);
 }

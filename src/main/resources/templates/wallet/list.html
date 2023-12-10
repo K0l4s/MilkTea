@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet List</title>
+</head>
+<body>
+<div align="center">
+    <h1>Wallet List</h1>
+    <a th:href="@{ wallet/add}"><button>Add</button></a>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>UserName</th>
+            <th>Customer</th>
+            <th>Phone</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="wallet : ${list}">
+            <td th:text="${wallet.getId()}"></td>
+            <td th:text="${wallet.getCustomer().getUser().username}"></td>
+            <td th:text="${wallet.getCustomer().getCustomerName()}"></td>
+            <td th:text="${wallet.getCustomer().getPhone()}"></td>
+            <td th:text="${wallet.getBalance()}"></td>
+            <td>
+                <a th:href="@{'wallet/edit/' + ${wallet.id}}"><button>Edit</button></a>
+                <a th:href="@{'wallet/delete/' + ${wallet.id}}"><button>Delete</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

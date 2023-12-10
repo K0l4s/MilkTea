@@ -15,7 +15,7 @@
             <th>Email</th>
             <th>Code</th>
             <th>Trạng thái tài khoản</th>
-            <th>Vai trò</th>
+            <th>Vai trò trên trang</th>
             <th>Hành động</th>
         </thead>
         <tbody>
@@ -23,7 +23,9 @@
                 <td th:text="${user.getUsername()}"></td>
                 <td>
                     <p th:text="${user.getPassword()}"></p>
-                    <button>Reset</button>
+                    <form method="post" th:action="@{'/admin/user/resetPssw?username=' + ${user.getUsername()}}">
+                        <input type="submit" value="Reset Mật Khẩu Mặc Định"/>
+                    </form>
                 </td>
                 <td th:text="${user.getEmail()}"></td>
                 <td>
@@ -36,10 +38,23 @@
                 </td>
                 <td th:text="${user.getRole().getName()}"></td>
                 <td>
-                    <button>Chỉnh Sửa</button>
-                    <span th:if="${user.isEnable()}"><button>Đình chỉ tài khoản</button></span>
-                    <span th:unless="${user.isEnable()}"><button></button></span>
-                    <button>Xoá</button>
+                    <a th:href="@{'/admin/user/edit?username=' + ${user.getUsername()}}"><button>Chỉnh sửa</button></a>
+
+                    <span th:if="${user.isEnable()}">
+                        <form method="post" th:action="@{'/admin/user/enable?username=' + ${user.getUsername()}}">
+                        <input type="submit" value="Vô Hiệu Hoá Tài Khoản"/>
+                        </form>
+                    </span>
+
+                    <span th:unless="${user.isEnable()}">
+                        <form method="post" th:action="@{'/admin/user/enable?username=' + ${user.getUsername()}}">
+                            <input type="submit" value="Kích hoạt tài khoản"/>
+                        </form>
+                    </span>
+
+                    <form method="post" th:action="@{'/admin/user/delete?username=' + ${user.getUsername()}}">
+                        <input type="submit" value="Xoá"/>
+                    </form>
                 </td>
             </tr>
         </tbody>

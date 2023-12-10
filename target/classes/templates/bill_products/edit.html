@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Bill Products</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Bill Products</h1>
+    <form th:action="@{/bill_products/save}" th:object="${bill_products}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label for="productID">Product ID:</label>
+        <input type="number" id="productID" th:field="*{product.productID}" required/><br/><br/>
+
+        <label for="billID">Bill ID:</label>
+        <input type="number" id="billID" th:field="*{bill.id}" required/><br/><br/>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" th:field="*{amount}" required/><br/><br/>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

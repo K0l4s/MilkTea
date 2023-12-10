@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<div align="center">
+    <h1>Product List</h1>
+    <a th:href="@{ product/add}"><button>Add</button></a>
+    <form th:action="@{/admin/product/search}" method="get">
+        <label for="search">Search by Name :</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
+        <input type="submit" value="Search">
+    </form>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>product name</th>
+            <th>Category</th>
+            <th>price</th>
+            <th>image</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.getProductID()}"></td>
+            <td th:text="${product.getName()}"></td>
+            <td th:text="${product.getCategory().getCategoryName()}"></td>
+            <td th:text="${product.getPrice()}"></td>
+            <td th:text="${product.getImageURL()}"></td>
+            <td th:text="${product.getDescription()}"></td>
+            <td>
+                <a th:href="@{'product/edit/' + ${product.productID}}"><button>Edit</button></a>
+                <a th:href="@{'product/delete/' + ${product.productID}}"><button>Delete</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

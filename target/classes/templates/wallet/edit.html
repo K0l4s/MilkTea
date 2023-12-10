@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Wallet</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Wallet</h1>
+    <form th:action="@{/wallet/save}" th:object="${list}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label for="customerID">Customer ID:</label>
+        <input type="number" id="customerID" th:field="*{customer.customerID}" required/><br/><br/>
+
+        <label for="balance">Balance:</label>
+        <input type="number" id="balance" th:field="*{balance}" required/><br/><br/>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

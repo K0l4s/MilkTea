@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<div align="center">
+    <h1>Employee List</h1>
+    <a th:href="@{employee/add}"><button>Add</button></a>
+    <form th:action="@{/admin/employee/search}" method="get">
+        <label for="search">Search by Name :</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
+        <input type="submit" value="Search">
+    </form>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Citizen ID</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>UserName</th>
+            <th>Shop ID</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.getEmployeeID()}"></td>
+            <td th:text="${employee.getCitizenID()}"></td>
+            <td th:text="${employee.getName()}"></td>
+            <td th:text="${employee.getPhoto()}"></td>
+            <td th:text="${employee.username.getUsername()}"></td>
+            <td th:text="${employee.shop.getName()}"></td>
+            <td>
+                <a th:href="@{employee/edit/{employeeID}(employeeID=${employee.employeeID})}">
+                    <button>Edit</button>
+                </a>
+
+                <a th:href="@{employee/delete/{employeeID}(employeeID=${employee.employeeID})}">
+                    <button>Delete</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

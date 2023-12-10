@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Shop</title>
+</head>
+<body>
+<div class="container">
+  <h1>Add Shop</h1>
+  <form th:action="@{/shop/save}" th:object="${shop}" method="POST" enctype="multipart/form-data">
+
+    <label for="id">ID shop:</label>
+    <input type="text" id="id" name="id" th:field="*{shopID}" required/><br/><br/>
+
+    <label for="name">Shop name:</label>
+    <input type="text" id="name" th:field="*{name}" required/><br/><br/>
+
+    <label for="location">Location: </label>
+    <input type="text" id="location" th:field="*{location}" required/><br/><br/>
+
+    <input type="submit" value="Save"/>
+  </form>
+</div>
+</body>
+</html>
