@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form method="POST" th:action="@{edit}" th:object="${user}" >
+    <label>Tên đăng nhập: </label>
+    <input type="text" id="username"  th:field="*{username}" required/>
+    <label>Mật khẩu: </label>
+    <input id="password" type="password" th:field="*{password}" required/>
+    <label>Email: </label>
+    <input id="email" type="email" th:field="*{email}" required/>
+    <label>Quyền hạn: </label>
+    <select id="role" th:field="*{role.roleId}" required>
+        <option th:each="role : ${roles}" th:value="${role.roleId}" th:text="${role.getName()}"></option>
+    </select>
+    <input type="submit" value="Chỉnh sửa"/>
+</form>
+</body>
+</html>
