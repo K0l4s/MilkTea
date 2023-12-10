@@ -27,7 +27,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    <div th:replace="~{admin/fragments/sidebar::sidebar}"></div>
+    <ul th:replace="~{admin/fragments/sidebar::sidebar}"></ul>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -35,10 +35,10 @@
         <!-- Main Content -->
         <div id="content">
 
-            <div th:replace="~{admin/fragments/header::header}"></div>
+            <nav th:replace="~{admin/fragments/header::header}"></nav>
             <div layout:fragment="content"></div>
 
-            <div th:replace="~{admin/fragments/footer::footer}"></div>
+            <footer th:replace="~{admin/fragments/footer::footer}"></footer>
         </div>
 
     </div>
@@ -84,10 +84,14 @@
 
 <!-- Page level plugins -->
 <script src="/vendor/chart.js/Chart.min.js"></script>
+<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
 <script src="/js/demo/chart-area-demo.js"></script>
 <script src="/js/demo/chart-pie-demo.js"></script>
+<script src="/js/demo/datatables-demo.js"></script>
+
 </body>
 
 </html>

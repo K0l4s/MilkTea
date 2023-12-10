@@ -18,14 +18,14 @@ public class ProductController {
     @GetMapping("/admin/product")
     public String findAll(Model model){
         model.addAttribute("products",productService.findAll());
-        return "product/list";
+        return "admin/product/list";
     }
     @GetMapping("/admin/product/edit/{id}")
     public String findOne(@PathVariable("id") int id, Model model){
         Optional<Product> product = productService.findOne(id);
         if(product.isPresent()){
             model.addAttribute("product", product.get());
-            return "product/edit";
+            return "admin/product/edit";
         }
         return"error";
     }
@@ -33,7 +33,7 @@ public class ProductController {
     public String addProduct(Model model){
         Product pro = new Product();
         model.addAttribute("product",pro);
-        return "/product/add";
+        return "/admin/product/add";
     }
     @PostMapping("/product/save")
     public String saveProduct(@ModelAttribute("product") Product product){
