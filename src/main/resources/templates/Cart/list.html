@@ -26,8 +26,8 @@
             <td th:text="${cart.getId()}"></td>
             <td th:text="${cart.getCustomer().getCustomerName()}"></td>
             <td>
-                <a th:href="@{'/admin/cart/edit/' + ${cart.id}}"><button>Edit</button></a>
-                <a th:href="@{'/admin/cart/delete/' + ${cart.id}}"><button>Delete</button></a>
+                <a th:href="@{'cart/edit/' + ${cart.id}}"><button>Edit</button></a>
+                <a th:href="@{'cart/delete/' + ${cart.id}}"><button>Delete</button></a>
             </td>
         </tr>
         </tbody>

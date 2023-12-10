@@ -30,8 +30,8 @@
       <td th:text="${customer.getUser().getUsername()}"></td>
       <td th:text="${customer.getPhone()}"></td>
       <td>
-        <a th:href="@{'/admin/customer/edit/' + ${customer.customerID}}"><button>Edit</button></a>
-        <a th:href="@{'/admin/customer/delete/' + ${customer.customerID}}"><button>Delete</button></a>
+        <a th:href="@{'customer/edit/' + ${customer.customerID}}"><button>Edit</button></a>
+        <a th:href="@{'customer/delete/' + ${customer.customerID}}"><button>Delete</button></a>
       </td>
     </tr>
     </tbody>

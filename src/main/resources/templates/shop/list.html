@@ -27,8 +27,8 @@
             <td th:text="${shop.getName()}"></td>
             <td th:text="${shop.getLocation()}"></td>
             <td>
-                <a th:href="@{'/admin/shop/edit/' + ${shop.shopID}}">Edit</a>
-                <a th:href="@{'/admin/shop/delete/' + ${shop.shopID}}">Delete</a>
+                <a th:href="@{'shop/edit/' + ${shop.shopID}}">Edit</a>
+                <a th:href="@{'shop/delete/' + ${shop.shopID}}">Delete</a>
             </td>
         </tr>
         </tbody>

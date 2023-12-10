@@ -30,8 +30,8 @@
       <td th:text="${bill.employee.getName()}"></td>
       <td th:text="${bill.createDay}"></td>
       <td>
-        <a th:href="@{'/admin/bill/edit/' + ${bill.id}}"><button>Edit</button></a>
-        <a th:href="@{'/admin/bill/delete/' + ${bill.id}}"><button>Delete</button></a>
+        <a th:href="@{'bill/edit/' + ${bill.id}}"><button>Edit</button></a>
+        <a th:href="@{'bill/delete/' + ${bill.id}}"><button>Delete</button></a>
       </td>
     </tr>
     </tbody>

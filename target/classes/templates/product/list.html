@@ -35,8 +35,8 @@
             <td th:text="${product.getImageURL()}"></td>
             <td th:text="${product.getDescription()}"></td>
             <td>
-                <a th:href="@{'/admin/product/edit/' + ${product.productID}}"><button>Edit</button></a>
-                <a th:href="@{'/admin/product/delete/' + ${product.productID}}"><button>Delete</button></a>
+                <a th:href="@{'product/edit/' + ${product.productID}}"><button>Edit</button></a>
+                <a th:href="@{'product/delete/' + ${product.productID}}"><button>Delete</button></a>
             </td>
         </tr>
         </tbody>

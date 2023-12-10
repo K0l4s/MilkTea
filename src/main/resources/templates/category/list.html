@@ -26,8 +26,8 @@
             <td th:text="${category.getCategoryID()}"></td>
             <td th:text="${category.getCategoryName()}"></td>
             <td>
-                <a th:href="@{'/admin/category/edit/' + ${category.categoryID}}"><button>Edit</button></a>
-                <a th:href="@{'/admin/category/delete/' + ${category.categoryID}}"><button>Delete</button></a>
+                <a th:href="@{'category/edit/' + ${category.categoryID}}"><button>Edit</button></a>
+                <a th:href="@{'category/delete/' + ${category.categoryID}}"><button>Delete</button></a>
             </td>
         </tr>
         </tbody>

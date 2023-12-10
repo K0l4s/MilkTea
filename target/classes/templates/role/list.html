@@ -25,8 +25,8 @@
             <td th:text="${role.getRoleId()}"></td>
             <td th:text="${role.getName()}"></td>
             <td>
-                <a th:href="@{'/admin/role/edit/' + ${role.roleId}}">Edit</a>
-                <a th:href="@{'/admin/role/delete/' + ${role.roleId}}">Delete</a>
+                <a th:href="@{'role/edit/' + ${role.roleId}}">Edit</a>
+                <a th:href="@{'role/delete/' + ${role.roleId}}">Delete</a>
             </td>
         </tr>
         </tbody>
