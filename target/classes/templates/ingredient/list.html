@@ -8,11 +8,16 @@
 <div align="center">
   <h1>Ingredient List</h1>
   <a th:href="@{ ingredient/add}"><button>Add</button></a>
+  <form th:action="@{/admin/ingredient/search}" method="get">
+    <label for="search">Search by Name:</label>
+    <input type="text" id="search" name="name" th:value="*{name}">
+    <input type="submit" value="Search">
+  </form>
   <table border="1">
     <thead>
     <tr>
       <th>ID</th>
-      <th>Ingredent name</th>
+      <th>Ingredient name</th>
       <th>Actions</th>
     </tr>
     </thead>
@@ -21,8 +26,8 @@
       <td th:text="${ingredients.getId()}"></td>
       <td th:text="${ingredients.getName()}"></td>
       <td>
-        <a th:href="@{'/admin/ingredient/edit/' + ${ingredients.id}}"><button>Edit</button></a>
-        <a th:href="@{'/admin/ingredient/delete/' + ${ingredients.id}}"><button>Delete</button></a>
+        <a th:href="@{'ingredient/edit/' + ${ingredients.id}}"><button>Edit</button></a>
+        <a th:href="@{'ingredient/delete/' + ${ingredients.id}}"><button>Delete</button></a>
       </td>
     </tr>
     </tbody>

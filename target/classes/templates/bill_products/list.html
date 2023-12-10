@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List of Bill Products</title>
+</head>
+<body>
+<div align="center">
+  <h1>List of Bill Products</h1>
+  <a th:href="@{bill_products/add}"><button>Add</button></a>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product</th>
+      <th>category</th>
+      <th>Amount</th>
+      <th>Customer</th>
+      <th>Creation Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bill_products : ${list}">
+      <td th:text="${bill_products.getId()}"></td>
+      <td th:text="${bill_products.getProduct().getName()}"></td>
+      <td th:text="${bill_products.getProduct().getCategory().categoryName}"></td>
+      <td th:text="${bill_products.getAmount()}"></td>
+      <td th:text="${bill_products.getBill().getCustomer().getCustomerName()}"></td>
+      <td th:text="${bill_products.getBill().getCreateDay()}"></td>
+
+      <td>
+        <a th:href="@{'bill_products/edit/' + ${bill_products.id}}"><button>Edit</button></a>
+        <a th:href="@{'bill_products/delete/' + ${bill_products.id}}"><button>Delete</button></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

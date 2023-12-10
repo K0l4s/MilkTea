@@ -31,4 +31,9 @@ public class ShopServiceImpl implements IShopService{
     public void deleteShop(int id) {
         shopRepo.deleteById(id);
     }
+
+    @Override
+    public List<Shop> findShopByName(String name) {
+        return shopRepo.findShopByKeyWord(name);
+    }
 }

@@ -10,4 +10,5 @@ public interface IIngredientService {
     Optional<Ingredients> findOne(int id);
     void saveIngredients(Ingredients ingredients);
     void deleteIngredients(int id);
+    List<Ingredients> finIngredientByName(String name);
 }

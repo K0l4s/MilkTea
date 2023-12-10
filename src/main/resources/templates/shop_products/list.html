@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop Products List</title>
+</head>
+<body>
+<div align="center">
+    <h1>Shop Products List</h1>
+    <a th:href="@{ shop_products/add}"><button>Add</button></a>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Shop</th>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="shop_products : ${list}">
+            <td th:text="${shop_products.getId()}"></td>
+            <td th:text="${shop_products.getShop().getName()}"></td>
+            <td th:text="${shop_products.getProducts().getName()}"></td>
+            <td th:text="${shop_products.getAmount()}"></td>
+            <td>
+                <a th:href="@{'shop_products/edit/' + ${shop_products.id}}"><button>Edit</button></a>
+                <a th:href="@{'shop_products/delete/' + ${shop_products.id}}"><button>Delete</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

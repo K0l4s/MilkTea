@@ -13,4 +13,6 @@ public interface IEmployeeService {
     void saveEmployee(Employee employee);
 
     void deleteEmployee(int id);
+
+    List<Employee> findEmployeeByName(String name);
 }

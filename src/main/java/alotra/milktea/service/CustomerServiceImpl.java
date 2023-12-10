@@ -32,4 +32,9 @@ public class CustomerServiceImpl implements ICustomerService{
     public void deleteCustomer(int id) {
         customerRepo.deleteById(id);
     }
+
+    @Override
+    public List<Customer> findCustomerByName(String name) {
+        return customerRepo.findCategoryByKeyWord(name);
+    }
 }

@@ -6,10 +6,7 @@ import alotra.milktea.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -47,5 +44,17 @@ public class CustomerController {
     {
         customerService.deleteCustomer(id);
         return "redirect:/admin/customer";
+    }
+    @GetMapping("/admin/customer/search")
+    public String searchCustomerByName(@RequestParam("name") String name, Model model){
+        if (name != "") {
+            model.addAttribute("name", name);
+            model.addAttribute("customers",customerService.findCustomerByName(name));
+            return "/customer/list";
+        }
+        else {
+            model.addAttribute("customers",customerService.findAll());
+            return "redirect:/admin/customer";
+        }
     }
 }

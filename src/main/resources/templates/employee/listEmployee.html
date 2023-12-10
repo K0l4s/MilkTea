@@ -8,6 +8,11 @@
 <div align="center">
     <h1>Employee List</h1>
     <a th:href="@{employee/add}"><button>Add</button></a>
+    <form th:action="@{/admin/employee/search}" method="get">
+        <label for="search">Search by Name :</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
+        <input type="submit" value="Search">
+    </form>
     <table border="1">
         <thead>
         <tr>
@@ -31,11 +36,11 @@
             <td th:text="${employee.username.getUsername()}"></td>
             <td th:text="${employee.shop.getName()}"></td>
             <td>
-                <a th:href="@{/admin/employee/edit/{employeeID}(employeeID=${employee.employeeID})}">
+                <a th:href="@{employee/edit/{employeeID}(employeeID=${employee.employeeID})}">
                     <button>Edit</button>
                 </a>
 
-                <a th:href="@{/admin/employee/delete/{employeeID}(employeeID=${employee.employeeID})}">
+                <a th:href="@{employee/delete/{employeeID}(employeeID=${employee.employeeID})}">
                     <button>Delete</button></a>
             </td>
         </tr>

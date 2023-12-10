@@ -8,6 +8,11 @@
 <div align="center">
   <h1>List of Bills</h1>
   <a th:href="@{bill/add}"><button>Add</button></a>
+  <form th:action="@{/admin/bill/search}" method="get">
+    <label for="search">Search by Name:</label>
+    <input type="text" id="search" name="name" th:value="*{name}">
+    <input type="submit" value="Search">
+  </form>
   <table border="1">
     <thead>
     <tr>
@@ -25,8 +30,8 @@
       <td th:text="${bill.employee.getName()}"></td>
       <td th:text="${bill.createDay}"></td>
       <td>
-        <a th:href="@{'/admin/bill/edit/' + ${bill.id}}"><button>Edit</button></a>
-        <a th:href="@{'/admin/bill/delete/' + ${bill.id}}"><button>Delete</button></a>
+        <a th:href="@{'bill/edit/' + ${bill.id}}"><button>Edit</button></a>
+        <a th:href="@{'bill/delete/' + ${bill.id}}"><button>Delete</button></a>
       </td>
     </tr>
     </tbody>

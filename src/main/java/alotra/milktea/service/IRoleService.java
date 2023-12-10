@@ -13,4 +13,6 @@ public interface IRoleService {
     void saveRole(Role role);
 
     void deleteRole(int id);
+
+    List<Role> findRoleByName(String name);
 }

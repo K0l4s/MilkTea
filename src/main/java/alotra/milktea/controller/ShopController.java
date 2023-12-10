@@ -6,10 +6,7 @@ import alotra.milktea.service.ShopServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -46,5 +43,17 @@ public class ShopController {
     public String deleteShop(@PathVariable("id") int id){
         shopService.deleteShop(id);
         return "redirect:/admin/shop";
+    }
+    @GetMapping("/admin/shop/search")
+    public String searchProByCartName(@RequestParam("name") String name, Model model){
+        if (name != "") {
+            model.addAttribute("name", name);
+            model.addAttribute("shops",shopService.findShopByName(name));
+            return "/shop/list";
+        }
+        else {
+            model.addAttribute("shops",shopService.findAll());
+            return "redirect:/admin/shop";
+        }
     }
 }

@@ -31,4 +31,9 @@ public class RoleServiceImpl implements IRoleService{
     public void deleteRole(int id) {
         roleRepo.deleteById(id);
     }
+
+    @Override
+    public List<Role> findRoleByName(String name) {
+        return roleRepo.findRoleByKeyWord(name);
+    }
 }

@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0caa726b-a9a6-4ddc-b120-d2ac534b433e" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/product/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -15,6 +16,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/layout-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/layout-admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/products/list.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/ProductController.class" afterDir="false" />
+=======
+    <list default="true" id="a0b4a726-ca12-4aa1-a181-c338241b501b" name="Changes" comment="Edit Entity">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> khai
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +52,8 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="964a6795-80b0-4624-981b-fa829d80ea43" />
-        <option name="url" value="https://github.com/K0l4s/MilkTeaShopsChainManagement-.git" />
+        <option name="accountId" value="04d51756-ff86-45c7-9cb3-6bf1d9ea80f6" />
+        <option name="url" value="https://github.com/K0l4s/MilkTea.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -82,12 +87,25 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+<<<<<<< HEAD
+=======
+    "JavaScript Debug.edit.html.executor": "Run",
+    "JavaScript Debug.list.html (1).executor": "Run",
+    "JavaScript Debug.list.html.executor": "Run",
+>>>>>>> khai
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< HEAD
     "git-widget-placeholder": "thuan",
+=======
+    "git-widget-placeholder": "khai",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/wallet",
+>>>>>>> khai
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -97,11 +115,19 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="F:\MilkTea\src\main\resources\templates\home" />
       <recent name="F:\MilkTea\src\main\java\alotra\milktea\service" />
       <recent name="F:\MilkTea\src\main\java\alotra\milktea\entity" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\img" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\js" />
+=======
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\wallet" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\shop_products" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\shop_ingredients" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\product_ingredients" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\cart_products" />
+>>>>>>> khai
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin" />
@@ -118,13 +144,13 @@
     <configuration name="editEmployee.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/employee/editEmployee.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="edit.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/shop_ingredients/edit.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="list.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/customer/list.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="list.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/category/list.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/home/login.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="vetifyRegister.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/home/vetifyRegister.html" useBuiltInWebServerPort="true">
@@ -142,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.edit.html" />
         <item itemvalue="JavaScript Debug.list.html (1)" />
         <item itemvalue="JavaScript Debug.list.html" />
         <item itemvalue="JavaScript Debug.editEmployee.html" />
         <item itemvalue="JavaScript Debug.vetifyRegister.html" />
-        <item itemvalue="JavaScript Debug.login.html" />
       </list>
     </recent_temporary>
   </component>
@@ -189,6 +215,7 @@
       <workItem from="1701965758973" duration="2659000" />
       <workItem from="1701887022217" duration="3904000" />
       <workItem from="1701933401578" duration="1703000" />
+<<<<<<< HEAD
       <workItem from="1702025053805" duration="6001000" />
       <workItem from="1702038711898" duration="13980000" />
       <workItem from="1702083852588" duration="8461000" />
@@ -198,6 +225,22 @@
       <workItem from="1702132147441" duration="1209000" />
       <workItem from="1702140641710" duration="54000" />
       <workItem from="1702168345940" duration="11176000" />
+=======
+      <workItem from="1701947450718" duration="2850000" />
+      <workItem from="1701965607686" duration="2319000" />
+      <workItem from="1701970378637" duration="891000" />
+      <workItem from="1701971284203" duration="1585000" />
+      <workItem from="1701972905585" duration="9191000" />
+      <workItem from="1702008403831" duration="7935000" />
+      <workItem from="1702018704080" duration="162000" />
+      <workItem from="1702022409701" duration="553000" />
+      <workItem from="1702023211482" duration="1060000" />
+      <workItem from="1702027480514" duration="8188000" />
+      <workItem from="1702048106747" duration="11496000" />
+      <workItem from="1702093000838" duration="21306000" />
+      <workItem from="1702126459473" duration="20005000" />
+      <workItem from="1702179709248" duration="12805000" />
+>>>>>>> khai
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />

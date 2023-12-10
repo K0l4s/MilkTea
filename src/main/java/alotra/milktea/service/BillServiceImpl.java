@@ -38,4 +38,9 @@ public class BillServiceImpl implements IBillService{
     public List<Bill> findBillsByCustomerID(int id) {
         return billRepo.findBillByCustomerCustomerID(id);
     }
+
+    @Override
+    public List<Bill> findBillByName(String name) {
+        return billRepo.findBillByKeyWord(name);
+    }
 }

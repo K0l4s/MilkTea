@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Cart</title>
+</head>
+<body>
+<div class="container">
+  <h1>Add Cart</h1>
+  <form th:action="@{/cart/save}" th:object="${cart}" method="POST" enctype="multipart/form-data">
+
+    <label for="customerID">CustomerID:</label>
+    <input type="text" id="customerID" th:field="*{customer.customerID}" required/><br/><br/>
+
+    <input type="submit" value="Save"/>
+  </form>
+</div>
+</body>
+</html>

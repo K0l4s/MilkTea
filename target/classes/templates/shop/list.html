@@ -8,6 +8,10 @@
 <div align="center">
     <h1>Shop List</h1>
     <a th:href="@{ shop/add}"><button>Add</button></a>
+    <form th:action="@{/admin/shop/search}" method="get">
+        <label for="search">Search by Name:</label>
+        <input type="text" id="search" name="name" th:value="*{name}">
+        <input type="submit" value="Search">
     <table border="1">
         <thead>
         <tr>
@@ -23,8 +27,8 @@
             <td th:text="${shop.getName()}"></td>
             <td th:text="${shop.getLocation()}"></td>
             <td>
-                <a th:href="@{'/admin/shop/edit/' + ${shop.shopID}}"><button>Edit</button></a>
-                <a th:href="@{'/admin/shop/delete/' + ${shop.shopID}}"><button>Delete</button></a>
+                <a th:href="@{'shop/edit/' + ${shop.shopID}}">Edit</a>
+                <a th:href="@{'shop/delete/' + ${shop.shopID}}">Delete</a>
             </td>
         </tr>
         </tbody>

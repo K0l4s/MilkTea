@@ -12,4 +12,6 @@ public interface IShopService {
     void saveShop(Shop shop);
 
     void deleteShop(int id);
+
+    List<Shop> findShopByName(String name);
 }
