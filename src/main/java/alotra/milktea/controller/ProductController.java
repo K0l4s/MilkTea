@@ -2,17 +2,20 @@ package alotra.milktea.controller;
 
 import alotra.milktea.entity.Category;
 import alotra.milktea.entity.Product;
-import alotra.milktea.service.CategoryServiceImpl;
-import alotra.milktea.service.ICategoryService;
-import alotra.milktea.service.IProductService;
-import alotra.milktea.service.ProductServiceImpl;
+import alotra.milktea.model.ProductModel;
+import alotra.milktea.service.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class ProductController {
@@ -20,6 +23,8 @@ public class ProductController {
     IProductService productService = new ProductServiceImpl();
     @Autowired
     ICategoryService categoryService = new CategoryServiceImpl();
+    @Autowired
+    IStorageService storageService;
     @GetMapping("/admin/product")
     public String findAll(Model model){
         model.addAttribute("products",productService.findAllByStatusNot((short) 0));
@@ -43,14 +48,37 @@ public class ProductController {
         return "/admin/product/add";
     }
     @PostMapping("/product/save")
-    public String saveProduct(@ModelAttribute("product") Product product){
-        productService.saveProduct(product);
+    public String saveProduct(@ModelAttribute("product") ProductModel proModel){
+        Product entity = new Product();
+        //Copy model sang entity
+        BeanUtils.copyProperties(proModel, entity);
+
+        Category cateEntity = new Category();
+        cateEntity.setCategoryID(proModel.getCategory().getCategoryID());
+        entity.setCategory(cateEntity);
+
+        //Kiểm tra file
+        if (!proModel.getImageFile().isEmpty()) {
+            UUID uuid = UUID.randomUUID();
+            String uuString = uuid.toString();
+            //Lưu file vào ImageURL
+            entity.setImageURL(storageService.getStorageFilename(proModel.getImageFile(), uuString));
+            storageService.store(proModel.getImageFile(), entity.getImageURL());
+        }
+        productService.saveProduct(entity);
         return "redirect:/admin/product";
     }
     @GetMapping("/admin/product/delete/{id}")
     public String deleteProduct(@PathVariable("id") int id){
         productService.DeleteProduct(id);
         return "redirect:/admin/product";
+    }
+    @GetMapping("admin/product/images/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> serverFile(@PathVariable String filename) {
+        Resource file = storageService.loadAsResource(filename);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                "attachment;filename=\"" + file.getFilename() + "\"").body(file);
     }
     @GetMapping("/admin/product/search")
     public String searchProByCateName(@RequestParam("categoryName") String name,Model model){

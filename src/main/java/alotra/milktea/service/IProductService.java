@@ -10,8 +10,8 @@ public interface IProductService {
     List<Product> findAllByStatusNot(short status);
     Optional<Product> findOne(int id);
 
-    void saveProduct(Product product);
-
+//    void saveProduct(Product product);
+    <S extends Product> S saveProduct(S entity);
     void DeleteProduct(int id);
 
     List<Product> findProductByCategoryName(String name);

@@ -13,8 +13,9 @@ public class ProductModel {
     private int productID;
     private String name;
     private double price;
-    private MultipartFile imageURL;
+    private String imageURL;
     private String description;
     private Category category;
     private short status;
+    private MultipartFile imageFile;
 }
