@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface IProductService {
     List<Product> findAll();
+    List<Product> findAllByStatusNot(short status);
     Optional<Product> findOne(int id);
 
     void saveProduct(Product product);

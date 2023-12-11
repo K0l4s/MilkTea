@@ -20,14 +20,14 @@ public class CategoryController {
     @GetMapping("/admin/category")
     public String findAll(Model model){
         model.addAttribute("listcate",categoryService.findAll());
-        return "/category/list";
+        return "admin/category/list";
     }
     @GetMapping("/admin/category/edit/{categoryID}")
     public String findOne(@PathVariable("categoryID") int categoryID, Model model){
         Optional<Category> cate = categoryService.findOne(categoryID);
         if(cate.isPresent()){
             model.addAttribute("category",cate.get());
-            return "/category/edit";
+            return "admin/category/edit";
         }
         return "error";
     }
@@ -35,7 +35,7 @@ public class CategoryController {
     public String addCategory(Model model){
         Category category = new Category();
         model.addAttribute("category",category);
-        return "/category/add";
+        return "admin/category/add";
     }
     @PostMapping("/category/save")
     public String saveCategory(@ModelAttribute("category") Category category){
