@@ -18,17 +18,47 @@ public class ShopServiceImpl implements IShopService{
     }
 
     @Override
+    public List<Shop> findAllBySatusNot(short status) {
+        return shopRepo.findAllByStatusNot((short) 0);
+    }
+
+    @Override
     public Optional<Shop> findOne(int id) {
         return shopRepo.findById(id);
     }
 
     @Override
     public void saveShop(Shop shop) {
+        shop.setStatus((short) 1);
         shopRepo.save(shop);
     }
 
     @Override
     public void deleteShop(int id) {
-        shopRepo.deleteById(id);
+        Optional<Shop> optional = shopRepo.findById(id);
+        if (optional.isPresent()){
+            Shop shop = optional.get();
+            shop.setStatus((short) 0);
+            shopRepo.save(shop);
+        }
+        else {
+            System.out.println("Doesnt exists!");
+        }
     }
+
+    @Override
+    public List<Shop> findShopByName(String name) {
+        return shopRepo.findShopByKeyWord(name);
+    }
+
+    @Override
+    public boolean isShopIdUnique(String id) {
+        List<Shop> shops = findAll();
+        for(Shop item: shops)
+            if(item.getShopID().equals(id)){
+                return false;
+            }
+        return true;
+    }
+
 }

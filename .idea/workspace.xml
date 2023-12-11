@@ -49,8 +49,8 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="964a6795-80b0-4624-981b-fa829d80ea43" />
-        <option name="url" value="https://github.com/K0l4s/MilkTeaShopsChainManagement-.git" />
+        <option name="accountId" value="04d51756-ff86-45c7-9cb3-6bf1d9ea80f6" />
+        <option name="url" value="https://github.com/K0l4s/MilkTea.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -84,14 +84,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.edit.html.executor": "Run",
+    "JavaScript Debug.list.html (1).executor": "Run",
+    "JavaScript Debug.list.html.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MilkTeaShopsChainManagementApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "thuan",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -102,11 +108,17 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\admin" />
       <recent name="F:\MilkTea\src\main\resources\templates\home" />
       <recent name="F:\MilkTea\src\main\java\alotra\milktea\service" />
       <recent name="F:\MilkTea\src\main\java\alotra\milktea\entity" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\img" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\js" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\wallet" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\shop_products" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\shop_ingredients" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\product_ingredients" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\cart_products" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin" />
@@ -123,13 +135,13 @@
     <configuration name="editEmployee.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/employee/editEmployee.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="edit.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/shop_ingredients/edit.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="list.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/customer/list.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="list.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/category/list.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/home/login.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="vetifyRegister.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/home/vetifyRegister.html" useBuiltInWebServerPort="true">
@@ -147,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.edit.html" />
         <item itemvalue="JavaScript Debug.list.html (1)" />
         <item itemvalue="JavaScript Debug.list.html" />
         <item itemvalue="JavaScript Debug.editEmployee.html" />
         <item itemvalue="JavaScript Debug.vetifyRegister.html" />
-        <item itemvalue="JavaScript Debug.login.html" />
       </list>
     </recent_temporary>
   </component>

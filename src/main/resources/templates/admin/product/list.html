@@ -37,7 +37,6 @@
                                 <th>Category</th>
                                 <th>Price</th>
                                 <th>Description</th>
-                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -50,7 +49,6 @@
                                 <td th:text="${product.getCategory().getCategoryName()}"></td>
                                 <td th:text="${product.getPrice()}"></td>
                                 <td th:text="${product.getDescription()}"></td>
-                                <td th:text="${product.getStatus()}"></td>
                                 <td>
                                     <a th:href="@{'/admin/product/edit/' + ${product.productID}}"><button>Edit</button></a>
                                     <a th:href="@{'/admin/product/delete/' + ${product.productID}}"><button>Delete</button></a>

@@ -18,17 +18,36 @@ public class RoleServiceImpl implements IRoleService{
     }
 
     @Override
+    public List<Role> findAllByStatusNot(short status) {
+        return roleRepo.findAllByStatusNot(status);
+    }
+
+    @Override
     public Optional<Role> findOne(int id) {
         return roleRepo.findById(id);
     }
 
     @Override
     public void saveRole(Role role) {
+        role.setStatus((short) 1);
         roleRepo.save(role);
     }
 
     @Override
     public void deleteRole(int id) {
-        roleRepo.deleteById(id);
+        Optional<Role> optional = roleRepo.findById(id);
+        if(optional.isPresent()){
+            Role role = optional.get();
+            role.setStatus((short) 0);
+            roleRepo.save(role);
+        }
+        else {
+            System.out.println("Doesnt exists!");
+        }
+    }
+
+    @Override
+    public List<Role> findRoleByName(String name) {
+        return roleRepo.findRoleByKeyWord(name);
     }
 }

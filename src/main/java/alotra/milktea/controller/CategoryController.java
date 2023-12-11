@@ -6,10 +6,7 @@ import alotra.milktea.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -19,7 +16,7 @@ public class CategoryController {
     ICategoryService categoryService = new CategoryServiceImpl();
     @GetMapping("/admin/category")
     public String findAll(Model model){
-        model.addAttribute("listcate",categoryService.findAll());
+        model.addAttribute("listcate",categoryService.findAllByStatusNot((short) 0));
         return "admin/category/list";
     }
     @GetMapping("/admin/category/edit/{categoryID}")
@@ -46,5 +43,17 @@ public class CategoryController {
     public String deleteCategory(@PathVariable("categoryID") int categoryID){
         categoryService.deleteCategory(categoryID);
         return "redirect:/admin/category";
+    }
+    @GetMapping("/admin/category/search")
+    public String searchCateByCateName(@RequestParam("name") String name, Model model){
+        if (name != "") {
+            model.addAttribute("name", name);
+            model.addAttribute("listcate",categoryService.findProductByName(name));
+            return "/category/list";
+        }
+        else {
+            model.addAttribute("listcate",categoryService.findAll());
+            return "redirect:/admin/category";
+        }
     }
 }

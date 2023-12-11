@@ -6,10 +6,7 @@ import alotra.milktea.service.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -20,15 +17,15 @@ public class RoleController {
 
     @GetMapping("/admin/role")
     public String findAll(Model model){
-        model.addAttribute("roles",roleService.findAll());
-        return "/role/list";
+        model.addAttribute("roles",roleService.findAllByStatusNot((short) 0));
+        return "admin/role/list";
     }
     @GetMapping("/admin/role/edit/{roleID}")
     public String findOne(@PathVariable("roleID") int roleID, Model model){
         Optional<Role> role = roleService.findOne(roleID);
         if(role.isPresent()){
             model.addAttribute("role",role.get());
-            return "/role/edit";
+            return "admin/role/edit";
         }
         return "error";
     }
@@ -36,7 +33,7 @@ public class RoleController {
     public String addRole(Model model){
         Role role = new Role();
         model.addAttribute("role",role);
-        return "/role/add";
+        return "admin/role/add";
     }
     @PostMapping("/role/save")
     public String saveRole(@ModelAttribute("role") Role role){
@@ -47,5 +44,17 @@ public class RoleController {
     public String deleteRole(@PathVariable("roleID") int roleID){
         roleService.deleteRole(roleID);
         return "redirect:/admin/role";
+    }
+    @GetMapping("/admin/role/search")
+    public String searchProByCartName(@RequestParam("name") String name, Model model){
+        if (name != "") {
+            model.addAttribute("name", name);
+            model.addAttribute("roles",roleService.findRoleByName(name));
+            return "admin/role/list";
+        }
+        else {
+            model.addAttribute("roles",roleService.findAll());
+            return "redirect:/admin/role";
+        }
     }
 }

@@ -7,10 +7,12 @@ import java.util.Optional;
 
 public interface IRoleService {
     List<Role> findAll();
-
+    List<Role> findAllByStatusNot(short status);
     Optional<Role> findOne(int id);
 
     void saveRole(Role role);
 
     void deleteRole(int id);
+
+    List<Role> findRoleByName(String name);
 }

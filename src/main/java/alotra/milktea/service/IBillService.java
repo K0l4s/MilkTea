@@ -15,4 +15,6 @@ public interface IBillService {
     void deleteBill(int id);
 
     List<Bill> findBillsByCustomerID(int id);
+
+    List<Bill> findBillByName(String name);
 }

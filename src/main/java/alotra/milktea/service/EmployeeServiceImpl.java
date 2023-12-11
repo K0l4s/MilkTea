@@ -20,17 +20,36 @@ public class EmployeeServiceImpl implements  IEmployeeService{
     }
 
     @Override
+    public List<Employee> findAllByStatusNot(short status) {
+        return employeeRepo.findAllByStatusNot((short) 0);
+    }
+
+    @Override
     public Optional<Employee> findOne(int id) {
         return employeeRepo.findById(id);
     }
 
     @Override
     public void saveEmployee(Employee employee) {
+        employee.setStatus((short) 1);
         employeeRepo.save(employee);
     }
 
     @Override
     public void deleteEmployee(int id) {
-        employeeRepo.deleteById(id);
+        Optional<Employee> optional = employeeRepo.findById(id);
+        if(optional.isPresent()){
+            Employee employee = optional.get();
+            employee.setStatus((short) 0);
+            employeeRepo.save(employee);
+        }
+        else {
+            System.out.println("Doesnt exists!");
+        }
+    }
+
+    @Override
+    public List<Employee> findEmployeeByName(String name) {
+        return employeeRepo.findEmployeeByKeyWord(name);
     }
 }
