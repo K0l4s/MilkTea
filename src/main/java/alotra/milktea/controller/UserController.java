@@ -1,13 +1,10 @@
 package alotra.milktea.controller;
-
-import alotra.milktea.entity.Role;
 import alotra.milktea.entity.User;
 import alotra.milktea.service.IRoleService;
 import alotra.milktea.service.IUserService;
 import alotra.milktea.service.RoleServiceImpl;
 import alotra.milktea.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
