@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/web/layout-web}">
+<head>
+    <meta charset="UTF-8">
+    <title>List Product</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var offset = 4; // Số lượng sản phẩm hiển thị ban đầu
+            var limit = 4;  // Số lượng sản phẩm muốn load thêm khi ấn nút "Show More"
+
+            window.showMoreProducts = function() {
+                $.ajax({
+                    type: "GET",
+                    url: "/loadMoreProducts",
+                    data: {
+                        offset: offset,
+                        limit: limit
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.length > 0) {
+                            offset += limit; // Tăng offset cho lần load tiếp theo
+                            updateProductList(data);
+                        } else {
+                            $("#showMoreBtn").prop("disabled", true).text("No more products");
+                        }
+                    }
+                });
+            }
+
+            function updateProductList(products) {
+                console.log(products)
+                var productList = $("#productList");
+                // Loop qua danh sách sản phẩm mới và thêm vào danh sách hiện tại
+                $.each(products, function(index, product) {
+                    var productHtml =
+                        '<div class="col-md-3">' +
+                        '<div class="product-item mx-auto mb-5">' +
+                        '<a href="/single-product/' + product.productID + '" class="text-dark">' +
+                        '<img src="' + (product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg') + '" style="height: 332px" class="img-fluid" alt="">' +
+                        '</a>' +
+                        '<div class="product-info text-center">' +
+                        '<h3 class="fst-italic m-0">' +
+                        '<a href="/single-product/' + product.productID + '" class="text-dark" th:text="' + product.name + '">' + product.name + '</a>' +
+                        '</h3>' +
+                        '<div class="product-price text-primary fw-medium">' + product.price + ' VND</div>' +
+                        '<button class="btn btn-primary mt-2" onclick="addToCart(' + product.productID + ')" type="button">Add to Cart</button>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                    productList.append(productHtml);
+                });
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div layout:fragment="content">
+        <section id="trending" class="py-lg-9">
+            <div class="display-header text-center">
+                <h2 class="display-6 fst-italic m-0">Our Products</h2>
+                <p>These are the items that are trending recently.</p>
+            </div>
+            <div class="product-content position-relative">
+                <div class="container-lg">
+                    <div class="row" id = "productList">
+                        <div th:each="product : ${products}" class="col-md-3">
+                            <div class="product-item mx-auto mb-5">
+                                <a th:href="@{'/single-product/' + ${product.productID}}" class="text-dark">
+                                    <img th:src="${product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg'}"
+                                         style="height: 332px" class="img-fluid" alt="">
+                                </a>
+                                <div class="product-info text-center">
+                                    <h3 class="fst-italic m-0">
+                                        <a th:href="@{'/single-product/' + ${product.productID}}" class="text-dark" th:text="${product.name}">Product Name</a>
+                                    </h3>
+                                    <div class="product-price text-primary fw-medium" th:text="${product.price + ' VND'}"></div>
+
+                                    <button class="btn btn-primary mt-2" th:onclick="'addToCart(' + ${product.productID} + ')'" type="button">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button id="showMoreBtn" class="btn btn-lg btn-dark" onclick="showMoreProducts()">Show More</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="collection" class="overflow-hidden">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4 image-zoom-effect">
+                        <div class="collection-item position-relative mx-auto">
+                            <div class="image-holder">
+                                <img src="images/collection-item1.jpg" alt="product" class="img-fluid">
+                                <div class="product-info position-absolute d-flex justify-content-center align-items-center">
+                                    <div class="border d-flex justify-content-center align-items-center text-center">
+                                        <div class="text-wrap">
+                                            <h3 class="m-0">
+                                                <a href="#" class="text-light">Organic Herbal</a>
+                                            </h3>
+                                            <div class="btn-wrap">
+                                                <a href="shop.html" class="btn btn-link text-light">Shop Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4 image-zoom-effect">
+                        <div class="collection-item position-relative mx-auto">
+                            <div class="image-holder">
+                                <img src="images/collection-item2.jpg" alt="product" class="img-fluid">
+                            </div>
+                            <div class="product-info position-absolute d-flex justify-content-center align-items-center">
+                                <div class="border d-flex justify-content-center align-items-center text-center">
+                                    <div class="text-wrap">
+                                        <h3 class="m-0">
+                                            <a href="#" class="text-light">Organic Herbal</a>
+                                        </h3>
+                                        <div class="btn-wrap">
+                                            <a href="shop.html" class="btn btn-link text-light">Shop Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4 image-zoom-effect">
+                        <div class="collection-item position-relative mx-auto">
+                            <div class="image-holder">
+                                <img src="images/collection-item3.jpg" alt="product" class="img-fluid">
+                            </div>
+                            <div class="product-info position-absolute d-flex justify-content-center align-items-center">
+                                <div class="border d-flex justify-content-center align-items-center text-center">
+                                    <div class="text-wrap">
+                                        <h3 class="m-0">
+                                            <a href="#" class="text-light">Organic Herbal</a>
+                                        </h3>
+                                        <div class="btn-wrap">
+                                            <a href="shop.html" class="btn btn-link text-light">Shop Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="best-sells" class="py-lg-7">
+            <div class="display-header text-center">
+                <h2 class="display-6 fst-italic m-0">Best Sellers</h2>
+                <p>These are the items that are best seller.</p>
+            </div>
+            <div class="product-content position-relative">
+                <div class="container-lg">
+                    <div class="row">
+                        <div class="arrow-wrap">
+                            <div class="icon-caret-arrow left-side position-absolute d-flex align-items-center bg-gray-1 border rounded-pill justify-content-center">
+                                <svg class="caret-arrow-left" width="25" height="25">
+                                    <use xlink:href="#caret-arrow-left"></use>
+                                </svg>
+                            </div>
+                            <div class="icon-caret-arrow right-side position-absolute d-flex align-items-center bg-gray-1 border rounded-pill justify-content-center">
+                                <svg class="caret-arrow-right" width="25" height="25">
+                                    <use xlink:href="#caret-arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="swiper product-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide image-zoom-effect">
+                                    <div class="product-item mx-auto">
+                                        <div class="image-holder mb-2">
+                                            <img src="images/product-item7.jpg" alt="tea" class="img-fluid">
+                                        </div>
+                                        <div class="product-info text-center">
+                                            <h3 class="fst-italic m-0">
+                                                <a href="single-product.html" class="text-dark">Rose Petal Tea</a>
+                                            </h3>
+                                            <div class="product-price text-primary fw-medium">$12.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide image-zoom-effect">
+                                    <div class="product-item mx-auto">
+                                        <div class="image-holder mb-2">
+                                            <img src="images/product-item8.jpg" alt="tea" class="img-fluid">
+                                        </div>
+                                        <div class="product-info text-center">
+                                            <h3 class="fst-italic m-0">
+                                                <a href="single-product.html" class="text-dark">Mix Rosemela tea</a>
+                                            </h3>
+                                            <div class="product-price text-primary fw-medium">$14.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide image-zoom-effect">
+                                    <div class="product-item mx-auto">
+                                        <div class="image-holder mb-2">
+                                            <img src="images/product-item9.jpg" alt="tea" class="img-fluid">
+                                        </div>
+                                        <div class="product-info text-center">
+                                            <h3 class="fst-italic m-0">
+                                                <a href="single-product.html" class="text-dark">Rosella Tea</a>
+                                            </h3>
+                                            <div class="product-price text-primary fw-medium">$13.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide image-zoom-effect">
+                                    <div class="product-item mx-auto">
+                                        <div class="image-holder mb-2">
+                                            <img src="images/product-item10.jpg" alt="tea" class="img-fluid">
+                                        </div>
+                                        <div class="product-info text-center">
+                                            <h3 class="fst-italic m-0">
+                                                <a href="single-product.html" class="text-dark">Spicy tea</a>
+                                            </h3>
+                                            <div class="product-price text-primary fw-medium">$14.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide image-zoom-effect">
+                                    <div class="product-item mx-auto">
+                                        <div class="image-holder mb-2">
+                                            <img src="images/product-item11.jpg" alt="tea" class="img-fluid">
+                                        </div>
+                                        <div class="product-info text-center">
+                                            <h3 class="fst-italic m-0">
+                                                <a href="single-product.html" class="text-dark">Honey tea</a>
+                                            </h3>
+                                            <div class="product-price text-primary fw-medium">$14.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide image-zoom-effect">
+                                    <div class="product-item mx-auto">
+                                        <div class="image-holder mb-2">
+                                            <img src="images/product-item12.jpg" alt="tea" class="img-fluid">
+                                        </div>
+                                        <div class="product-info text-center">
+                                            <h3 class="fst-italic m-0">
+                                                <a href="single-product.html" class="text-dark">Butterfly Pea Tea</a>
+                                            </h3>
+                                            <div class="product-price text-primary fw-medium">$16.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="shop.html" class="btn btn-lg btn-dark">Shop All</a>
+            </div>
+        </section>
+        <section id="blogs" class="video overflow-hidden position-relative" style="background-image: url(/images/blog-item.jpg); background-repeat: no-repeat; background-position: center; background-attachment: fixed; width: 100%; height: 682px;">
+            <div class="row">
+                <div class="post-content position-absolute d-flex justify-content-center align-items-center">
+                    <div class="display-header text-center text-light">
+                        <h2 class="display-6 fst-italic m-0 text-light mb-3">Read Our Tea Blogs</h2>
+                        <p>Read our tea blogs to get updates and know about the trends.</p>
+                        <a href="blog.html" class="btn btn-lg btn-light mt-3">Read Blog Posts</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="company-services" class="py-lg-7">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-2">
+                        <div class="icon-box text-center border-top border-bottom py-3">
+                            <div class="icon-box-icon mb-1">
+                                <svg class="truck svg-primary" width="39" height="39">
+                                    <use xlink:href="#truck"></use>
+                                </svg>
+                            </div>
+                            <div class="icon-box-content">
+                                <p class="fs-5">Inside City delivery within 3 days</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-2">
+                        <div class="icon-box text-center border-top border-bottom py-3">
+                            <div class="icon-box-icon mb-1">
+                                <svg class="coffee svg-primary" width="39" height="39">
+                                    <use xlink:href="#coffee"></use>
+                                </svg>
+                            </div>
+                            <div class="icon-box-content">
+                                <p class="fs-5">Free Samples with Every Order</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-2">
+                        <div class="icon-box text-center border-top border-bottom py-3">
+                            <div class="icon-box-icon mb-1">
+                                <svg class="luggage-cart svg-primary" width="39" height="39">
+                                    <use xlink:href="#luggage-cart"></use>
+                                </svg>
+                            </div>
+                            <div class="icon-box-content">
+                                <p class="fs-5">Free Shipping on Orders Above $600</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="instagram-wrap" class="py-lg-6">
+            <div class="container-lg">
+                <div class="row">
+                    <h2 class="display-6 text-center fst-italic">Shop Our Insta</h2>
+                    <div class="col-lg-2 col-md-6 mb-3">
+                        <div class="image-holder position-relative">
+                            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+                                <img src="images/insta-item1.jpg" alt="instagram" class="img-fluid">
+                                <div class="border insta-item position-absolute d-flex align-items-center justify-content-center">
+                                    <svg class="insta svg-white" width="25" height="25">
+                                        <use xlink:href="#insta"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-3">
+                        <div class="image-holder position-relative">
+                            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+                                <img src="images/insta-item2.jpg" alt="instagram" class="img-fluid">
+                                <div class="border insta-item position-absolute d-flex align-items-center justify-content-center">
+                                    <svg class="insta svg-white" width="25" height="25">
+                                        <use xlink:href="#insta"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-3">
+                        <div class="image-holder position-relative">
+                            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+                                <img src="images/insta-item3.jpg" alt="instagram" class="img-fluid">
+                                <div class="border insta-item position-absolute d-flex align-items-center justify-content-center">
+                                    <svg class="insta svg-white" width="25" height="25">
+                                        <use xlink:href="#insta"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-3">
+                        <div class="image-holder position-relative">
+                            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+                                <img src="images/insta-item4.jpg" alt="instagram" class="img-fluid">
+                                <div class="border insta-item position-absolute d-flex align-items-center justify-content-center">
+                                    <svg class="insta svg-white" width="25" height="25">
+                                        <use xlink:href="#insta"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-3">
+                        <div class="image-holder position-relative">
+                            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+                                <img src="images/insta-item5.jpg" alt="instagram" class="img-fluid">
+                                <div class="border insta-item position-absolute d-flex align-items-center justify-content-center">
+                                    <svg class="insta svg-white" width="25" height="25">
+                                        <use xlink:href="#insta"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-3">
+                        <div class="image-holder position-relative">
+                            <a href="https://www.instagram.com/templatesjungle/" target="_blank">
+                                <img src="images/insta-item6.jpg" alt="instagram" class="img-fluid">
+                                <div class="border insta-item position-absolute d-flex align-items-center justify-content-center">
+                                    <svg class="insta svg-white" width="25" height="25">
+                                        <use xlink:href="#insta"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

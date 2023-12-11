@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <title>Wing Tea</title>
+    <title>Alo MilkTea</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +12,20 @@
     <meta name="description" content="Bootstrap 5 Tea Shop HTML CSS Template">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <style>
+        .image-holder {
+            width: 100%;
+            height: 332px;
+        }
+    </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -176,95 +182,7 @@
         </div>
     </div>
 </div>
-<header id="header" class="site-header fixed-top border-bottom">
-    <div class="container-lg">
-        <div class="row">
-            <nav class="navbar navbar-expand-lg">
-                <button class="navbar-toggler d-flex d-lg-none order-3 p-2 border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg class="navbar-icon svg-white" width="40" height="40">
-                        <use xlink:href="#navbar-icon"></use>
-                    </svg>
-                </button>
-                <a href="#" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                    <img src="images/main-logo.png" alt="Logo">
-                </a>
-                <div class="offcanvas offcanvas-end order-3" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-                    <div class="offcanvas-body">
-                        <div class="offcanvas-header px-4 pb-0">
-                            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
-                        </div>
-                        <div class="navbar-collapse order-1 order-lg-1" id="navbarMenu">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link text-light me-4" href="#"> Home </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light me-4" href="about.html"> About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light me-4" href="shop.html"> Shop </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link me-4 dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pages</a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="about.html" class="dropdown-item">About<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="blog.html" class="dropdown-item">Blog<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="shop.html" class="dropdown-item">Shop<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="checkout.html" class="dropdown-item">Checkout<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="single-post.html" class="dropdown-item">Single Post<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="single-product.html" class="dropdown-item">Single Product<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="faqs.html" class="dropdown-item">Faqs<span class="badge ms-1 bg-primary">PRO</span></a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                            <img src="images/main-logo.png" alt="Logo">
-                        </a>
-                        <ul class="user-items list-unstyled d-none d-lg-flex justify-content-end align-items-center order-3 flex-grow-1 gap-5 m-0">
-                            <li>
-                                <a href="login" class="text-light">
-                                    <svg class="user svg-white" width="18" height="18">
-                                        <use xlink:href="#user"></use>
-                                    </svg>
-                                    <span>Login</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="cart.html" class="text-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                                    <svg class="cart svg-white" width="18" height="18">
-                                        <use xlink:href="#cart"></use>
-                                    </svg>
-                                    <span>(0)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <svg class="search svg-white" width="18" height="18">
-                                    <use xlink:href="#search"></use>
-                                </svg>
-                                <input type="text" placeholder="Search..." class="border-0 bg-transparent fst-italic outline-none text-light">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
+<header th:replace="~{web/fragments/header::header}"></header>
 <section id="intro" class="position-relative overflow-hidden" style="background-image: url(images/banner-image1.jpg); background-repeat: no-repeat; background-position: center; width: 100%; height: 898px;">
     <div class="container-lg">
         <div class="row">
@@ -275,7 +193,7 @@
                             <span class="body-font d-block">Make Your Tea time</span>
                             <em> best With only wing tea</em>
                         </h1>
-                        <a href="shop.html" class="btn btn-lg btn-light">Shop Now</a>
+                        <a href="/product" class="btn btn-lg btn-light">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -284,112 +202,35 @@
 </section>
 <section id="trending" class="py-lg-9">
     <div class="display-header text-center">
-        <h2 class="display-6 fst-italic m-0">What’s Trending</h2>
+        <h2 class="display-6 fst-italic m-0">Our Products</h2>
         <p>These are the items that are trending recently.</p>
     </div>
     <div class="product-content position-relative">
         <div class="container-lg">
             <div class="row">
-                <div class="arrow-wrap">
-                    <div class="icon-caret-arrow left-side position-absolute d-flex align-items-center bg-gray-1 border rounded-pill justify-content-center">
-                        <svg class="caret-arrow-left" width="25" height="25">
-                            <use xlink:href="#caret-arrow-left"></use>
-                        </svg>
-                    </div>
-                    <div class="icon-caret-arrow right-side position-absolute d-flex align-items-center bg-gray-1 border rounded-pill justify-content-center">
-                        <svg class="caret-arrow-right" width="25" height="25">
-                            <use xlink:href="#caret-arrow-right"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="swiper product-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide image-zoom-effect">
-                            <div class="product-item mx-auto">
-                                <div class="image-holder mb-2">
-                                    <img src="images/product-item1.jpg" alt="tea" class="img-fluid">
-                                </div>
-                                <div class="product-info text-center">
-                                    <h3 class="fst-italic m-0">
-                                        <a href="single-product.html" class="text-dark">Roselle Tea</a>
-                                    </h3>
-                                    <div class="product-price text-primary fw-medium">$12.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-zoom-effect">
-                            <div class="product-item mx-auto">
-                                <div class="image-holder mb-2">
-                                    <img src="images/product-item2.jpg" alt="tea" class="img-fluid">
-                                </div>
-                                <div class="product-info text-center">
-                                    <h3 class="fst-italic m-0">
-                                        <a href="single-product.html" class="text-dark">Apple Flower Tea</a>
-                                    </h3>
-                                    <div class="product-price text-primary fw-medium">$14.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-zoom-effect">
-                            <div class="product-item mx-auto">
-                                <div class="image-holder mb-2">
-                                    <img src="images/product-item3.jpg" alt="tea" class="img-fluid">
-                                </div>
-                                <div class="product-info text-center">
-                                    <h3 class="fst-italic m-0">
-                                        <a href="single-product.html" class="text-dark">Butterfly Pea Tea</a>
-                                    </h3>
-                                    <div class="product-price text-primary fw-medium">$14.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-zoom-effect">
-                            <div class="product-item mx-auto">
-                                <div class="image-holder mb-2">
-                                    <img src="images/product-item4.jpg" alt="tea" class="img-fluid">
-                                </div>
-                                <div class="product-info text-center">
-                                    <h3 class="fst-italic m-0">
-                                        <a href="single-product.html" class="text-dark">Masala Tea</a>
-                                    </h3>
-                                    <div class="product-price text-primary fw-medium">$13.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-zoom-effect">
-                            <div class="product-item mx-auto">
-                                <div class="image-holder mb-2">
-                                    <img src="images/product-item5.jpg" alt="tea" class="img-fluid">
-                                </div>
-                                <div class="product-info text-center">
-                                    <h3 class="fst-italic m-0">
-                                        <a href="single-product.html" class="text-dark">Purple Rose Tea</a>
-                                    </h3>
-                                    <div class="product-price text-primary fw-medium">$14.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-zoom-effect">
-                            <div class="product-item mx-auto">
-                                <div class="image-holder mb-2">
-                                    <img src="images/product-item6.jpg" alt="tea" class="img-fluid">
-                                </div>
-                                <div class="product-info text-center">
-                                    <h3 class="fst-italic m-0">
-                                        <a href="single-product.html" class="text-dark">Rose Tea</a>
-                                    </h3>
-                                    <div class="product-price text-primary fw-medium">$14.00</div>
-                                </div>
-                            </div>
+                <div th:each="product : ${products}" class="col-md-3">
+                    <div class="product-item mx-auto mb-5">
+                        <a th:href="@{'/single-product/' + ${product.productID}}" class="text-dark">
+                            <img th:src="${product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg'}"
+                                 style="height: 332px" class="img-fluid" alt="">
+                        </a>
+                        <div class="product-info text-center">
+                            <h3 class="fst-italic m-0">
+                                <a th:href="@{'/single-product/' + ${product.productID}}" class="text-dark" th:text="${product.name}">Product Name</a>
+                            </h3>
+                            <div class="product-price text-primary fw-medium" th:text="${product.price + ' VND'}"></div>
+
+                            <button class="btn btn-primary mt-2" th:onclick="'addToCart(' + ${product.productID} + ')'" type="button">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="text-center mt-3">
+                <button id="showMoreBtn" class="btn btn-lg btn-dark">Show More</button>
+            </div>
         </div>
     </div>
-    <div class="text-center mt-5">
-        <a href="shop.html" class="btn btn-lg btn-dark">Shop All</a>
-    </div>
+
 </section>
 <section id="collection" class="overflow-hidden">
     <div class="container-fluid">
@@ -449,97 +290,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="testimonials" class="position-relative py-lg-7">
-    <div class="container-lg">
-        <div class="row">
-            <div class="display-header text-center">
-                <h2 class="display-6 fst-italic">What Our Customers Says</h2>
-            </div>
-            <div class="col-lg-8 col-md-8 mx-auto">
-                <div class="icon-arrow left-side position-absolute d-flex align-items-center">
-                    <svg class="arrow-left" width="25" height="25">
-                        <use xlink:href="#arrow-left"></use>
-                    </svg>
-                </div>
-                <div class="icon-arrow right-side position-absolute d-flex align-items-center">
-                    <svg class="arrow-right" width="25" height="25">
-                        <use xlink:href="#arrow-right"></use>
-                    </svg>
-                </div>
-                <div class="swiper review-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide text-center d-flex justify-content-center">
-                            <div class="review-item">
-                                <blockquote class="fs-2">“Suspen dise tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis. A pellen tesque pretium feugiat vel morbi sagittis lorem habi tasse cursus.”</blockquote>
-                                <div class="rating">
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-empty" width="12" height="12">
-                                        <use xlink:href="#star-empty"></use>
-                                    </svg>
-                                </div>
-                                <div class="author-detail">
-                                    <div class="name text-dark text-uppercase pt-2 fw-medium">DR. Robinson hart</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center d-flex justify-content-center">
-                            <div class="review-item">
-                                <blockquote class="fs-2">“A blog is a digital publication that can complement a website or exist independently. A blog may include articles, short posts, listicles, infographics, videos, and other digital content.”</blockquote>
-                                <div class="rating">
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-fill" width="12" height="12">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <svg class="star star-empty" width="12" height="12">
-                                        <use xlink:href="#star-empty"></use>
-                                    </svg>
-                                </div>
-                                <div class="author-detail">
-                                    <div class="name text-dark text-uppercase pt-2 fw-medium">Jin Smith</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="swiper-pagination"></div>
-</section>
-<section id="video-player" class="video overflow-hidden position-relative" style="background-image: url(images/video-item.jpg); background-repeat: no-repeat; background-position: center; background-attachment: fixed; width: 100%; height: 682px;">
-    <div class="row">
-        <div class="video-content">
-            <div class="video-bg">
-                <div class="player position-absolute d-flex justify-content-center align-items-center">
-                    <a class='youtube play-btn d-flex justify-content-center align-items-center bg-white rounded-pill' href="https://www.youtube.com/embed/l4MOE3hZATA">
-                        <svg class="play text-dark" width="32" height="42">
-                            <use xlink:href="#play"></use>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </div>
@@ -786,115 +536,11 @@
         </div>
     </div>
 </section>
-<footer id="footer" class="mt-5">
-    <div class="container-lg">
-        <div class="row justify-content-between py-5">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <div class="footer-menu">
-                    <div class="footer-intro mb-2">
-                        <h4 class="fs-2 fst-italic pb-2">Know Our Wing Tea</h4>
-                        <p>We are the best tea supplier in the town. Our main motive is to make our beautiful people stay fit & healthy everytime.</p>
-                        <form id="form" class="mt-4 position-relative">
-                            <input type="text" name="email" placeholder="Your Email Addresss" class="border-0 border-bottom bg-transparent w-100">
-                            <a href="#">
-                                <svg class="send svg-primary position-absolute" width="20" height="20">
-                                    <use xlink:href="#send"></use>
-                                </svg>
-                            </a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-menu">
-                    <h5 class="widget-title fst-italic">Quick Links</h5>
-                    <ul class="menu-list list-unstyled">
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="#" class="item-anchor">Home</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="about.html" class="item-anchor">About</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="shop.html" class="item-anchor">Shop</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="blog.html" class="item-anchor">Blogs</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-menu">
-                    <h5 class="widget-title fst-italic">Help</h5>
-                    <ul class="menu-list list-unstyled">
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="faqs.html" class="item-anchor">Faqs</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="#" class="item-anchor">Store policy</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="#" class="item-anchor">Shipping & returns</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="checkout.html" class="item-anchor">Checkout</a>
-                        </li>
-                        <li class="menu-item fw-medium pb-2">
-                            <a href="#" class="item-anchor">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-menu">
-                    <h5 class="widget-title fst-italic">Social Links</h5>
-                    <div class="social-links">
-                        <ul class="list-unstyled">
-                            <li class="fw-medium pb-2">
-                                <a href="#">Facebook </a>
-                            </li>
-                            <li class="fw-medium pb-2">
-                                <a href="#">Instagram </a>
-                            </li>
-                            <li class="fw-medium pb-2">
-                                <a href="#">Pinterest </a>
-                            </li>
-                            <li class="fw-medium pb-2">
-                                <a href="#">Twitter </a>
-                            </li>
-                            <li class="fw-medium pb-2">
-                                <a href="#">Youtube </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="border-top py-4">
-        <div class="container-lg">
-            <div class="row justify-content-between">
-                <div class="col-md-10">
-                    <p>©2023 Template designed by <a href="https://templatesjungle.com" target="_blank" class="fw-medium">TemplatesJungle</a>
-                    </p>
-                </div>
-                <div class="col-md-2">
-                    <a href="#" class="d-flex">
-                        <svg class="arrow-up svg-primary position-absolute" width="20" height="20">
-                            <use xlink:href="#arrow-up"></use>
-                        </svg>
-                        <span class="ps-4">Back to top</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="js/jquery.min.js"></script>
+<footer th:replace="~{web/fragments/footer::footer}"></footer>
+<script src="/js/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>

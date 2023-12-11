@@ -3,9 +3,7 @@ package alotra.milktea.controller;
 import alotra.milktea.entity.User;
 import alotra.milktea.model.ResetPasswordModel;
 import alotra.milktea.model.SendCodeModel;
-import alotra.milktea.service.Email;
-import alotra.milktea.service.IUserService;
-import alotra.milktea.service.UserServiceImpl;
+import alotra.milktea.service.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -21,9 +19,11 @@ public class HomeController {
 	IUserService userService = new UserServiceImpl();
 	@Autowired
 	private Email email;
-
+	@Autowired
+	IProductService productService = new ProductServiceImpl();
 	@GetMapping("/home")
 	protected String home() {
+//		model.addAttribute("products",productService.findAllByStatusNot((short) 0));
 		return "index";
 	}
 	@GetMapping("/admin")

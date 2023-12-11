@@ -5,6 +5,9 @@ import alotra.milktea.repository.IProductRepo;
 import io.micrometer.common.util.StringUtils;
 import org.codehaus.groovy.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -23,6 +26,11 @@ public class ProductServiceImpl implements IProductService{
     @Override
     public List<Product> findAllByStatusNot(short status) {
         return productRepo.findAllByStatusNot(status);
+    }
+
+    @Override
+    public Page<Product> findAllByStatusNot(short status, Pageable pageable) {
+        return productRepo.findAllByStatusNot(status, pageable);
     }
 
     @Override
@@ -77,5 +85,12 @@ public class ProductServiceImpl implements IProductService{
     @Override
     public List<Product> findProductByName(String name) {
         return productRepo.findProductByKeyWord(name);
+    }
+
+    @Override
+    public List<Product> getProducts(int offset, int limit) {
+        Pageable pageable = PageRequest.of(offset / limit, limit);
+        Page<Product> page = productRepo.findAllByStatusNot((short) 0, pageable);
+        return page.getContent();
     }
 }

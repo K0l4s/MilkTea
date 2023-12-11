@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
 public class ProductController {
@@ -91,5 +92,16 @@ public class ProductController {
             model.addAttribute("products",productService.findAll());
             return "redirect:/admin/product";
         }
+    }
+    @GetMapping("/product")
+    public String findAllWeb(Model model){
+        model.addAttribute("products",productService.getProducts(0, 4));
+        return "web/product/list";
+    }
+    @GetMapping("/loadMoreProducts")
+    @ResponseBody
+    public List<Product> loadMoreProducts(@RequestParam int offset, @RequestParam int limit) {
+        // Sử dụng offset và limit để truy vấn sản phẩm từ db
+        return productService.getProducts(offset, limit);
     }
 }
