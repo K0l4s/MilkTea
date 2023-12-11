@@ -3,7 +3,7 @@
       layout:decorate="~{/admin/layout-admin}">
 <head>
     <meta charset="UTF-8">
-    <title>Add product</title>
+    <title>Add customer</title>
 </head>
 <body>
 <!-- Begin Page Content -->
@@ -12,12 +12,12 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <h6 class="m-0 font-weight-bold text-primary">Product Add</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Customer Add</h6>
 
             <!-- Button in line with card-header -->
             <div class="d-flex align-items-center">
                 <div class="ml-auto">
-                    <a href="/admin/product" class="btn btn-secondary btn-icon-split">
+                    <a href="/admin/customer" class="btn btn-secondary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-arrow-left"></i>
                             </span>
@@ -27,24 +27,16 @@
             </div>
         </div>
         <div class="card-body">
-            <form th:action="@{/product/save}" th:object="${product}" method="POST" enctype="multipart/form-data">
+            <form th:action="@{/customer/save}" th:object="${customer}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{customerID}"/>
+                <label for="customerName">Category name:</label>
+                <input type="text" id="customerName" th:field="*{customerName}" required/><br/><br/>
 
-                <label for="name">Product Name:</label>
-                <input type="text" id="name"  th:field="*{name}" required><br><br>
+                <label for="userName">Username:</label>
+                <input type="text" id="userName" th:field="*{user.username}" required/><br/><br/>
 
-                <label for="category">Category:</label>
-                <select id="category" th:field="*{category.categoryID}" required>
-                    <option th:each="cate : ${categories}" th:value="${cate.getCategoryID()}" th:text="${cate.getCategoryName()}"></option>
-                </select><br><br>
-
-                <label for="price">Price:</label>
-                <input type="number" id="price"  th:field="*{price}" required><br><br>
-
-                <label for="imageURL">Image URL:</label>
-                <input type="text" id="imageURL"  th:field="*{imageURL}" required><br><br>
-
-                <label for="description">Description:</label><br>
-                <textarea id="description"  rows="4" cols="50" required th:field="*{description}"></textarea><br><br>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" th:field="*{phone}" required/><br/><br/>
 
                 <button type="submit" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
@@ -57,5 +49,21 @@
     </div>
 </div>
 <!-- /.container-fluid -->
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Customer</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Customer</h1>
+
+</div>
 </body>
 </html>
