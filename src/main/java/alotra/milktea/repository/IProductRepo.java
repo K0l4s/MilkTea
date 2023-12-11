@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface IProductRepo extends JpaRepository<Product, Integer> {
     List<Product> findProductByCategoryCategoryName(String name);
+    List<Product> findAllByStatusNot(short status);
 
     @Query("SELECT p FROM Product p WHERE p.name LIKE :keyword OR p.category.categoryName LIKE :keyword")
     List<Product> findProductByKeyWord(@Param("keyword") String keyword);

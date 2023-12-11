@@ -18,18 +18,32 @@ public class ProductServiceImpl implements IProductService{
     }
 
     @Override
+    public List<Product> findAllByStatusNot(short status) {
+        return productRepo.findAllByStatusNot(status);
+    }
+
+    @Override
     public Optional<Product> findOne(int id) {
         return productRepo.findById(id);
     }
 
     @Override
     public void saveProduct(Product product) {
+        product.setStatus((short) 1);
         productRepo.save(product);
     }
 
     @Override
     public void DeleteProduct(int id) {
-        productRepo.deleteById(id);
+        Optional<Product> optionalProduct = productRepo.findById(id);
+        if (optionalProduct.isPresent()) {
+            Product product = optionalProduct.get();
+            product.setStatus((short) 0);
+            productRepo.save(product);
+        }
+        else {
+            System.out.println("Doesnt exists!");
+        }
     }
 
     @Override

@@ -17,13 +17,13 @@ public class IngredientController {
     @GetMapping("/admin/ingredient")
     public String findAll(Model model){
         model.addAttribute("ingredient",ingredientService.findAll());
-        return "ingredient/list";
+        return "admin/ingredient/list";
     }
     @GetMapping("/admin/ingredient/add")
     public String addIngredient(Model model){
         Ingredients ingredient = new Ingredients();
         model.addAttribute("ingredients", ingredient);
-        return "/ingredient/add";
+        return "admin/ingredient/add";
     }
     @PostMapping("/ingredient/save")
     public String saveIngredient(@ModelAttribute("ingredients") Ingredients ingredients){
@@ -35,7 +35,7 @@ public class IngredientController {
         Optional<Ingredients> ingredients = ingredientService.findOne(id);
         if(ingredients.isPresent()){
             model.addAttribute("ingredients",ingredients);
-            return "/ingredient/edit";
+            return "admin/ingredient/edit";
         }
         return "error";
     }

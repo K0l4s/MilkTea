@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Data
@@ -40,4 +41,6 @@ public class Product implements Serializable{
 	private String imageURL;
 	@Column(columnDefinition = "text")
 	private String description;
+	@Column(nullable = false)
+	private short status;
 }
