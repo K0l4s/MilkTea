@@ -36,4 +36,15 @@ public class ShopServiceImpl implements IShopService{
     public List<Shop> findShopByName(String name) {
         return shopRepo.findShopByKeyWord(name);
     }
+
+    @Override
+    public boolean isShopIdUnique(String id) {
+        List<Shop> shops = findAll();
+        for(Shop item: shops)
+            if(item.getShopID().equals(id)){
+                return false;
+            }
+        return true;
+    }
+
 }

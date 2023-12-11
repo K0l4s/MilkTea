@@ -18,14 +18,14 @@ public class RoleController {
     @GetMapping("/admin/role")
     public String findAll(Model model){
         model.addAttribute("roles",roleService.findAll());
-        return "/role/list";
+        return "admin/role/list";
     }
     @GetMapping("/admin/role/edit/{roleID}")
     public String findOne(@PathVariable("roleID") int roleID, Model model){
         Optional<Role> role = roleService.findOne(roleID);
         if(role.isPresent()){
             model.addAttribute("role",role.get());
-            return "/role/edit";
+            return "admin/role/edit";
         }
         return "error";
     }
@@ -33,7 +33,7 @@ public class RoleController {
     public String addRole(Model model){
         Role role = new Role();
         model.addAttribute("role",role);
-        return "/role/add";
+        return "admin/role/add";
     }
     @PostMapping("/role/save")
     public String saveRole(@ModelAttribute("role") Role role){
@@ -50,7 +50,7 @@ public class RoleController {
         if (name != "") {
             model.addAttribute("name", name);
             model.addAttribute("roles",roleService.findRoleByName(name));
-            return "/role/list";
+            return "admin/role/list";
         }
         else {
             model.addAttribute("roles",roleService.findAll());

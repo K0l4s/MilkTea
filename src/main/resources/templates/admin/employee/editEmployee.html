@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+</head>
+<body>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">Employee Edit</h6>
+
+            <!-- Button in line with card-header -->
+            <div class="d-flex align-items-center">
+                <div class="ml-auto">
+                    <a href="/admin/employee" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                        <span class="text">BACK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/employee/save}" th:object="${employee}" method="POST">
+
+                <input type="hidden" th:field="*{employeeID}"/>
+
+                <label for="name">Name :</label>
+                <input type="text" id="name" th:field="*{name}" /><br/><br/>
+
+                <label for="username">Username :</label>
+                <input type="text" id="username" th:field="*{username.username}"/><br/><br/>
+
+                <label for="roleID">roleID :</label>
+                <input type="text" id="roleID" th:field="*{roleID.roleId}"/><br/><br/>
+
+                <label for="citizenID">CitizenID :</label>
+                <input type="text" id="citizenID" th:field="*{citizenID}"/><br/><br/>
+
+                <label for="photo">CitizenID :</label>
+                <input type="text" id="photo" th:field="*{photo}"/><br/><br/>
+
+                <label for="shop">Shop :</label>
+                <input type="text" id="shop" th:field="*{shop.shopID}"/><br/><br/>
+
+                <button type="submit" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Save</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+</body>
+</html>
+<!--&lt;!&ndash; editEmployee.html &ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Edit Employee</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Edit Employee</h1>-->
+<!--<form th:action="@{/employee/save}" th:object="${employee}" method="POST">-->
+
+<!--    <input type="hidden" th:field="*{employeeID}"/>-->
+
+<!--    <label for="name">Name :</label>-->
+<!--    <input type="text" id="name" th:field="*{name}" /><br/><br/>-->
+
+<!--    <label for="username">Username :</label>-->
+<!--    <input type="text" id="username" th:field="*{username.username}"/><br/><br/>-->
+
+<!--    <label for="roleID">roleID :</label>-->
+<!--    <input type="text" id="roleID" th:field="*{roleID.roleId}"/><br/><br/>-->
+
+<!--    <label for="citizenID">CitizenID :</label>-->
+<!--    <input type="text" id="citizenID" th:field="*{citizenID}"/><br/><br/>-->
+
+<!--    <label for="photo">CitizenID :</label>-->
+<!--    <input type="text" id="photo" th:field="*{photo}"/><br/><br/>-->
+
+<!--    <label for="shop">Shop :</label>-->
+<!--    <input type="text" id="shop" th:field="*{shop.shopID}"/><br/><br/>-->
+
+<!--    <input type="submit" value="Update"/>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

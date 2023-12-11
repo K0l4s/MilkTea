@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
+<head>
+  <meta charset="UTF-8">
+  <title>Add role</title>
+</head>
+<body>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+      <h6 class="m-0 font-weight-bold text-primary">Role Add</h6>
+
+      <!-- Button in line with card-header -->
+      <div class="d-flex align-items-center">
+        <div class="ml-auto">
+          <a href="/admin/role" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+            <span class="text">BACK</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <form th:action="@{/role/save}" th:object="${role}" method="POST" enctype="multipart/form-data">
+
+        <label for="name">Role name:</label>
+        <input type="text" id="name" th:field="*{name}" required/><br/><br/>
+
+        <button type="submit" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                    </span>
+          <span class="text">Save</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /.container-fluid -->
+</body>
+</html>
+

@@ -15,7 +15,7 @@ public class EmployeeController {
     @GetMapping("/admin/employee")
     public String findAll(Model model){
         model.addAttribute("employees",employeeService.findAll());
-        return "employee/listEmployee";
+        return "admin/employee/listEmployee";
     }
 
     @GetMapping("/admin/employee/edit/{employeeID}")
@@ -23,7 +23,7 @@ public class EmployeeController {
         Optional<Employee> employee = employeeService.findOne(employeeID);
         if (employee.isPresent()) {
             model.addAttribute("employee", employee.get());
-            return "employee/editEmployee";
+            return "admin/employee/editEmployee";
         } else {
             return "error";
         }
@@ -33,7 +33,7 @@ public class EmployeeController {
     public String addEmployee(Model model){
         Employee employee = new Employee();
         model.addAttribute("employee",employee);
-        return "employee/addEmployee";
+        return "admin/employee/addEmployee";
     }
 
     @GetMapping("/admin/employee/delete/{employeeID}")
@@ -54,7 +54,7 @@ public class EmployeeController {
         if (name != "") {
             model.addAttribute("name", name);
             model.addAttribute("employees",employeeService.findEmployeeByName(name));
-            return "/employee/listEmployee";
+            return "admin/employee/listEmployee";
         }
         else {
             model.addAttribute("employees",employeeService.findAll());
