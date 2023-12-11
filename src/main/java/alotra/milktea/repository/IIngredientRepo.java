@@ -11,4 +11,6 @@ import java.util.List;
 public interface IIngredientRepo extends JpaRepository<Ingredients, Integer> {
     @Query("SELECT i FROM Ingredients i WHERE i.name LIKE :keyword ")
     List<Ingredients> findIngredientsByKeyWord(@Param("keyword") String keyword);
+
+    List<Ingredients> findAllByStatusNot(short status);
 }

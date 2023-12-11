@@ -11,4 +11,8 @@ public interface ICartService {
     void saveCart(Cart cart);
     void deleteCart(int id);
     List<Cart> findCartByName(String name);
+
+    List<Cart> finCartByCustomerID(int id);
+
+    Cart findByID(int id);
 }

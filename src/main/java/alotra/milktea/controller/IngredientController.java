@@ -16,7 +16,7 @@ public class IngredientController {
     IIngredientService ingredientService = new IngredientServiceImpl();
     @GetMapping("/admin/ingredient")
     public String findAll(Model model){
-        model.addAttribute("ingredient",ingredientService.findAll());
+        model.addAttribute("ingredient",ingredientService.findAllByStatusNot((short) 0));
         return "admin/ingredient/list";
     }
     @GetMapping("/admin/ingredient/add")

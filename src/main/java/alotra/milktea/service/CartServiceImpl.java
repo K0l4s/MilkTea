@@ -35,4 +35,14 @@ public class CartServiceImpl implements ICartService{
     public List<Cart> findCartByName(String name) {
         return cartRepo.findCartByKeyWord(name);
     }
+
+    @Override
+    public List<Cart> finCartByCustomerID(int id) {
+        return cartRepo.findCartByCustomerCustomerID(id);
+    }
+
+    @Override
+    public Cart findByID(int id) {
+        return cartRepo.findCartById(id);
+    }
 }

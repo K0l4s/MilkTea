@@ -1,7 +1,9 @@
 package alotra.milktea.controller;
 
 import alotra.milktea.entity.Cart;
+import alotra.milktea.service.CartProductsServiceImpl;
 import alotra.milktea.service.CartServiceImpl;
+import alotra.milktea.service.ICartProductsService;
 import alotra.milktea.service.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class CartController {
     @Autowired
     ICartService cartService = new CartServiceImpl();
+    @Autowired
+    ICartProductsService cartProductsService = new CartProductsServiceImpl();
     @GetMapping("/admin/cart")
     public String findAll(Model model){
         model.addAttribute("carts",cartService.findAll());
@@ -44,16 +48,16 @@ public class CartController {
         cartService.deleteCart(id);
         return "redirect:/admin/cart";
     }
-    @GetMapping("/admin/cart/search")
-    public String searchProByCartName(@RequestParam("name") String name, Model model){
-        if (name != "") {
-            model.addAttribute("name", name);
-            model.addAttribute("carts",cartService.findCartByName(name));
-            return "/cart/list";
-        }
-        else {
-            model.addAttribute("carts",cartService.findAll());
-            return "redirect:/admin/cart";
-        }
+//  User
+    @GetMapping("/user/cart")
+    public String findAll_User(@RequestParam("id") int id, Model model){
+        model.addAttribute("carts",cartService.finCartByCustomerID(id));
+        return "/cart/list";
+    }
+    @GetMapping("/user/cart/view")
+    public String DetailsCart(@RequestParam("id") int id, Model model){
+        model.addAttribute("list",cartProductsService.findProByCartID(id));
+        model.addAttribute("cartID",id);
+        return "/cart_products/view";
     }
 }

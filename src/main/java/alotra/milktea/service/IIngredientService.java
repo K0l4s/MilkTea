@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface IIngredientService {
     List<Ingredients> findAll();
+    List<Ingredients> findAllByStatusNot(short status);
     Optional<Ingredients> findOne(int id);
     void saveIngredients(Ingredients ingredients);
     void deleteIngredients(int id);

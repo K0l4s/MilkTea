@@ -32,4 +32,14 @@ public class CartProductsServiceImpl implements ICartProductsService{
     public void deleteCartPro(int id) {
         cartProductsRepo.deleteById(id);
     }
+
+    @Override
+    public List<CartProducts> findProByCartID(int id) {
+        return cartProductsRepo.findCartProductsByCartId(id);
+    }
+
+    @Override
+    public CartProducts findCartProductsById(int id) {
+        return cartProductsRepo.findCartProductsById(id);
+    }
 }
