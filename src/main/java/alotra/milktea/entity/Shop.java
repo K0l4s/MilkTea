@@ -24,4 +24,6 @@ public class Shop implements Serializable{
 
 	private String name;
 	private String location;
+	@Column(nullable = false)
+	private short status;
 }

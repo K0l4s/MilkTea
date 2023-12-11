@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface ICategoryService {
     List<Category> findAll();
 
+    List<Category> findAllByStatusNot(short status);
     Optional<Category> findOne(int id);
 
     void saveCategory(Category category);

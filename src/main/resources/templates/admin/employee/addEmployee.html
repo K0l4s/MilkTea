@@ -33,11 +33,14 @@
                 <input type="text" id="name" th:field="*{name}" required/><br/><br/>
 
                 <label for="username">Username:</label>
-                <input type="text" id="username" th:field="*{username.username}" required/><br/><br/>
+                <select id="username" th:field="*{username.username}" required>
+                    <option th:each="user : ${users}" th:value="${user.getUsername()}" th:text="${user.getUsername()}"></option>
+                </select><br><br>
 
                 <label for="roleID">Role ID:</label>
-                <input type="text" id="roleID" name = "roleID" th:field="*{roleID.roleId}" required/><br/><br/>
-
+                <select id="roleID" th:field="*{roleID.roleId}" required>
+                    <option th:each="role : ${roles}" th:value="${role.getRoleId()}" th:text="${role.getName()}"></option>
+                </select><br><br>
                 <label for="citizenID">Citizen ID:</label>
                 <input type="text" id="citizenID" th:field="*{citizenID}" required/><br/><br/>
 
@@ -45,7 +48,9 @@
                 <input type="text" id="photo" name="photo"  th:field="*{photo}" required/><br/><br/>
 
                 <label for="shop">Shop:</label>
-                <input type="text" id="shop" name="shop" th:field="*{shop.shopID}" required/><br/><br/>
+                <select id="shop" th:field="*{shop.shopID}" required>
+                    <option th:each="shop : ${shops}" th:value="${shop.getShopID()}" th:text="${shop.getName()}"></option>
+                </select><br><br>
 
                 <button type="submit" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">

@@ -2,6 +2,8 @@ package alotra.milktea.controller;
 
 import alotra.milktea.entity.Category;
 import alotra.milktea.entity.Product;
+import alotra.milktea.service.CategoryServiceImpl;
+import alotra.milktea.service.ICategoryService;
 import alotra.milktea.service.IProductService;
 import alotra.milktea.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,21 +11,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class ProductController {
     @Autowired
     IProductService productService = new ProductServiceImpl();
+    @Autowired
+    ICategoryService categoryService = new CategoryServiceImpl();
     @GetMapping("/admin/product")
     public String findAll(Model model){
-        model.addAttribute("products",productService.findAll());
+        model.addAttribute("products",productService.findAllByStatusNot((short) 0));
         return "admin/product/list";
     }
     @GetMapping("/admin/product/edit/{id}")
     public String findOne(@PathVariable("id") int id, Model model){
         Optional<Product> product = productService.findOne(id);
         if(product.isPresent()){
+            model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
             model.addAttribute("product", product.get());
             return "admin/product/edit";
         }
@@ -32,6 +38,7 @@ public class ProductController {
     @GetMapping("/admin/product/add")
     public String addProduct(Model model){
         Product pro = new Product();
+        model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
         model.addAttribute("product",pro);
         return "/admin/product/add";
     }

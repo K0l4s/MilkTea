@@ -16,7 +16,7 @@ public class ShopController {
     IShopService shopService = new ShopServiceImpl();
     @GetMapping("/admin/shop")
     public String findAll(Model model){
-        model.addAttribute("shops", shopService.findAll());
+        model.addAttribute("shops", shopService.findAllBySatusNot((short) 0));
         return "admin/shop/list";
     }
     @GetMapping("/admin/shop/edit/{id}")

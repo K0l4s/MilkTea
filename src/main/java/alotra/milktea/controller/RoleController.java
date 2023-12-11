@@ -17,7 +17,7 @@ public class RoleController {
 
     @GetMapping("/admin/role")
     public String findAll(Model model){
-        model.addAttribute("roles",roleService.findAll());
+        model.addAttribute("roles",roleService.findAllByStatusNot((short) 0));
         return "admin/role/list";
     }
     @GetMapping("/admin/role/edit/{roleID}")

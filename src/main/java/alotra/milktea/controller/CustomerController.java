@@ -17,14 +17,14 @@ public class CustomerController {
     @GetMapping("/admin/customer")
     public String findAll(Model model){
         model.addAttribute("customers",customerService.findAll());
-        return "/customer/list";
+        return "admin/customer/list";
     }
     @GetMapping("/admin/customer/edit/{customerID}")
     public String editCustomer(@PathVariable("customerID") int id, Model model){
         Optional<Customer> customer = customerService.findOne(id);
         if(customer.isPresent()){
             model.addAttribute("customer",customer.get());
-            return "/customer/edit";
+            return "admin/customer/edit";
         }
         return "error";
     }
@@ -32,7 +32,7 @@ public class CustomerController {
     public String addCustomer(Model model){
         Customer customer = new Customer();
         model.addAttribute("customer", customer);
-        return "/customer/add";
+        return "admin/customer/add";
     }
     @PostMapping("/customer/save")
     public String saveCustomer(@ModelAttribute("customer") Customer customer){

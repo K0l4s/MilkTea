@@ -11,4 +11,6 @@ import java.util.List;
 public interface IShopRepo extends JpaRepository<Shop, Integer> {
     @Query("SELECT s FROM Shop s WHERE s.name LIKE :keyword ")
     List<Shop> findShopByKeyWord(@Param("keyword") String keyword);
+
+    List<Shop> findAllByStatusNot(short status);
 }

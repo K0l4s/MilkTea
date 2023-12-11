@@ -18,18 +18,32 @@ public class CategoryServiceImpl implements ICategoryService{
     }
 
     @Override
+    public List<Category> findAllByStatusNot(short status) {
+        return categoryRepo.findAllByStatusNot((short) 0);
+    }
+
+    @Override
     public Optional<Category> findOne(int id) {
         return categoryRepo.findById(id);
     }
 
     @Override
     public void saveCategory(Category category) {
+        category.setStatus((short) 1);
         categoryRepo.save(category);
     }
 
     @Override
     public void deleteCategory(int id) {
-        categoryRepo.deleteById(id);
+        Optional<Category> optional = categoryRepo.findById(id);
+        if (optional.isPresent()){
+            Category category = optional.get();
+            category.setStatus((short) 0);
+            categoryRepo.save(category);
+        }
+        else {
+            System.out.println("Doesnt exists!");
+        }
     }
 
     @Override

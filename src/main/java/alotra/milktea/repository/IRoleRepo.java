@@ -11,4 +11,6 @@ import java.util.List;
 public interface IRoleRepo extends JpaRepository<Role,Integer> {
     @Query("SELECT r FROM Role r WHERE r.name LIKE :keyword ")
     List<Role> findRoleByKeyWord(@Param("keyword") String keyword);
+
+    List<Role> findAllByStatusNot(short status);
 }
