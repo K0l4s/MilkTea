@@ -31,23 +31,28 @@
 
                 <input type="hidden" th:field="*{employeeID}"/>
 
-                <label for="name">Name :</label>
-                <input type="text" id="name" th:field="*{name}" /><br/><br/>
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" required/><br/><br/>
 
-                <label for="username">Username :</label>
-                <input type="text" id="username" th:field="*{username.username}"/><br/><br/>
+                <label for="username">Username:</label>
+                <select id="username" th:field="*{username.username}" required>
+                    <option th:each="user : ${users}" th:value="${user.getUsername()}" th:text="${user.getUsername()}"></option>
+                </select><br><br>
 
-                <label for="roleID">roleID :</label>
-                <input type="text" id="roleID" th:field="*{roleID.roleId}"/><br/><br/>
+                <label for="roleID">Role ID:</label>
+                <select id="roleID" th:field="*{roleID.roleId}" required>
+                    <option th:each="role : ${roles}" th:value="${role.getRoleId()}" th:text="${role.getName()}"></option>
+                </select><br><br>
+                <label for="citizenID">Citizen ID:</label>
+                <input type="text" id="citizenID" th:field="*{citizenID}" required/><br/><br/>
 
-                <label for="citizenID">CitizenID :</label>
-                <input type="text" id="citizenID" th:field="*{citizenID}"/><br/><br/>
+                <label for="photo">Photo:</label>
+                <input type="text" id="photo" name="photo"  th:field="*{photo}" required/><br/><br/>
 
-                <label for="photo">CitizenID :</label>
-                <input type="text" id="photo" th:field="*{photo}"/><br/><br/>
-
-                <label for="shop">Shop :</label>
-                <input type="text" id="shop" th:field="*{shop.shopID}"/><br/><br/>
+                <label for="shop">Shop:</label>
+                <select id="shop" th:field="*{shop.shopID}" required>
+                    <option th:each="shop : ${shops}" th:value="${shop.getShopID()}" th:text="${shop.getName()}"></option>
+                </select><br><br>
 
                 <button type="submit" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">

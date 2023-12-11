@@ -35,5 +35,6 @@ public class Category implements Serializable{
 	@Column(columnDefinition = "NVARCHAR(255)")
 	private String categoryName;
 
-
+	@Column(nullable = false)
+	private short status;
 }

@@ -16,7 +16,7 @@ public class CategoryController {
     ICategoryService categoryService = new CategoryServiceImpl();
     @GetMapping("/admin/category")
     public String findAll(Model model){
-        model.addAttribute("listcate",categoryService.findAll());
+        model.addAttribute("listcate",categoryService.findAllByStatusNot((short) 0));
         return "admin/category/list";
     }
     @GetMapping("/admin/category/edit/{categoryID}")

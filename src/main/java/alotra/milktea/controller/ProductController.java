@@ -29,7 +29,7 @@ public class ProductController {
     public String findOne(@PathVariable("id") int id, Model model){
         Optional<Product> product = productService.findOne(id);
         if(product.isPresent()){
-            model.addAttribute("categories", categoryService.findAll());
+            model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
             model.addAttribute("product", product.get());
             return "admin/product/edit";
         }
@@ -38,7 +38,7 @@ public class ProductController {
     @GetMapping("/admin/product/add")
     public String addProduct(Model model){
         Product pro = new Product();
-        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
         model.addAttribute("product",pro);
         return "/admin/product/add";
     }

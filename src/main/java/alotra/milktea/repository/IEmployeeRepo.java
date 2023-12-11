@@ -15,4 +15,6 @@ public interface IEmployeeRepo extends JpaRepository<Employee, Integer > {
 
     @Query("SELECT e FROM Employee e WHERE e.name LIKE :keyword OR e.username.username LIKE :keyword OR e.roleID.name LIKE :keyword " )
     List<Employee> findEmployeeByKeyWord(@Param("keyword") String keyword);
+
+    List<Employee> findAllByStatusNot(short status);
 }

@@ -2,13 +2,7 @@ package alotra.milktea.entity;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,4 +37,7 @@ public class Employee implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="shopID")
 	private Shop shop;
+
+	@Column(nullable = false)
+	private short status;
 }

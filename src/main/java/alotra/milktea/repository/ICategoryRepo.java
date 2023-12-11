@@ -11,4 +11,6 @@ import java.util.List;
 public interface ICategoryRepo extends JpaRepository<Category, Integer> {
     @Query("SELECT c FROM Category c WHERE c.categoryName LIKE :keyword ")
     List<Category> findCategoryByKeyWord(@Param("keyword") String keyword);
+
+    List<Category> findAllByStatusNot(short status);
 }
