@@ -140,4 +140,53 @@ public class Cart_ProductsController {
         // Xử lý khi không tìm thấy cookie hoặc không có giá trị
         return "redirect:/login";
     }
+    @GetMapping("detail_cart/increase/{id}")
+    public String increaseAmount(@PathVariable("id") int id) {
+        // Lấy thông tin sản phẩm trong giỏ hàng cần tăng số lượng
+        Optional<CartProducts> cartProductOptional = cartProductsService.findOne(id);
+
+        if (cartProductOptional.isPresent()) {
+            CartProducts cartProduct = cartProductOptional.get();
+
+            // Tăng số lượng
+            cartProduct.setAmount(cartProduct.getAmount() + 1);
+
+            // Lưu lại thông tin sản phẩm
+            cartProductsService.saveCartPro(cartProduct);
+        }
+
+        return "redirect:/detail_cart";
+    }
+    @GetMapping("detail_cart/decrease/{id}")
+    public String decreaseAmount(@PathVariable("id") int id, Model model) {
+        // Lấy thông tin sản phẩm trong giỏ hàng cần giảm số lượng
+        Optional<CartProducts> cartProductOptional = cartProductsService.findOne(id);
+
+        if (cartProductOptional.isPresent()) {
+            CartProducts cartProduct = cartProductOptional.get();
+
+            // Kiểm tra số lượng không dưới 1 trước khi giảm
+            if (cartProduct.getAmount() > 1) {
+                // Giảm số lượng
+                cartProduct.setAmount(cartProduct.getAmount() - 1);
+
+                // Lưu lại thông tin sản phẩm
+                cartProductsService.saveCartPro(cartProduct);
+                model.addAttribute("message", "Đã cập nhật số lượng.");
+            }
+            else {
+                String message = "Số lượng không thể ít hơn 1.";
+                model.addAttribute("message", message);
+                System.out.println(message); // Add this line for debugging
+            }
+        }
+
+        return "redirect:/detail_cart";
+    }
+
+    @GetMapping("/detail_cart/delete/{id}")
+    public String deleteCart_Products(@PathVariable int id){
+        cartProductsService.deleteCartPro(id);
+        return "redirect:/detail_cart";
+    }
 }

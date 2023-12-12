@@ -10,6 +10,9 @@
             height: 30px;
         }
     </style>
+    <script th:if="${message != null and not #strings.isEmpty(message)}">
+        alert(/*[[${message}]]*/ '');
+    </script>
 </head>
 <body>
 <!-- Begin Page Content -->
@@ -25,6 +28,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>IDCustomer</th>
                         <th>Image</th>
                         <th>Product</th>
                         <th>Amount</th>
@@ -35,20 +39,29 @@
                     </thead>
                     <tbody>
                     <tr th:each="cart_products : ${list}">
+                        <td th:text="${cart_products.getCart().getCustomer().getCustomerID()}"></td>
                         <td style="width: 20%"><img th:src="${cart_products.getProduct().imageURL != null ? '/admin/product/images/' + cart_products.getProduct().imageURL : '/images/no_image.jpg'}"
                                  class="img-fluid" alt=""></td>
                         <td th:text="${cart_products.getProduct().getName()}"></td>
                         <td th:text="${cart_products.getAmount()}"></td>
                         <td th:text="${cart_products.getProduct().getPrice()}"></td>
-                        <td th:text="0"></td>
+                        <td th:text="${cart_products.getAmount()} * ${cart_products.getProduct().getPrice()}"></td>
                         <td>
-                            <a th:href="@{'cart_products/edit/' + ${cart_products.id}}"><button class = "m-1" style="width: 40px">+</button></a>
-                            <a th:href="@{'cart_products/edit/' + ${cart_products.id}}"><button class = "m-1" style="width: 40px">-</button></a>
-                            <a th:href="@{'cart_products/delete/' + ${cart_products.id}}"><button>Delete</button></a>
+                            <a th:href="@{'/detail_cart/increase/' + ${cart_products.id}}"><button class="m-1" style="width: 40px">+</button></a>
+                            <a th:href="@{'/detail_cart/decrease/' + ${cart_products.id}}"><button class="m-1" style="width: 40px">-</button></a>
+                            <a th:href="@{'/detail_cart/delete/' + ${cart_products.id}}"><button>Delete</button></a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <div class="ml-auto">
+                    <a href="#" class="btn btn-secondary btn-icon-split" style="align-content: center">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        <span class="text">Check out</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
