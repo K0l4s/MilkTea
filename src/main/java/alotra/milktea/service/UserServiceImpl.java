@@ -1,14 +1,17 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Role;
 import alotra.milktea.entity.User;
 import alotra.milktea.model.ResetPasswordModel;
 import alotra.milktea.model.SendCodeModel;
+import alotra.milktea.repository.IRoleRepo;
 import alotra.milktea.repository.IUserRepo;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements IUserService{
@@ -16,24 +19,29 @@ public class UserServiceImpl implements IUserService{
 	IUserRepo userRepo;
 	@Autowired
 	Email email = new Email();
+	@Autowired
+	IRoleRepo roleRepo;
 	
 	@Override
-	@Transactional
+//	@Transactional
 	public boolean register(User user) {
-		try {
+//		try {
 //			Kiểm tra trùng lặp username
+
 			List<User> listUser = findAll();
 			for(User item:listUser)
 				if(item.getUsername().equals(user.getUsername()))
 						return false;
 			user.setEnable(false);
-
+			Optional<Role> role = roleRepo.findById(3);
+			if(user.getRole() == null)
+				user.setRole(role.get());
 //			Nếu không lặp username thì lưu user mới
 			userRepo.save(user);
 			return true;
-		} catch(Exception e) {
-			return false;
-		}
+//		} catch(Exception e) {
+//			return false;
+//		}
 	}
 
 	@Override
@@ -41,13 +49,17 @@ public class UserServiceImpl implements IUserService{
 //		String username = user.getUsername();
 //		String password = user.getPassword();
 //		return userRepo.login(username, password);
-		List<User> listUser = userRepo.findUserByUsernameAndPassword(username,password);
-		User user = listUser.get(0);
-		if(user.isEnable() == false)
+		try {
+			List<User> listUser = userRepo.findUserByUsernameAndPassword(username, password);
+			User user = listUser.get(0);
+			if (user.isEnable() == false)
+				return false;
+			if (listUser.isEmpty())
+				return false;
+			return true;
+		} catch(Exception ex){
 			return false;
-		if(listUser.isEmpty())
-			return false;
-		return true;
+		}
 	}
 
 	@Override
@@ -62,7 +74,15 @@ public class UserServiceImpl implements IUserService{
 	public List<User> findAll() {
 		return userRepo.findAll();
 	}
-
+	@Override
+	public List<User> findAll(int start, int pageSize){
+		PageRequest pageRequest = PageRequest.of(start,pageSize);
+		return userRepo.findAll(pageRequest);
+	}
+	@Override
+	public Long countAll(){
+		return userRepo.count();
+	}
 	@Override
 	public User findOne(String username) {
 		return userRepo.findUserByUsername(username);
@@ -106,5 +126,40 @@ public class UserServiceImpl implements IUserService{
 		user.setCode(null);
 		userRepo.save(user);
 		return true;
+	}
+
+	@Override
+	public boolean delete(String username){
+		try{
+			userRepo.deleteById(username);
+			return true;
+		}catch (Exception ex){
+			return false;
+		}
+	}
+
+	@Override
+	public boolean enableAccount(String username){
+		try{
+			User user = findOne(username);
+			if(user.isEnable())
+				user.setEnable(false);
+			else
+				user.setEnable(true);
+			userRepo.save(user);
+			return true;
+		}
+		catch (Exception ex){
+			return false;
+		}
+	}
+	@Override
+	public boolean updateUser(User user){
+		try{
+			userRepo.save(user);
+			return true;
+		} catch(Exception exx){
+			return false;
+		}
 	}
 }

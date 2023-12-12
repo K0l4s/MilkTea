@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,4 +16,6 @@ public interface IBillRepo extends JpaRepository<Bill,Integer> {
 
     @Query("SELECT b FROM Bill b WHERE b.customer.customerName LIKE :keyword OR b.employee.name LIKE :keyword")
     List<Bill> findBillByKeyWord(@Param("keyword") String keyword);
+
+    List<Bill> findBillsByCreateDayBetween(LocalDateTime start, LocalDateTime end);
 }

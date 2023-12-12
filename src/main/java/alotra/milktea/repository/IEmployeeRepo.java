@@ -13,7 +13,7 @@ import java.util.List;
 public interface IEmployeeRepo extends JpaRepository<Employee, Integer > {
     Employee findEmployeeByEmployeeID(int id);
 
-    @Query("SELECT e FROM Employee e WHERE e.name LIKE :keyword OR e.username.username LIKE :keyword OR e.roleID.name LIKE :keyword " )
+    @Query("SELECT e FROM Employee e WHERE e.name LIKE :keyword OR e.username.username LIKE :keyword " )
     List<Employee> findEmployeeByKeyWord(@Param("keyword") String keyword);
 
     List<Employee> findAllByStatusNot(short status);

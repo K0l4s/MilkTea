@@ -79,7 +79,7 @@ public class HomeController {
 				// User newUser = user;
 				// newUser.setCode(null);
 				//user.setCode(null);
-
+				user.setCode(null);
 				model.addAttribute("user", user);
 				return "home/vetifyRegister";
 			}

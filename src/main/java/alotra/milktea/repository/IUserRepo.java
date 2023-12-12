@@ -1,6 +1,7 @@
 package alotra.milktea.repository;
 
 import alotra.milktea.entity.User;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +22,7 @@ public interface IUserRepo extends JpaRepository<User, String>{
 
 	@Query("SELECT u FROM User u WHERE u.email = :email")
 	List<User> findUserByEmail(@Param("email") String email);
+
+	@Query("SELECT u FROM User u")
+	List<User> findAll(PageRequest pageRequest);
 }

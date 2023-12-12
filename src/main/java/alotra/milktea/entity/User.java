@@ -1,14 +1,13 @@
 package alotra.milktea.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -36,5 +35,7 @@ public class User implements Serializable{
 
 	private boolean isEnable;
 
-
+	@ManyToOne
+	@JoinColumn(name="roleID")
+	private Role role;
 }
