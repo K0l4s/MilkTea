@@ -30,6 +30,8 @@ public class Cart_ProductsController {
     IUserService userService = new UserServiceImpl();
     @Autowired
     IBillService billService = new BillServiceImpl();
+    @Autowired
+    IBill_ProductsService billProductsService = new Bill_ProductsServiceImpl();
     @GetMapping("/cart_products")
     public String findAll(Model model){
         model.addAttribute("list",cartProductsService.findAll());
@@ -234,8 +236,21 @@ public class Cart_ProductsController {
 
                             billService.saveBill(bill);
 
-                            Bill_Products billProducts = new Bill_Products();
+                            // Lấy giỏ hàng của khách hàng
+                            Cart userCart = cartService.findCartByCustomer(customer);
 
+                            // Nếu giỏ hàng tồn tại, lấy danh sách sản phẩm trong giỏ hàng
+                            if (userCart != null) {
+                                List<CartProducts> cartProductsList = cartProductsService.findProByCartID(userCart.getId());
+                                for (CartProducts cartProduct : cartProductsList) {
+                                    Bill_Products bp =  new Bill_Products();
+                                    bp.setProduct(cartProduct.getProduct());
+                                    bp.setAmount(cartProduct.getAmount());
+                                    bp.setBill(bill);
+
+                                    billProductsService.saveBill_Products(bp);
+                                }
+                            }
 
                             return "redirect:/product"; // Hoặc trả về trang thành công sau khi đã tạo bill thành công
                         }
