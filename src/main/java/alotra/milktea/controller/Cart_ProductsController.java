@@ -19,7 +19,7 @@ public class Cart_ProductsController {
     ICartService cartService = new CartServiceImpl();
     @Autowired
     IProductService productService = new ProductServiceImpl();
-    @GetMapping("/admin/cart_products")
+    @GetMapping("/cart_products")
     public String findAll(Model model){
         model.addAttribute("list",cartProductsService.findAll());
         return "web/cart/list";
