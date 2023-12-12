@@ -12,4 +12,9 @@ import java.util.List;
 public interface ICartRepo extends JpaRepository<Cart,Integer> {
     @Query("SELECT c FROM Cart c WHERE c.customer.customerName LIKE :keyword ")
     List<Cart> findCartByKeyWord(@Param("keyword") String keyword);
+
+    List<Cart> findCartByCustomerCustomerID(int id);
+
+    Cart findCartById(int id);
+
 }

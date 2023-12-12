@@ -10,11 +10,13 @@
     <form th:action="@{/cart_products/save}" th:object="${list}" method="POST" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}"/>
 
-        <label for="cartID">cart ID:</label>
-        <input type="number" id="cartID" th:field="*{cart.id}" required/><br/><br/>
+<!--        <label for="cartID">cart ID:</label>-->
+        <input type="hidden" id="cartID" th:field="*{cart.id}" required/><br/><br/>
 
         <label for="productID">product ID:</label>
-        <input type="number" id="productID" th:field="*{product.productID}" required/><br/><br/>
+        <select id="productID" th:field="*{product.productID}" required>
+            <option th:each="product : ${products}" th:value="${product.getProductID()}" th:text="${product.getName()}"></option>
+        </select><br><br>
 
         <label for="amount">CustomerID:</label>
         <input type="number" id="amount" th:field="*{amount}" required/><br/><br/>

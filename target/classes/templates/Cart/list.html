@@ -8,17 +8,13 @@
 <div align="center">
     <h1>Cart List</h1>
     <a th:href="@{ cart/add}"><button>Add</button></a>
-    <form th:action="@{/admin/cart/search}" method="get">
-        <label for="search">Search by Name:</label>
-        <input type="text" id="search" name="name" th:value="*{name}">
-        <input type="submit" value="Search">
-    </form>
     <table border="1">
         <thead>
         <tr>
             <th>ID</th>
             <th>Customer</th>
             <th>Actions</th>
+            <th>Details</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +24,10 @@
             <td>
                 <a th:href="@{'cart/edit/' + ${cart.id}}"><button>Edit</button></a>
                 <a th:href="@{'cart/delete/' + ${cart.id}}"><button>Delete</button></a>
+            </td>
+            <td>
+                <a th:href="@{'cart/view?id=' + ${cart.id}}"><button>View</button></a>
+
             </td>
         </tr>
         </tbody>

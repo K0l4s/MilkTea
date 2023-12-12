@@ -18,18 +18,32 @@ public class IngredientServiceImpl implements IIngredientService{
     }
 
     @Override
+    public List<Ingredients> findAllByStatusNot(short status) {
+        return ingredientRepo.findAllByStatusNot((short) 0);
+    }
+
+    @Override
     public Optional<Ingredients> findOne(int id) {
         return ingredientRepo.findById(id);
     }
 
     @Override
     public void saveIngredients(Ingredients ingredients) {
+        ingredients.setStatus((short) 1);
         ingredientRepo.save(ingredients);
     }
 
     @Override
     public void deleteIngredients(int id) {
-        ingredientRepo.deleteById(id);
+        Optional<Ingredients> optional = ingredientRepo.findById(id);
+        if (optional.isPresent()){
+            Ingredients ingredients = optional.get();
+            ingredients.setStatus((short) 0);
+            ingredientRepo.save(ingredients);
+        }
+        else {
+            System.out.println("Doesnt exists!");
+        }
     }
 
     @Override

@@ -9,6 +9,8 @@ public interface ICartProductsService {
     List<CartProducts> findAll();
     Optional<CartProducts> findOne(int id);
     void saveCartPro(CartProducts cp);
-
     void deleteCartPro(int id);
+    List<CartProducts> findProByCartID(int id);
+
+    CartProducts findCartProductsById(int id);
 }
