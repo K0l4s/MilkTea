@@ -1,10 +1,7 @@
 package alotra.milktea.controller;
 
-import alotra.milktea.entity.Cart;
-import alotra.milktea.entity.CartProducts;
+import alotra.milktea.entity.*;
 
-import alotra.milktea.entity.Customer;
-import alotra.milktea.entity.User;
 import alotra.milktea.service.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +28,8 @@ public class Cart_ProductsController {
     IProductService productService = new ProductServiceImpl();
     @Autowired
     IUserService userService = new UserServiceImpl();
+    @Autowired
+    IBillService billService = new BillServiceImpl();
     @GetMapping("/cart_products")
     public String findAll(Model model){
         model.addAttribute("list",cartProductsService.findAll());
@@ -125,8 +125,14 @@ public class Cart_ProductsController {
                             if (userCart != null) {
                                 List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
 
+                                // Tính tổng tiền
+                                double total = calculateTotal(cartProducts);
+
                                 model.addAttribute("products", productService.findAllByStatusNot((short) 0));
                                 model.addAttribute("list", cartProducts);
+
+                                model.addAttribute("total", total);
+
                                 return "web/cart/list";
                             } else {
                                 // Xử lý khi giỏ hàng không tồn tại
@@ -188,5 +194,55 @@ public class Cart_ProductsController {
     public String deleteCart_Products(@PathVariable int id){
         cartProductsService.deleteCartPro(id);
         return "redirect:/detail_cart";
+    }
+
+    // Hàm tính tổng số tiền từ danh sách sản phẩm trong giỏ hàng
+    private double calculateTotal(List<CartProducts> cartProducts) {
+        double total = 0;
+        for (CartProducts cartProduct : cartProducts) {
+            double subtotal = cartProduct.getAmount() * cartProduct.getProduct().getPrice();
+            total += subtotal;
+        }
+        return total;
+    }
+
+    @GetMapping("/checkout")
+    public String payCart(Model model, HttpServletRequest request) {
+        return "/payment/payment";
+    }
+
+    @GetMapping("/confirm")
+    public String comfirmPayment(Model model, HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        User user = userService.findOne(username);
+
+                        if (user != null && user.getCustomer() != null) {
+                            Customer customer = user.getCustomer();
+
+                            Bill bill = new Bill();
+                            bill.setCreateDay(LocalDateTime.now());
+
+                            // Set thông tin khách hàng
+                            bill.setCustomer(customer);
+
+                            billService.saveBill(bill);
+
+                            Bill_Products billProducts = new Bill_Products();
+
+
+                            return "redirect:/product"; // Hoặc trả về trang thành công sau khi đã tạo bill thành công
+                        }
+                    }
+                }
+            }
+        }
+        return "redirect:/home"; // Xử lý khi không tìm thấy cookie hoặc không có giá trị
     }
 }
