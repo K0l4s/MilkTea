@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Cart;
 import alotra.milktea.entity.Customer;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface ICustomerService {
     void saveCustomer(Customer customer);
     void deleteCustomer(int id);
     List<Customer> findCustomerByName(String name);
+    Cart getOrCreateCartForCustomer(Customer customer);
 }

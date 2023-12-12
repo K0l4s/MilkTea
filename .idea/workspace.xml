@@ -76,7 +76,6 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.edit.html.executor": "Run",
     "JavaScript Debug.list.html.executor": "Run",
-    "JavaScript Debug.payment.html.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -85,15 +84,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.MilkTeaShopsChainManagementApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "khai1",
+    "git-widget-placeholder": "thuan",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "F:/MilkTea/src/main/resources/templates/home",
-    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "0d090a4126dcdba6e9832e4cc7c1faee",
     "vue.rearranger.settings.migration": "true"
   }
@@ -218,9 +217,8 @@
       <workItem from="1702289053968" duration="19571000" />
       <workItem from="1702264411837" duration="10133000" />
       <workItem from="1702308303971" duration="5400000" />
-      <workItem from="1702365627320" duration="2283000" />
-      <workItem from="1702365959817" duration="1891000" />
-      <workItem from="1702371215027" duration="11061000" />
+      <workItem from="1702365959817" duration="2072000" />
+      <workItem from="1702370098799" duration="16133000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Entity">
       <option name="closed" value="true" />

@@ -126,6 +126,7 @@ public class Cart_ProductsController {
                             // Nếu giỏ hàng tồn tại, lấy danh sách sản phẩm trong giỏ hàng
                             if (userCart != null) {
                                 List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+                                int totalAmount = cartProducts.stream().mapToInt(CartProducts::getAmount).sum();
 
                                 // Tính tổng tiền
                                 double total = calculateTotal(cartProducts);
@@ -135,6 +136,7 @@ public class Cart_ProductsController {
 
                                 model.addAttribute("total", total);
 
+                                model.addAttribute("totalAmount", totalAmount);
                                 return "web/cart/list";
                             } else {
                                 // Xử lý khi giỏ hàng không tồn tại
