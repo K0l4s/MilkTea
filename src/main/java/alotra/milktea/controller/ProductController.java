@@ -1,9 +1,10 @@
 package alotra.milktea.controller;
 
-import alotra.milktea.entity.Category;
-import alotra.milktea.entity.Product;
+import alotra.milktea.entity.*;
 import alotra.milktea.model.ProductModel;
 import alotra.milktea.service.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -26,6 +28,12 @@ public class ProductController {
     ICategoryService categoryService = new CategoryServiceImpl();
     @Autowired
     IStorageService storageService;
+    @Autowired
+    ICartService cartService;
+    @Autowired
+    ICartProductsService cartProductsService;
+    @Autowired
+    IUserService userService;
     @GetMapping("/admin/product")
     public String findAll(Model model){
         model.addAttribute("products",productService.findAllByStatusNot((short) 0));
@@ -94,8 +102,40 @@ public class ProductController {
         }
     }
     @GetMapping("/product")
-    public String findAllWeb(Model model){
-        model.addAttribute("products",productService.getProducts(0, 4));
+    public String findAllWeb(Model model, HttpServletRequest request){
+        // Lấy danh sách các cookie từ request
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        // Lấy thông tin người dùng từ username
+                        User user = userService.findOne(username);
+
+                        // Kiểm tra nếu người dùng tồn tại và có thông tin khách hàng
+                        if (user != null && user.getCustomer() != null) {
+                            Customer customer = user.getCustomer();
+
+                            Cart userCart = cartService.findCartByCustomer(customer);
+
+                            // Nếu giỏ hàng tồn tại, thêm cartId vào Model
+                            if (userCart != null) {
+                                List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+                                int totalAmount = cartProducts.stream().mapToInt(CartProducts::getAmount).sum();
+
+                                model.addAttribute("totalAmount", totalAmount);
+                                model.addAttribute("cartId", userCart.getId());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        model.addAttribute("products",productService.getProducts(0, 8));
         return "web/product/list";
     }
     @GetMapping("/loadMoreProducts")
@@ -103,5 +143,42 @@ public class ProductController {
     public List<Product> loadMoreProducts(@RequestParam int offset, @RequestParam int limit) {
         // Sử dụng offset và limit để truy vấn sản phẩm từ db
         return productService.getProducts(offset, limit);
+    }
+    @PostMapping("/addToCart/add")
+    @ResponseBody
+    public String addToCart(@RequestParam("productId") int productId,
+                            @RequestParam("cartId") int cartId,
+                            @RequestParam("amount") int amount) {
+        try {
+            // Find the cart and product
+            Cart cart = cartService.findByID(cartId);
+            Optional<Product> product = productService.findOne(productId);
+
+            // Check if both cart and product exist
+            if (cart != null && product.isPresent()) {
+                // Check if the product is already in the cart
+                Optional<CartProducts> existingProduct = cartProductsService.findByCartAndProduct(cart, product.get());
+
+                if (existingProduct.isPresent()) {
+                    // If the product already exists, update the quantity
+                    existingProduct.get().setAmount(existingProduct.get().getAmount() + amount);
+                    cartProductsService.saveCartPro(existingProduct.get());
+                } else {
+                    // If the product isn't in the cart, create a new
+                    CartProducts newProduct = new CartProducts();
+                    newProduct.setCart(cart);
+                    newProduct.setProduct(product.get());
+                    newProduct.setAmount(amount);
+                    cartProductsService.saveCartPro(newProduct);
+                }
+
+                return "Product added to cart successfully";
+            } else {
+                return "Error: Cart or product not found";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error adding product to cart";
+        }
     }
 }

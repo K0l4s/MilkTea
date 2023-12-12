@@ -3,6 +3,7 @@
 <head>
     <title>ALO MilkTea</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 <header id="header" class="site-header fixed-top border-bottom" th:fragment="header">
@@ -45,7 +46,15 @@
                         </a>
                         <ul class="user-items list-unstyled d-none d-lg-flex justify-content-end align-items-center order-3 flex-grow-1 gap-5 m-0">
                             <li>
-                                <a href="login" class="text-light">
+                                <a href="/detail_cart" class="text-light" aria-controls="offcanvasCart">
+                                    <svg class="cart svg-white" width="18" height="18">
+                                        <use xlink:href="#cart"></use>
+                                    </svg>
+                                    <span th:text="${totalAmount}">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/login" class="text-light">
                                     <svg class="user svg-white" width="18" height="18">
                                         <use xlink:href="#user"></use>
                                     </svg>
@@ -53,18 +62,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="cart.html" class="text-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                                    <svg class="cart svg-white" width="18" height="18">
-                                        <use xlink:href="#cart"></use>
+                                <a href="/logout" class="text-light">
+                                    <svg class="user svg-white" width="18" height="18">
                                     </svg>
-                                    <span>(0)</span>
+                                    <span>Logout</span>
                                 </a>
-                            </li>
-                            <li>
-                                <svg class="search svg-white" width="18" height="18">
-                                    <use xlink:href="#search"></use>
-                                </svg>
-                                <input type="text" placeholder="Search..." class="border-0 bg-transparent fst-italic outline-none text-light">
                             </li>
                         </ul>
                     </div>

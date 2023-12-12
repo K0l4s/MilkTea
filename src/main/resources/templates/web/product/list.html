@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <title>List Product</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
+    <script th:inline="javascript">
         $(document).ready(function() {
-            var offset = 4; // Số lượng sản phẩm hiển thị ban đầu
+            var offset = 8; // Số lượng sản phẩm hiển thị ban đầu
             var limit = 4;  // Số lượng sản phẩm muốn load thêm khi ấn nút "Show More"
-
+            var cartId = /*[[${cartId}]]*/ null;
+            console.log(cartId)
             window.showMoreProducts = function() {
                 $.ajax({
                     type: "GET",
@@ -31,7 +32,6 @@
             }
 
             function updateProductList(products) {
-                console.log(products)
                 var productList = $("#productList");
                 // Loop qua danh sách sản phẩm mới và thêm vào danh sách hiện tại
                 $.each(products, function(index, product) {
@@ -46,11 +46,30 @@
                         '<a href="/single-product/' + product.productID + '" class="text-dark" th:text="' + product.name + '">' + product.name + '</a>' +
                         '</h3>' +
                         '<div class="product-price text-primary fw-medium">' + product.price + ' VND</div>' +
-                        '<button class="btn btn-primary mt-2" onclick="addToCart(' + product.productID + ')" type="button">Add to Cart</button>' +
+                        '<button class="btn btn-primary mt-2" onclick="addToCart(' + product.productID + ', 1)" type="button">Add to Cart</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>';
                     productList.append(productHtml);
+                });
+            }
+            window.addToCart = function(productId, amount) {
+                productId = parseInt(productId);
+                amount = parseInt(amount);
+                $.ajax({
+                    type: "POST",
+                    url: "/addToCart/add",
+                    data: {
+                        productId: productId,
+                        cartId: cartId,
+                        amount: amount
+                    },
+                    success: function (response) {
+                        alert(response);
+                    },
+                    error: function () {
+                        alert("Error adding product to cart");
+                    }
                 });
             }
         });
@@ -79,7 +98,7 @@
                                     </h3>
                                     <div class="product-price text-primary fw-medium" th:text="${product.price + ' VND'}"></div>
 
-                                    <button class="btn btn-primary mt-2" th:onclick="'addToCart(' + ${product.productID} + ')'" type="button">Add to Cart</button>
+                                    <button class="btn btn-primary mt-2" th:onclick="'addToCart(\'' + ${product.productID} + '\', 1)'" type="button">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -396,6 +415,5 @@
             </div>
         </section>
     </div>
-
 </body>
 </html>

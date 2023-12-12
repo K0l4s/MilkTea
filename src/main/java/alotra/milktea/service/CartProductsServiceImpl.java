@@ -1,6 +1,8 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Cart;
 import alotra.milktea.entity.CartProducts;
+import alotra.milktea.entity.Product;
 import alotra.milktea.repository.ICartProductsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +43,16 @@ public class CartProductsServiceImpl implements ICartProductsService{
     @Override
     public CartProducts findCartProductsById(int id) {
         return cartProductsRepo.findCartProductsById(id);
+    }
+
+    @Override
+    public Optional<CartProducts> findByCartAndProduct(Cart cart, Product product) {
+        return cartProductsRepo.findByCartAndProduct(cart, product);
+    }
+
+    @Override
+    public int calculateTotalAmount(Cart cart) {
+        List<CartProducts> cartProducts = findProByCartID(cart.getId());
+        return cartProducts.stream().mapToInt(CartProducts::getAmount).sum();
     }
 }
