@@ -38,4 +38,7 @@ public class User implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="roleID")
 	private Role role;
+
+	@OneToOne(mappedBy = "user")
+	private Customer customer;
 }

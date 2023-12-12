@@ -3,12 +3,21 @@ package alotra.milktea.controller;
 import alotra.milktea.entity.Cart;
 import alotra.milktea.entity.CartProducts;
 
+import alotra.milktea.entity.Customer;
+import alotra.milktea.entity.User;
 import alotra.milktea.service.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -19,6 +28,8 @@ public class Cart_ProductsController {
     ICartService cartService = new CartServiceImpl();
     @Autowired
     IProductService productService = new ProductServiceImpl();
+    @Autowired
+    IUserService userService = new UserServiceImpl();
     @GetMapping("/cart_products")
     public String findAll(Model model){
         model.addAttribute("list",cartProductsService.findAll());
@@ -85,5 +96,48 @@ public class Cart_ProductsController {
         cartProductsService.saveCartPro(cp);
         int id = cp.getCart().getId();
         return "redirect:/user/cart/view?id=" + id;
+    }
+    @GetMapping("/detail_cart")
+    public String viewCartProductsByUser(Model model, HttpServletRequest request) {
+        // Lấy danh sách các cookie từ request
+        Cookie[] cookies = request.getCookies();
+
+        // Nếu danh sách cookie không null, lặp qua để tìm cookie có tên "username"
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    // Thực hiện các xử lý với giá trị username
+                    // Ví dụ: Kiểm tra nếu username không rỗng thì tiếp tục xử lý
+                    if (!username.isEmpty()) {
+                        // Lấy thông tin người dùng từ username
+                        User user = userService.findOne(username);
+
+                        // Kiểm tra nếu người dùng tồn tại và có thông tin khách hàng
+                        if (user != null && user.getCustomer() != null) {
+                            Customer customer = user.getCustomer();
+
+                            // Lấy giỏ hàng của khách hàng
+                            Cart userCart = cartService.findCartByCustomer(customer);
+
+                            // Nếu giỏ hàng tồn tại, lấy danh sách sản phẩm trong giỏ hàng
+                            if (userCart != null) {
+                                List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+
+                                model.addAttribute("products", productService.findAllByStatusNot((short) 0));
+                                model.addAttribute("list", cartProducts);
+                                return "web/cart/list";
+                            } else {
+                                // Xử lý khi giỏ hàng không tồn tại
+                                return "redirect:/home";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Xử lý khi không tìm thấy cookie hoặc không có giá trị
+        return "redirect:/login";
     }
 }

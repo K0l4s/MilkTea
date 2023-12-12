@@ -1,6 +1,7 @@
 package alotra.milktea.service;
 
 import alotra.milktea.entity.Cart;
+import alotra.milktea.entity.Customer;
 import alotra.milktea.repository.ICartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,8 @@ public class CartServiceImpl implements ICartService{
     }
 
     @Override
-    public List<Cart> finCartByCustomerID(int id) {
-        return cartRepo.findCartByCustomerCustomerID(id);
+    public Cart findCartByCustomer(Customer customer) {
+        return cartRepo.findCartByCustomer(customer);
     }
 
     @Override

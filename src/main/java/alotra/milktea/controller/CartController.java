@@ -1,6 +1,7 @@
 package alotra.milktea.controller;
 
 import alotra.milktea.entity.Cart;
+import alotra.milktea.entity.Customer;
 import alotra.milktea.service.CartProductsServiceImpl;
 import alotra.milktea.service.CartServiceImpl;
 import alotra.milktea.service.ICartProductsService;
@@ -49,11 +50,11 @@ public class CartController {
         return "redirect:/admin/cart";
     }
 //  User
-    @GetMapping("/user/cart")
-    public String findAll_User(@RequestParam("id") int id, Model model){
-        model.addAttribute("carts",cartService.finCartByCustomerID(id));
-        return "/cart/list";
-    }
+//    @GetMapping("/user/cart")
+//    public String findAll_User(@RequestParam("id") int id, Model model){
+//        model.addAttribute("carts",cartService.findCartByCustomer(Custome));
+//        return "/cart/list";
+//    }
     @GetMapping("/user/cart/view")
     public String DetailsCart(@RequestParam("id") int id, Model model){
         model.addAttribute("list",cartProductsService.findProByCartID(id));

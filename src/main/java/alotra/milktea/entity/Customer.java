@@ -3,16 +3,10 @@ package alotra.milktea.entity;
 import java.io.Serial;
 import java.io.Serializable;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -38,7 +32,7 @@ public class Customer implements Serializable{
     private String customerName;
 
     @NotNull
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="userName")
     private User user;
 
