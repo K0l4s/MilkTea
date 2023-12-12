@@ -17,4 +17,6 @@ public interface ICartProductsService {
     CartProducts findCartProductsById(int id);
     Optional<CartProducts> findByCartAndProduct(Cart cart, Product product);
     int calculateTotalAmount(Cart cart);
+
+    void deleteAll();
 }

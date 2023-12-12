@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.User;
 import alotra.milktea.entity.Wallet;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface IWalletService {
     Optional<Wallet> findOne(int id);
     void saveWallet(Wallet wallet);
     void deleteWallet(int id);
+    Wallet findByUser(User user);
 }
