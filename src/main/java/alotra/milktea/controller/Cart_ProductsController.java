@@ -18,10 +18,10 @@ import java.util.Optional;
 public class Cart_ProductsController {
     @Autowired
     ICartProductsService cartProductsService = new CartProductsServiceImpl();
-    @GetMapping("/admin/cart_products")
+    @GetMapping("/cart_products")
     public String findAll(Model model){
         model.addAttribute("list",cartProductsService.findAll());
-        return "cart_products/list";
+        return "web/cart/list";
     }
     @GetMapping("/admin/cart_products/add")
     public String addCart_Products(Model model){
