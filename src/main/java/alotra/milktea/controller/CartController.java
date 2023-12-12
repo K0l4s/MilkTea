@@ -50,11 +50,11 @@ public class CartController {
         return "redirect:/admin/cart";
     }
 //  User
-//    @GetMapping("/user/cart")
-//    public String findAll_User(@RequestParam("id") int id, Model model){
-//        model.addAttribute("carts",cartService.findCartByCustomer(Custome));
-//        return "/cart/list";
-//    }
+    @GetMapping("/user/cart")
+    public String findAll_User(@RequestParam("id") int id, Model model){
+        model.addAttribute("carts",cartService.findByID(id));
+        return "/cart/list";
+    }
     @GetMapping("/user/cart/view")
     public String DetailsCart(@RequestParam("id") int id, Model model){
         model.addAttribute("list",cartProductsService.findProByCartID(id));
