@@ -2,6 +2,8 @@ package alotra.milktea.config;
 
 import alotra.milktea.repository.IRoleRepo;
 import alotra.milktea.repository.IUserRepo;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +63,8 @@ public class SecurityConfig {
                         .requestMatchers("/add/**").hasAnyAuthority("ADMIN","CREATOR")
                         .requestMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
                         .requestMatchers("/delete/**").hasAuthority("ADMIN")
-//                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/css/**", "/js/**").permitAll()
                         .anyRequest().authenticated()
 
                 )
@@ -70,20 +74,39 @@ public class SecurityConfig {
                         .failureUrl("/login?error")
                         .usernameParameter("username")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/home")
-                        .permitAll())
+                        .defaultSuccessUrl("/home",true)
+                        .permitAll().successHandler(successHandler()))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .deleteCookies("username")
                         .logoutSuccessUrl("/login")
-                        .permitAll());
+                        .permitAll())
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling.accessDeniedPage("/error/403"));
         return http.build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+    @Bean
+    public AuthenticationSuccessHandler successHandler() {
+        return (request, response, authentication) -> {
+            // Đăng nhập thành công, thiết lập Session và Cookie
+            String username = authentication.getName();
+
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+
+            Cookie usernameCookie = new Cookie("username", username);
+            usernameCookie.setMaxAge(3600); // Thời gian sống của cookie (giây), ở đây là 1 giờ
+            response.addCookie(usernameCookie);
+
+            // Chuyển hướng đến trang home
+            response.sendRedirect("/home");
+        };
     }
 }
