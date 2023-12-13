@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Category;
 import alotra.milktea.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,10 @@ public interface IProductService {
 
     List<Product> findProductByName(String name);
     List<Product> getProducts(int offset, int limit);
+
+    Page<Product> searchProducts(String searchTerm, short status, Pageable pageable);
+    Page<Product> searchProductsByCategory(String searchTerm, Category category, short status, Pageable pageable);
+    Page<Product> searchProductsByCategoryAndName(String searchTerm, Category category, short status, Pageable pageable);
 
     Product findProductByProductID(int id);
 }

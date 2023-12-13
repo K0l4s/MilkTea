@@ -32,7 +32,7 @@ public class HomeController {
 	ICartService cartService;
 	@Autowired
 	ICartProductsService cartProductsService;
-	@GetMapping("/home")
+	@GetMapping({"/home", "/"})
 	protected String home(HttpServletRequest request, Model model) {
 		int totalAmount = calculateTotalAmount(request);
 		model.addAttribute("totalAmount", totalAmount);
@@ -59,6 +59,10 @@ public class HomeController {
         User user = new User();
 		model.addAttribute("user", user);
         return "home/login"; // Assuming you have a login template named "login.html"
+	}
+	@GetMapping("/error/403")
+	protected String error(){
+		return "home/403";
 	}
 	@GetMapping("/forgotPassword")
 	protected  String forgotPassword() {

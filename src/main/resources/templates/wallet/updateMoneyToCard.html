@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Wallet</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-    <h1>Edit Wallet</h1>
-    <form th:action="@{/wallet/update}" th:object="${list}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" th:field="*{id}"/>
+<div class="container mt-5">
+    <div class="card col-lg-6 mx-auto">
+        <div class="card-body">
+            <h1 class="card-title text-center border-bottom pb-3 mb-3">Edit Wallet</h1>
+            <form th:action="@{/wallet/update}" th:object="${list}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" class="form-control" th:field="*{id}"/>
 
-        <label for="customerID">Customer ID:</label>
-        <input type="text" id="customerID" th:field="*{customer.customerID}" readonly/><br/><br/>
+                <div class="form-group">
+                    <input type="hidden" id="customerID" class="form-control" th:field="*{customer.customerID}" readonly/>
+                </div>
 
-        <label for="balance">Balance:</label>
-        <input type="number" id="balance" th:field="*{balance}" readonly/><br/><br/>
+                <div class="form-group">
+                    <label for="customerName">Customer name:</label>
+                    <input type="text" id="customerName" class="form-control" th:field="*{customer.customerName}" readonly/>
+                </div>
 
-        <label for="inputMoney">Input Money:</label>
-        <input type="number" id="inputMoney" name="inputMoney" th:value="${inputMoney}" required/><br/><br/>
+                <div class="form-group">
+                    <label for="balance">Balance:</label>
+                    <input type="number" id="balance" class="form-control" th:field="*{balance}" readonly/>
+                </div>
 
-        <input type="submit" value="Save"/>
-    </form>
+                <div class="form-group">
+                    <label for="inputMoney">Input Money:</label>
+                    <input type="text" id="inputMoney" name="inputMoney" class="form-control" th:value="${inputMoney}" required/>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

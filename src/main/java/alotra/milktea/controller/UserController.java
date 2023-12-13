@@ -38,14 +38,14 @@ public class UserController {
         model.addAttribute("pageCount", pageCount);
 
         model.addAttribute("list", listUser);
-        return "user/viewUser";
+        return "admin/user/viewUser";
     }
 
     @GetMapping("/add")
     protected String getAdd(Model model){
         model.addAttribute("user",new User());
         model.addAttribute("roles",roleService.findAll());
-        return "user/addUser";
+        return "admin/user/addUser";
     }
     @PostMapping("/delete")
     protected  String postDelete(@RequestParam String username){
@@ -71,7 +71,7 @@ public class UserController {
     protected String getEdit(@RequestParam("username")String username, Model model){
         model.addAttribute("user",userService.findOne(username));
         model.addAttribute("roles",roleService.findAll());
-        return "user/editUser";
+        return "admin/user/editUser";
     }
     @PostMapping("/edit")
     protected String postEdit(@ModelAttribute User user){

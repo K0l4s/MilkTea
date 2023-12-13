@@ -1,5 +1,6 @@
 package alotra.milktea.repository;
 
+import alotra.milktea.entity.Category;
 import alotra.milktea.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,13 @@ public interface IProductRepo extends JpaRepository<Product, Integer> {
     List<Product> findProductByKeyWord(@Param("keyword") String keyword);
     List<Product> findAllByStatusNot(short status);
     Page<Product> findAllByStatusNot(short status, Pageable pageable);
+
+    @Query("SELECT p FROM Product p WHERE p.name LIKE %:searchTerm% AND p.status <> :status")
+    Page<Product> findProductsByNameContainingAndStatusNot(String searchTerm, short status, Pageable pageable);
+    @Query("SELECT p FROM Product p WHERE (:category is null OR p.category = :category) AND p.name LIKE %:searchTerm% AND p.status <> :status")
+    Page<Product> searchProductsByCategory(String searchTerm, Category category, short status, Pageable pageable);
+    @Query("SELECT p FROM Product p WHERE p.category = :category AND p.name LIKE %:searchTerm% AND p.status <> :status")
+    Page<Product> searchProductsByCategoryAndName(String searchTerm, Category category, short status, Pageable pageable);
 
     Product findProductByProductID(int id);
 }
