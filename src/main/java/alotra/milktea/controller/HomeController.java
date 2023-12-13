@@ -60,6 +60,10 @@ public class HomeController {
 		model.addAttribute("user", user);
         return "home/login"; // Assuming you have a login template named "login.html"
 	}
+	@GetMapping("/error/403")
+	protected String error(){
+		return "home/403";
+	}
 	@GetMapping("/forgotPassword")
 	protected  String forgotPassword() {
 		return "home/forgot";
