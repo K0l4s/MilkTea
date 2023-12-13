@@ -7,7 +7,7 @@
 <body>
 <div align="center">
     <h1>Shop Products List</h1>
-    <a th:href="@{ shop_products/add}"><button>Add</button></a>
+    <a th:href="@{ 'view/shop_products/add?shopID=' + ${shopID}}"><button>Add</button></a>
     <table border="1">
         <thead>
         <tr>
@@ -26,10 +26,10 @@
             <td th:text="${shop_products.getProducts().getName()}"></td>
             <td th:text="${shop_products.getAmount()}"></td>
             <td>
-                <a th:href="@{'shop_products/edit/' + ${shop_products.id}}"><button>Edit</button></a>
-                <a th:href="@{'shop_products/delete/' + ${shop_products.id}}"><button>Delete</button></a>
+                <a th:href="@{'view/shop_products/edit/' + ${shop_products.id}}"><button>Edit</button></a>
+                <a th:href="@{'view/shop_products/delete/' + ${shop_products.id}}"><button>Delete</button></a>
             </td>
-            <td><a th:href="@{'shop_products/edit/' + ${shop_products.id}}"><button>Edit</button></a></td>
+            <td><a th:href="@{'view/shop_products/details?productID=' + ${shop_products.products.productID}}"><button>View</button></a></td>
         </tr>
         </tbody>
     </table>

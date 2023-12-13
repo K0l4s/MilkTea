@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Ingredients List</title>
+</head>
+<body>
+<div align="center">
+    <h1>Product Ingredients List</h1>
+    <a th:href="@{ 'details/product_ingredients/add?productID='+${productID}}"><button>Add</button></a>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ingredient</th>
+            <th>Product</th>
+            <th>Image URL</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product_ingredients : ${list}">
+            <td th:text="${product_ingredients.getId()}"></td>
+            <td th:text="${product_ingredients.getIngredients().getName()}"></td>
+            <td th:text="${product_ingredients.getProduct().getName()}"></td>
+            <td th:text="${product_ingredients.getProduct().getImageURL()}"></td>
+            <td th:text="${product_ingredients.getProduct().getDescription()}"></td>
+            <td th:text="${product_ingredients.getProduct().getPrice()}"></td>
+            <td>
+                <a th:href="@{'details/product_ingredients/edit/' + ${product_ingredients.id}}"><button>Edit</button></a>
+                <a th:href="@{'details/product_ingredients/delete/' + ${product_ingredients.id}}"><button>Delete</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

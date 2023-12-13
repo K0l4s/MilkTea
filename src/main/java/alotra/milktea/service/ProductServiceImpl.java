@@ -109,4 +109,8 @@ public class ProductServiceImpl implements IProductService{
     public Page<Product> searchProductsByCategoryAndName(String searchTerm, Category category, short status, Pageable pageable) {
         return productRepo.searchProductsByCategoryAndName(searchTerm, category, status, pageable);
     }
+    @Override
+    public Product findProductByProductID(int id) {
+        return productRepo.findProductByProductID(id);
+    }
 }

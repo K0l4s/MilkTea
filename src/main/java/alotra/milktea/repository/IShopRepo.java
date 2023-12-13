@@ -13,4 +13,6 @@ public interface IShopRepo extends JpaRepository<Shop, Integer> {
     List<Shop> findShopByKeyWord(@Param("keyword") String keyword);
 
     List<Shop> findAllByStatusNot(short status);
+
+    Shop findByShopID(String id);
 }

@@ -17,4 +17,6 @@ public interface IShopService {
 
     List<Shop> findShopByName(String name);
     boolean isShopIdUnique(String id);
+
+    Shop findShopByShopID(String id);
 }

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="product_indredients")
+@Table(name="product_ingredients")
 public class Product_Ingredients implements Serializable{
 	/**
 	 * 

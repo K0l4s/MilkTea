@@ -61,4 +61,9 @@ public class ShopServiceImpl implements IShopService{
         return true;
     }
 
+    @Override
+    public Shop findShopByShopID(String id) {
+        return shopRepo.findByShopID(id);
+    }
+
 }

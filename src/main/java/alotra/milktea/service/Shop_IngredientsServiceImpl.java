@@ -29,7 +29,22 @@ public class Shop_IngredientsServiceImpl implements  IShop_IngredientsService {
     }
 
     @Override
-    public void deleteShop_Ingredietns(int id) {
+    public void deleteShop_Ingredients(int id) {
         shopIngredientsRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Shop_Ingredients> findIngredientsByShopID(String id) {
+        return shopIngredientsRepo.findByShopShopID(id);
+    }
+
+    @Override
+    public Shop_Ingredients findShopIngredientsByShopID(String id) {
+        return shopIngredientsRepo.findShop_IngredientsByShopShopID(id);
+    }
+
+    @Override
+    public Shop_Ingredients findByID(int id) {
+        return shopIngredientsRepo.findShop_IngredientsById(id);
     }
 }
