@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Category;
 import alotra.milktea.entity.Product;
 import alotra.milktea.repository.IProductRepo;
 import io.micrometer.common.util.StringUtils;
@@ -97,5 +98,15 @@ public class ProductServiceImpl implements IProductService{
     @Override
     public Page<Product> searchProducts(String searchTerm, short status, Pageable pageable) {
         return productRepo.findProductsByNameContainingAndStatusNot(searchTerm, status, pageable);
+    }
+
+    @Override
+    public Page<Product> searchProductsByCategory(String searchTerm, Category category, short status, Pageable pageable) {
+        return productRepo.searchProductsByCategory(searchTerm, category, status, pageable);
+    }
+
+    @Override
+    public Page<Product> searchProductsByCategoryAndName(String searchTerm, Category category, short status, Pageable pageable) {
+        return productRepo.searchProductsByCategoryAndName(searchTerm, category, status, pageable);
     }
 }

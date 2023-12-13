@@ -37,9 +37,9 @@
                 $.each(products, function(index, product) {
                     var productHtml =
                         '<div class="col-md-3">' +
-                        '<div class="product-item mx-auto mb-5">' +
+                        '<div class="product-item mx-auto mb-5 text-center">' +
                         '<a href="/getProductDetails/' + product.productID + '" class="text-dark">' +
-                        '<img src="' + (product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg') + '" style="height: 332px" class="img-fluid" alt="">' +
+                        '<img src="' + (product.imageURL != null ? '/product/images/' + product.imageURL : '/images/no_image.jpg') + '" style="height: 332px" class="img-fluid" alt="">' +
                         '</a>' +
                         '<div class="product-info text-center">' +
                         '<h3 class="fst-italic m-0">' +
@@ -82,9 +82,15 @@
             <div class="container-lg">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form id="searchForm" class="input-group" th:action="@{/product/searchPaginated}" method="POST">
-                            <input type="text" name="searchTerm" class="form-control" placeholder="Search by name">
-                            <button type="submit" class="btn btn-primary">Search</button>
+                        <form id="searchAndFilterForm" th:action="@{/product/searchPaginated}" method="POST">
+                            <div class="input-group">
+                                <input type="text" name="searchTerm" class="form-control" placeholder="Search by name" style="margin-right: 1.5rem;">
+                                <select class="form-control" id="category" name="category">
+                                    <option value="">Select Category</option>
+                                    <option th:each="cate: ${categories}" th:value="${cate.categoryID}" th:text="${cate.categoryName}">Category ?</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary ml-2">Filter</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -99,15 +105,16 @@
                 <div class="container-lg">
                     <div class="row" id = "productList">
                         <div th:each="product : ${products}" class="col-md-3">
-                            <div class="product-item mx-auto mb-5">
+                            <div class="product-item mx-auto mb-5 text-center">
                                 <a th:href="@{'/getProductDetails/' + ${product.productID}}" class="text-dark">
-                                    <img th:src="${product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg'}"
+                                    <img th:src="${product.imageURL != null ? '/product/images/' + product.imageURL : '/images/no_image.jpg'}"
                                          style="height: 332px" class="img-fluid" alt="">
                                 </a>
                                 <div class="product-info text-center">
                                     <h3 class="fst-italic m-0">
                                         <a th:href="@{'/getProductDetails/' + ${product.productID}}" class="text-dark" th:text="${product.name}">Product Name</a>
                                     </h3>
+
                                     <div class="product-price text-primary fw-medium" th:text="${product.price + ' VND'}"></div>
 
                                     <button class="btn btn-primary mt-2" th:onclick="'addToCart(\'' + ${product.productID} + '\', 1)'" type="button">Add to Cart</button>

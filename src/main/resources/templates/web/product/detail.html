@@ -18,7 +18,7 @@
             <!-- Product details content -->
             <div th:if="${product}" class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
-                    <img th:src="${product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg'}"
+                    <img th:src="${product.imageURL != null ? '/product/images/' + product.imageURL : '/images/no_image.jpg'}"
                          style="height: 332px" class="img-fluid" alt="">
                 </div>
 

@@ -43,7 +43,7 @@
                             <tbody>
                             <tr th:each="product : ${products}">
                                 <td th:text="${product.getProductID()}"></td>
-                                <td><img th:src="${product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg'}"
+                                <td><img th:src="${product.imageURL != null ? '/product/images/' + product.imageURL : '/images/no_image.jpg'}"
                                          width="70" class="img-fluid" alt=""></td>
                                 <td th:text="${product.getName()}"></td>
                                 <td th:text="${product.getCategory().getCategoryName()}"></td>

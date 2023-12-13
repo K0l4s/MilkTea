@@ -84,7 +84,7 @@ public class ProductController {
         productService.DeleteProduct(id);
         return "redirect:/admin/product";
     }
-    @GetMapping("admin/product/images/{filename:.+}")
+    @GetMapping("/product/images/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serverFile(@PathVariable String filename) {
         Resource file = storageService.loadAsResource(filename);
@@ -105,6 +105,8 @@ public class ProductController {
     }
     @GetMapping("/product")
     public String findAllWeb(Model model, HttpServletRequest request){
+        model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
+
         // Lấy danh sách các cookie từ request
         Cookie[] cookies = request.getCookies();
 
@@ -250,14 +252,29 @@ public class ProductController {
     @RequestMapping(value = "/product/searchPaginated", method = {RequestMethod.GET, RequestMethod.POST})
     public String search(Model model,
                              @RequestParam(name = "searchTerm", required = false, defaultValue = "") String searchTerm,
+                             @RequestParam(name = "category", required = false, defaultValue = "") String categoryId,
                              @RequestParam(name = "page", defaultValue = "0") int page,
                              @RequestParam(name = "size", defaultValue = "8") int size) {
-
-        Page<Product> products = productService.searchProducts(searchTerm, (short) 0, PageRequest.of(page, size));
+        model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
+        Page<Product> products = null;
+        if (!searchTerm.isEmpty() && !categoryId.isEmpty()) {
+            Optional<Category> category = categoryService.findOne(Integer.parseInt(categoryId));
+            if (category.isPresent()) {
+                products = productService.searchProductsByCategoryAndName(searchTerm, category.get(), (short) 0, PageRequest.of(page, size));
+            }
+        } else if (!categoryId.isEmpty()) {
+            Optional<Category> category = categoryService.findOne(Integer.parseInt(categoryId));
+            if (category.isPresent()) {
+                products = productService.searchProductsByCategory(searchTerm, category.get(), (short) 0, PageRequest.of(page, size));
+            }
+        } else {
+            products = productService.searchProducts(searchTerm, (short) 0, PageRequest.of(page, size));
+        }
         model.addAttribute("products", products.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", products.getTotalPages());
         model.addAttribute("searchTerm", searchTerm);
+        model.addAttribute("selectedCategory", categoryId);
 
         return "/web/product/search";
     }

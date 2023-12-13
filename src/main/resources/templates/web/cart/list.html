@@ -56,7 +56,7 @@
                   ></td>
                   <td style="width: 20%">
                     <a th:href="@{'/getProductDetails/' + ${cart_products.getProduct().getProductID()}}">
-                      <img th:src="${cart_products.getProduct().imageURL != null ? '/admin/product/images/' + cart_products.getProduct().imageURL : '/images/no_image.jpg'}"
+                      <img th:src="${cart_products.getProduct().imageURL != null ? '/product/images/' + cart_products.getProduct().imageURL : '/images/no_image.jpg'}"
                            class="img-fluid" alt="">
                     </a>
                   </td>
