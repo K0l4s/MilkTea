@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.User;
 import alotra.milktea.entity.Wallet;
 import alotra.milktea.repository.IWalletRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,15 @@ public class WalletServiceImpl implements  IWalletService{
     @Override
     public void deleteWallet(int id) {
         walletRepo.deleteById(id);
+    }
+
+    @Override
+    public Wallet findByUser(User user){
+        return walletRepo.findWalletByCustomerUser(user);
+    }
+
+    @Override
+    public Optional<Wallet> findByCustomerID(Long id) {
+        return walletRepo.findByCustomerCustomerID(id);
     }
 }

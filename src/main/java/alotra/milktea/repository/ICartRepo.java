@@ -16,6 +16,7 @@ public interface ICartRepo extends JpaRepository<Cart,Integer> {
 
     Cart findCartByCustomer(Customer customer);
 
+
     Cart findCartById(int id);
 
 }
