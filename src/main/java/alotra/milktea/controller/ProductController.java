@@ -7,6 +7,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -250,11 +251,39 @@ public class ProductController {
         return "error";
     }
     @RequestMapping(value = "/product/searchPaginated", method = {RequestMethod.GET, RequestMethod.POST})
-    public String search(Model model,
-                             @RequestParam(name = "searchTerm", required = false, defaultValue = "") String searchTerm,
-                             @RequestParam(name = "category", required = false, defaultValue = "") String categoryId,
-                             @RequestParam(name = "page", defaultValue = "0") int page,
-                             @RequestParam(name = "size", defaultValue = "8") int size) {
+    public String search(Model model, HttpServletRequest request,
+                         @RequestParam(name = "searchTerm", required = false, defaultValue = "") String searchTerm,
+                         @RequestParam(name = "category", required = false, defaultValue = "") String categoryId,
+                         @RequestParam(name = "page", defaultValue = "0") int page,
+                         @RequestParam(name = "size", defaultValue = "8") int size) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        // Lấy thông tin người dùng từ username
+                        User user = userService.findOne(username);
+
+                        // Kiểm tra nếu người dùng tồn tại và có thông tin khách hàng
+                        if (user != null && user.getCustomer() != null) {
+                            Customer customer = user.getCustomer();
+
+                            Cart userCart = cartService.findCartByCustomer(customer);
+
+                            // Nếu giỏ hàng tồn tại, thêm cartId vào Model
+                            if (userCart != null) {
+                                List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+                                int totalAmount = cartProducts.stream().mapToInt(CartProducts::getAmount).sum();
+                                model.addAttribute("totalAmount", totalAmount);
+                                model.addAttribute("cartId", userCart.getId());
+                            }
+                        }
+                    }
+                }
+            }
+        }
         model.addAttribute("categories", categoryService.findAllByStatusNot((short) 0));
         Page<Product> products = null;
         if (!searchTerm.isEmpty() && !categoryId.isEmpty()) {
