@@ -1,10 +1,7 @@
 package alotra.milktea.controller;
 
-import alotra.milktea.entity.Cart;
-import alotra.milktea.entity.CartProducts;
+import alotra.milktea.entity.*;
 
-import alotra.milktea.entity.Customer;
-import alotra.milktea.entity.User;
 import alotra.milktea.service.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +28,12 @@ public class Cart_ProductsController {
     IProductService productService = new ProductServiceImpl();
     @Autowired
     IUserService userService = new UserServiceImpl();
+    @Autowired
+    IBillService billService = new BillServiceImpl();
+    @Autowired
+    IBill_ProductsService billProductsService = new Bill_ProductsServiceImpl();
+    @Autowired
+    IWalletService walletService = new WalletServiceImpl();
     @GetMapping("/cart_products")
     public String findAll(Model model){
         model.addAttribute("list",cartProductsService.findAll());
@@ -126,9 +130,14 @@ public class Cart_ProductsController {
                                 List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
                                 int totalAmount = cartProducts.stream().mapToInt(CartProducts::getAmount).sum();
 
+                                // Tính tổng tiền
+                                double total = calculateTotal(cartProducts);
+
                                 model.addAttribute("products", productService.findAllByStatusNot((short) 0));
                                 model.addAttribute("list", cartProducts);
                                 model.addAttribute("totalAmount", totalAmount);
+                                model.addAttribute("total", total);
+
                                 return "web/cart/list";
                             } else {
                                 // Xử lý khi giỏ hàng không tồn tại
@@ -190,5 +199,159 @@ public class Cart_ProductsController {
     public String deleteCart_Products(@PathVariable int id){
         cartProductsService.deleteCartPro(id);
         return "redirect:/detail_cart";
+    }
+
+    // Hàm tính tổng số tiền từ danh sách sản phẩm trong giỏ hàng
+    private double calculateTotal(List<CartProducts> cartProducts) {
+        double total = 0;
+        for (CartProducts cartProduct : cartProducts) {
+            double subtotal = cartProduct.getAmount() * cartProduct.getProduct().getPrice();
+            total += subtotal;
+        }
+        return total;
+    }
+
+    @GetMapping("/checkout")
+    public String payCart(Model model, HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        User user = userService.findOne(username);
+
+                        if (user != null && user.getCustomer() != null) {
+                            Wallet wallet = walletService.findByUser(user);
+
+                            Customer customer = user.getCustomer();
+
+                            // Lấy giỏ hàng của khách hàng
+                            Cart userCart = cartService.findCartByCustomer(customer);
+
+                            List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+
+
+                            double total = calculateTotal(cartProducts);
+
+                            model.addAttribute("wallet",wallet.getId());
+                            model.addAttribute("balance",wallet.getBalance());
+                            model.addAttribute("bill",total);
+
+                            return "/payment/payment";
+                        }
+                    }
+
+                }
+            }
+        }
+        return "redirect:/home"; // Xử lý khi không tìm thấy cookie hoặc không có giá trị
+    }
+
+    @GetMapping("/confirm")
+    public String comfirmPayment(Model model, HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        User user = userService.findOne(username);
+
+                        if (user != null && user.getCustomer() != null) {
+
+                            Wallet wallet = walletService.findByUser(user);
+
+                            Customer customer = user.getCustomer();
+
+                            // Lấy giỏ hàng của khách hàng
+                            Cart userCart = cartService.findCartByCustomer(customer);
+
+                            List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+
+
+                            double total = calculateTotal(cartProducts);
+
+                            if(wallet.getBalance() - total >= 0){
+
+                                float balance = wallet.getBalance();
+                                wallet.setBalance(balance - (float) total);
+
+                                Bill bill = new Bill();
+                                bill.setCreateDay(LocalDateTime.now());
+
+                                // Set thông tin khách hàng
+                                bill.setCustomer(customer);
+
+                                billService.saveBill(bill);
+
+                                // Nếu giỏ hàng tồn tại, lấy danh sách sản phẩm trong giỏ hàng
+                                if (userCart != null) {
+                                    List<CartProducts> cartProductsList = cartProductsService.findProByCartID(userCart.getId());
+                                    for (CartProducts cartProduct : cartProductsList) {
+                                        Bill_Products bp =  new Bill_Products();
+                                        bp.setProduct(cartProduct.getProduct());
+                                        bp.setAmount(cartProduct.getAmount());
+                                        bp.setBill(bill);
+
+                                        billProductsService.saveBill_Products(bp);
+                                    }
+
+                                    cartProductsService.deleteAll();
+                                }
+
+                                return "redirect:/product"; // Hoặc trả về trang thành công sau khi đã tạo bill thành công
+                            }
+                            else {
+                                return "redirect:/wallet";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return "redirect:/home"; // Xử lý khi không tìm thấy cookie hoặc không có giá trị
+    }
+    @GetMapping("/wallet")
+    public String inputMoneyToCard(Model model, HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        User user = userService.findOne(username);
+
+                        if (user != null && user.getCustomer() != null) {
+
+
+                            Customer customer = user.getCustomer();
+
+                            Optional<Wallet> optional = walletService.findByCustomerID(customer.getCustomerID());
+                            if (optional.isPresent()){
+                                Wallet wallet = optional.get();
+                                model.addAttribute("list",wallet);
+                            }
+
+                            return "/wallet/updateMoneyToCard";
+                        }
+                    }
+                }
+            }
+
+        }
+        return "redirect:/home";
+    }
+    @PostMapping("/wallet/update")
+    public String saveUpdateWallet(@ModelAttribute("list") Wallet wallet,@RequestParam("inputMoney") double  inputMoney) {
+        wallet.setBalance( wallet.getBalance() + (float) inputMoney );
+        walletService.saveWallet(wallet);
+        return "redirect:/checkout";
     }
 }

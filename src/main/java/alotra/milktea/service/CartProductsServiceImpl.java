@@ -55,4 +55,10 @@ public class CartProductsServiceImpl implements ICartProductsService{
         List<CartProducts> cartProducts = findProByCartID(cart.getId());
         return cartProducts.stream().mapToInt(CartProducts::getAmount).sum();
     }
+
+    @Override
+    public void deleteAll() {
+        cartProductsRepo.deleteAll();
+    }
+
 }
