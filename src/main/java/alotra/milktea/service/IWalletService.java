@@ -12,4 +12,5 @@ public interface IWalletService {
     void saveWallet(Wallet wallet);
     void deleteWallet(int id);
     Wallet findByUser(User user);
+    Optional<Wallet> findByCustomerID(Long id);
 }

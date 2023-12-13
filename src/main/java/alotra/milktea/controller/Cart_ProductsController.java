@@ -224,7 +224,21 @@ public class Cart_ProductsController {
 
                         if (user != null && user.getCustomer() != null) {
                             Wallet wallet = walletService.findByUser(user);
+
+                            Customer customer = user.getCustomer();
+
+                            // Lấy giỏ hàng của khách hàng
+                            Cart userCart = cartService.findCartByCustomer(customer);
+
+                            List<CartProducts> cartProducts = cartProductsService.findProByCartID(userCart.getId());
+
+
+                            double total = calculateTotal(cartProducts);
+
                             model.addAttribute("wallet",wallet.getId());
+                            model.addAttribute("balance",wallet.getBalance());
+                            model.addAttribute("bill",total);
+
                             return "/payment/payment";
                         }
                     }
@@ -261,7 +275,7 @@ public class Cart_ProductsController {
 
                             double total = calculateTotal(cartProducts);
 
-                            if(wallet.getBalance() - total >0){
+                            if(wallet.getBalance() - total >= 0){
 
                                 float balance = wallet.getBalance();
                                 wallet.setBalance(balance - (float) total);
@@ -292,7 +306,7 @@ public class Cart_ProductsController {
                                 return "redirect:/product"; // Hoặc trả về trang thành công sau khi đã tạo bill thành công
                             }
                             else {
-                                return "error";
+                                return "redirect:/wallet";
                             }
                         }
                     }
@@ -300,5 +314,43 @@ public class Cart_ProductsController {
             }
         }
         return "redirect:/home"; // Xử lý khi không tìm thấy cookie hoặc không có giá trị
+    }
+    @GetMapping("/wallet")
+    public String inputMoneyToCard(Model model, HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("username".equals(cookie.getName())) {
+                    String username = cookie.getValue();
+
+                    if (!username.isEmpty()) {
+                        User user = userService.findOne(username);
+
+                        if (user != null && user.getCustomer() != null) {
+
+
+                            Customer customer = user.getCustomer();
+
+                            Optional<Wallet> optional = walletService.findByCustomerID(customer.getCustomerID());
+                            if (optional.isPresent()){
+                                Wallet wallet = optional.get();
+                                model.addAttribute("list",wallet);
+                            }
+
+                            return "/wallet/updateMoneyToCard";
+                        }
+                    }
+                }
+            }
+
+        }
+        return "redirect:/home";
+    }
+    @PostMapping("/wallet/update")
+    public String saveUpdateWallet(@ModelAttribute("list") Wallet wallet,@RequestParam("inputMoney") double  inputMoney) {
+        wallet.setBalance( wallet.getBalance() + (float) inputMoney );
+        walletService.saveWallet(wallet);
+        return "redirect:/checkout";
     }
 }

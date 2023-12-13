@@ -38,4 +38,9 @@ public class WalletServiceImpl implements  IWalletService{
     public Wallet findByUser(User user){
         return walletRepo.findWalletByCustomerUser(user);
     }
+
+    @Override
+    public Optional<Wallet> findByCustomerID(Long id) {
+        return walletRepo.findByCustomerCustomerID(id);
+    }
 }

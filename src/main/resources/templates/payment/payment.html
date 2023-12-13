@@ -49,7 +49,7 @@
                                             th:value="${wallet}"
                                             placeholder="Valid card number"
                                             class="form-control"
-                                            required
+                                            disabled
                                     />
                                     <div class="input-group-append">
                     <span class="input-group-text text-muted">
@@ -57,12 +57,46 @@
                       <i class="fab fa-cc-mastercard mx-1"></i>
                       <i class="fab fa-cc-amex mx-1"></i>
                     </span>
-                                        <div class="card-footer">
-                                                <a href="/confirm">
-                                                <button type="button" class="subscribe btn btn-primary float-right shadow-sm">
-                                                    Confirm Payment
-                                                </button></a>
-                                        </div>
+                                    </div>
+                                </div>
+                                    <!-- Balance -->
+                                    <div class="form-group">
+                                        <label for="balance">
+                                            <h6>Balance</h6>
+                                        </label>
+                                        <input
+                                                type="text"
+                                                name="balance"
+                                                th:value="${balance}"
+                                                placeholder="Your balance"
+                                                class="form-control"
+                                                disabled                                       />
+                                    </div>
+                                <!-- Bill -->
+                                <div class="form-group">
+                                    <label for="bill">
+                                        <h6>Bill</h6>
+                                    </label>
+                                    <input
+                                            type="text"
+                                            name="bill"
+                                            th:value="${bill}"
+                                            placeholder="Your bill"
+                                            class="form-control"
+                                            disabled
+                                    />
+                                </div>
+
+
+<!--                                <div class="card-footer">-->
+                                    <a href="/confirm">
+                                        <button type="button" class="subscribe btn btn-primary float-right shadow-sm">
+                                            Confirm Payment
+                                        </button>
+                                    </a>
+<!--                                </div>-->
+
+                            </div>
                         </form>
                     </div>
 
