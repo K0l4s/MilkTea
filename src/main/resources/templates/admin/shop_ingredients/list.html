@@ -1,36 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
 <head>
     <meta charset="UTF-8">
-    <title>Shop Ingredients List</title>
+    <title>Products</title>
 </head>
 <body>
-<div align="center">
-    <h1>Shop Ingredients List</h1>
-    <a th:href="@{ 'view/shop_ingredients/add?shopID=' + ${shopID}}"><button>Add</button></a>
-    <table border="1">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Shop</th>
-            <th>Ingredient</th>
-            <th>Amount</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="shop_ingredients : ${list}">
-            <td th:text="${shop_ingredients.getId()}"></td>
-            <td th:text="${shop_ingredients.getShop().getName()}"></td>
-            <td th:text="${shop_ingredients.getIngredients().getName()}"></td>
-            <td th:text="${shop_ingredients.getAmount()}"></td>
-            <td>
-                <a th:href="@{'view/shop_ingredients/edit/' + ${shop_ingredients.id}}"><button>Edit</button></a>
-                <a th:href="@{'view/shop_ingredients/delete/' + ${shop_ingredients.id}}"><button>Delete</button></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">Shop Ingredients List</h6>
+
+            <!-- Button in line with card-header -->
+            <div class="d-flex align-items-center">
+                <div class="ml-auto">
+                    <a th:href="@{ 'view/shop_ingredients/add?shopID=' + ${shopID}}" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        <span class="text">Add new Shop Ingredients</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" style="width: 100%; border-spacing: 0;">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Shop</th>
+                        <th>Ingredient</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="shop_ingredients : ${list}">
+                        <td th:text="${shop_ingredients.getId()}"></td>
+                        <td th:text="${shop_ingredients.getShop().getName()}"></td>
+                        <td th:text="${shop_ingredients.getIngredients().getName()}"></td>
+                        <td th:text="${shop_ingredients.getAmount()}"></td>
+                        <td>
+                            <a th:href="@{'view/shop_ingredients/edit/' + ${shop_ingredients.id}}"><button>Edit</button></a>
+                            <a th:href="@{'view/shop_ingredients/delete/' + ${shop_ingredients.id}}"><button>Delete</button></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- /.container-fluid -->
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Shop Ingredients List</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div align="center">-->
+<!--    <h1>Shop Ingredients List</h1>-->
+<!--    <a th:href="@{ 'view/shop_ingredients/add?shopID=' + ${shopID}}"><button>Add</button></a>-->
+<!--    <table border="1">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Shop</th>-->
+<!--            <th>Ingredient</th>-->
+<!--            <th>Amount</th>-->
+<!--            <th>Actions</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="shop_ingredients : ${list}">-->
+<!--            <td th:text="${shop_ingredients.getId()}"></td>-->
+<!--            <td th:text="${shop_ingredients.getShop().getName()}"></td>-->
+<!--            <td th:text="${shop_ingredients.getIngredients().getName()}"></td>-->
+<!--            <td th:text="${shop_ingredients.getAmount()}"></td>-->
+<!--            <td>-->
+<!--                <a th:href="@{'view/shop_ingredients/edit/' + ${shop_ingredients.id}}"><button>Edit</button></a>-->
+<!--                <a th:href="@{'view/shop_ingredients/delete/' + ${shop_ingredients.id}}"><button>Delete</button></a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

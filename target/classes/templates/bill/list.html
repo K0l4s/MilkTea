@@ -1,41 +1,99 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>List of Bills</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div align="center">-->
+<!--  <h1>List of Bills</h1>-->
+<!--&lt;!&ndash;  <a th:href="@{bill/add}"><button>Add</button></a>&ndash;&gt;-->
+<!--&lt;!&ndash;  <form th:action="@{/admin/bill/search}" method="get">&ndash;&gt;-->
+<!--&lt;!&ndash;    <label for="search">Search by Name:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="text" id="search" name="name" th:value="*{name}">&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="submit" value="Search">&ndash;&gt;-->
+<!--&lt;!&ndash;  </form>&ndash;&gt;-->
+<!--  <table border="1">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>ID</th>-->
+<!--      <th>Customer</th>-->
+<!--      <th>Employee</th>-->
+<!--      <th>Creation Date</th>-->
+<!--&lt;!&ndash;      <th>Actions</th>&ndash;&gt;-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="bill : ${bills}">-->
+<!--      <td th:text="${bill.id}"></td>-->
+<!--      <td th:text="${bill.customer.getCustomerName()}"></td>-->
+<!--      <td th:text="${bill.employee.getName()}"></td>-->
+<!--      <td th:text="${bill.createDay}"></td>-->
+<!--&lt;!&ndash;      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a th:href="@{'bill/edit/' + ${bill.id}}"><button>Edit</button></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a th:href="@{'bill/delete/' + ${bill.id}}"><button>Delete</button></a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
 <head>
   <meta charset="UTF-8">
-  <title>List of Bills</title>
+  <title>Products</title>
 </head>
 <body>
-<div align="center">
-  <h1>List of Bills</h1>
-  <a th:href="@{bill/add}"><button>Add</button></a>
-  <form th:action="@{/admin/bill/search}" method="get">
-    <label for="search">Search by Name:</label>
-    <input type="text" id="search" name="name" th:value="*{name}">
-    <input type="submit" value="Search">
-  </form>
-  <table border="1">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Customer</th>
-      <th>Employee</th>
-      <th>Creation Date</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="bill : ${bills}">
-      <td th:text="${bill.id}"></td>
-      <td th:text="${bill.customer.getCustomerName()}"></td>
-      <td th:text="${bill.employee.getName()}"></td>
-      <td th:text="${bill.createDay}"></td>
-      <td>
-        <a th:href="@{'bill/edit/' + ${bill.id}}"><button>Edit</button></a>
-        <a th:href="@{'bill/delete/' + ${bill.id}}"><button>Delete</button></a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+      <h6 class="m-0 font-weight-bold text-primary">Bill List</h6>
+
+      <!-- Button in line with card-header -->
+      <div class="d-flex align-items-center">
+        <div class="ml-auto">
+<!--          <a th:href="@{ 'view/shop_products/add?shopID=' + ${shopID}}" class="btn btn-secondary btn-icon-split">-->
+<!--                            <span class="icon text-white-50">-->
+<!--                                <i class="fas fa-arrow-right"></i>-->
+<!--                            </span>-->
+<!--            <span class="text">Add new Shop Products</span>-->
+<!--          </a>-->
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" style="width: 100%; border-spacing: 0;">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Creation Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="bill : ${bills}">
+            <td th:text="${bill.id}"></td>
+            <td th:text="${bill.customer.getCustomerName()}"></td>
+            <td th:text="${bill.employee.getName()}"></td>
+            <td th:text="${bill.createDay}"></td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
 </div>
-</body>
-</html>

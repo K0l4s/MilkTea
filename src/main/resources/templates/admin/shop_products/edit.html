@@ -1,26 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Shop Products</title>
+    <title>Edit product</title>
 </head>
 <body>
-<div class="container">
-    <h1>Edit Shop Products</h1>
-    <form th:action="@{/view/shop_products/save}" th:object="${list}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" th:field="*{id}"/>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
 
-        <label for="shopID">Shop ID:</label>
-        <input type="text" id="shopID" th:field="*{shop.shopID}" readonly/><br/><br/>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">Shop Products Edit</h6>
 
-        <label for="productsID">Product ID:</label>
-        <input type="number" id="productsID" th:field="*{products.productID}" required/><br/><br/>
+            <!-- Button in line with card-header -->
+            <div class="d-flex align-items-center">
+                <div class="ml-auto">
+                    <a href="/admin/shop" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                        <span class="text">BACK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/view/shop_products/save}" th:object="${list}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{id}"/>
 
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" th:field="*{amount}" required/><br/><br/>
+                <label for="shopID">Shop ID:</label>
+                <input type="text" id="shopID" th:field="*{shop.shopID}" readonly/><br/><br/>
 
-        <input type="submit" value="Save"/>
-    </form>
+                <label for="productsID">Product ID:</label>
+                <input type="number" id="productsID" th:field="*{products.productID}" required/><br/><br/>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" th:field="*{amount}" required/><br/><br/>
+
+                <button type="submit" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-check"></i>
+            </span>
+                    <span class="text">Save</span>
+                </button>
+            </form>
+        </div>
+
+
+    </div>
 </div>
+<!-- /.container-fluid -->
 </body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Edit Shop Products</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <h1>Edit Shop Products</h1>-->
+<!--    <form th:action="@{/view/shop_products/save}" th:object="${list}" method="POST" enctype="multipart/form-data">-->
+<!--        <input type="hidden" th:field="*{id}"/>-->
+
+<!--        <label for="shopID">Shop ID:</label>-->
+<!--        <input type="text" id="shopID" th:field="*{shop.shopID}" readonly/><br/><br/>-->
+
+<!--        <label for="productsID">Product ID:</label>-->
+<!--        <input type="number" id="productsID" th:field="*{products.productID}" required/><br/><br/>-->
+
+<!--        <label for="amount">Amount:</label>-->
+<!--        <input type="number" id="amount" th:field="*{amount}" required/><br/><br/>-->
+
+<!--        <input type="submit" value="Save"/>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
