@@ -24,6 +24,8 @@ public class ShopController {
     IProduct_IngredientsService productIngredientsService = new Product_IngredientsServiceImpl();
     @Autowired
     IProductService productService = new ProductServiceImpl();
+    @Autowired
+    IIngredientService ingredientService = new IngredientServiceImpl();
     @GetMapping("/admin/shop")
     public String findAll(Model model){
         model.addAttribute("shops", shopService.findAllBySatusNot((short) 0));
@@ -135,7 +137,9 @@ public class ShopController {
         Optional<Shop_Ingredients> optional = shopIngredientsService.findOne(id);
         if(optional.isPresent()){
             Shop_Ingredients si = optional.get();
+
             model.addAttribute("list",si);
+
             return "/admin/shop_ingredients/edit";
         }
         return "error";
