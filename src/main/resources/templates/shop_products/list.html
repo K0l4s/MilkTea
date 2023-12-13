@@ -15,6 +15,7 @@
             <th>Shop</th>
             <th>Product</th>
             <th>Amount</th>
+            <th>Detail ingredients</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -28,6 +29,7 @@
                 <a th:href="@{'shop_products/edit/' + ${shop_products.id}}"><button>Edit</button></a>
                 <a th:href="@{'shop_products/delete/' + ${shop_products.id}}"><button>Delete</button></a>
             </td>
+            <td><a th:href="@{'shop_products/edit/' + ${shop_products.id}}"><button>Edit</button></a></td>
         </tr>
         </tbody>
     </table>

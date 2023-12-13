@@ -35,6 +35,8 @@
                         <th>Shop name</th>
                         <th>Location</th>
                         <th>Actions</th>
+                        <th> View Ingredients </th>
+                        <th> View Products </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,6 +48,9 @@
                             <a th:href="@{'shop/edit/' + ${shop.shopID}}"><button>Edit</button></a>
                             <a th:href="@{'shop/delete/' + ${shop.shopID}}"><button>Delete</button></a>
                         </td>
+                        <td><a th:href="@{'shop/ingredients/view?shopID=' + ${shop.shopID}}"><button>View</button></a></td>
+
+                        <td><a th:href="@{'shop/products/view?shopID=' + ${shop.shopID}}"><button>View</button></a></td>
                     </tr>
                     </tbody>
                 </table>

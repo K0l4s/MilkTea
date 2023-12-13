@@ -32,4 +32,14 @@ public class Shop_ProductsServiceImpl implements IShop_ProductsService{
     public void deleteShop_Pro(int id) {
         shopProductsRepo.deleteById(id);
     }
+
+    @Override
+    public List<Shop_Products> findProByShopID(String id) {
+        return shopProductsRepo.findByShopShopID(id);
+    }
+
+    @Override
+    public Shop_Products findByID(int id) {
+        return shopProductsRepo.findShop_ProductsById(id);
+    }
 }

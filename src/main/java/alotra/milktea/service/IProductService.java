@@ -21,4 +21,6 @@ public interface IProductService {
 
     List<Product> findProductByName(String name);
     List<Product> getProducts(int offset, int limit);
+
+    Product findProductByProductID(int id);
 }

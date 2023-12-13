@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Product;
 import alotra.milktea.entity.Product_Ingredients;
 import alotra.milktea.repository.IProduct_IngredientsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +32,16 @@ public class Product_IngredientsServiceImpl implements  IProduct_IngredientsServ
     public void deletePro_Ingredients(int id) {
         productIngredientsRepo.deleteById(id);
     }
+
+    @Override
+    public List<Product_Ingredients> findByProductID(int id) {
+        return productIngredientsRepo.findByProductProductID(id);
+    }
+
+    @Override
+    public Product_Ingredients findProduct_IngredientsByID(int id) {
+        return productIngredientsRepo.findProduct_IngredientsById(id);
+    }
+
+
 }

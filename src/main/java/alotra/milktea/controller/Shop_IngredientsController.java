@@ -41,7 +41,7 @@ public class Shop_IngredientsController {
     }
     @GetMapping("/admin/shop_ingredients/delete/{id}")
     public String deleteShop_Ingredients(@PathVariable("id") int id){
-        shopIngredientsService.deleteShop_Ingredietns(id);
+        shopIngredientsService.deleteShop_Ingredients(id);
         return "redirect:/admin/shop_ingredients";
     }
 }

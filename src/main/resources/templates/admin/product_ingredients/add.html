@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product Ingredients</title>
+</head>
+<body>
+<div class="container">
+  <h1>Add Product Ingredients</h1>
+  <form th:action="@{/details/product_ingredients/save}" th:object="${list}" method="POST" enctype="multipart/form-data">
+
+    <label for="productID">product ID:</label>
+    <input type="number" id="productID" th:field="*{product.productID}" readonly/><br/><br/>
+
+    <label for="ingredientsID">Ingredient ID:</label>
+    <input type="number" id="ingredientsID" th:field="*{ingredients.id}" required/><br/><br/>
+
+
+
+    <input type="submit" value="Save"/>
+  </form>
+</div>
+</body>
+</html>
