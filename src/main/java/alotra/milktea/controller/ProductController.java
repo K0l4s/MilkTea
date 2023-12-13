@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -244,5 +246,19 @@ public class ProductController {
             return "web/product/detail";
         }
         return "error";
+    }
+    @RequestMapping(value = "/product/searchPaginated", method = {RequestMethod.GET, RequestMethod.POST})
+    public String search(Model model,
+                             @RequestParam(name = "searchTerm", required = false, defaultValue = "") String searchTerm,
+                             @RequestParam(name = "page", defaultValue = "0") int page,
+                             @RequestParam(name = "size", defaultValue = "8") int size) {
+
+        Page<Product> products = productService.searchProducts(searchTerm, (short) 0, PageRequest.of(page, size));
+        model.addAttribute("products", products.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", products.getTotalPages());
+        model.addAttribute("searchTerm", searchTerm);
+
+        return "/web/product/search";
     }
 }

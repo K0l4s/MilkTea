@@ -16,4 +16,6 @@ public interface IProductRepo extends JpaRepository<Product, Integer> {
     List<Product> findProductByKeyWord(@Param("keyword") String keyword);
     List<Product> findAllByStatusNot(short status);
     Page<Product> findAllByStatusNot(short status, Pageable pageable);
+    @Query("SELECT p FROM Product p WHERE p.name LIKE %:searchTerm% AND p.status <> :status")
+    Page<Product> findProductsByNameContainingAndStatusNot(String searchTerm, short status, Pageable pageable);
 }

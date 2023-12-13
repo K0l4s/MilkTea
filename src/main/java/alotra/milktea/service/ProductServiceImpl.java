@@ -93,4 +93,9 @@ public class ProductServiceImpl implements IProductService{
         Page<Product> page = productRepo.findAllByStatusNot((short) 0, pageable);
         return page.getContent();
     }
+
+    @Override
+    public Page<Product> searchProducts(String searchTerm, short status, Pageable pageable) {
+        return productRepo.findProductsByNameContainingAndStatusNot(searchTerm, status, pageable);
+    }
 }

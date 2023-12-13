@@ -78,6 +78,18 @@
 </head>
 <body>
     <div layout:fragment="content">
+        <section id="search" class="py-lg-4" style="margin-bottom: -5rem">
+            <div class="container-lg">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form id="searchForm" class="input-group" th:action="@{/product/searchPaginated}" method="POST">
+                            <input type="text" name="searchTerm" class="form-control" placeholder="Search by name">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="product" class="py-lg-6">
             <div class="display-header text-center" style="margin-bottom: 4rem;">
                 <h2 class="display-6 fst-italic m-0">Our Products</h2>

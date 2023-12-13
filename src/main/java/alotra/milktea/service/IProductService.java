@@ -21,4 +21,5 @@ public interface IProductService {
 
     List<Product> findProductByName(String name);
     List<Product> getProducts(int offset, int limit);
+    Page<Product> searchProducts(String searchTerm, short status, Pageable pageable);
 }
