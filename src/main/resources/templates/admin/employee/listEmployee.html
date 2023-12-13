@@ -32,7 +32,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Role ID</th>
+<!--                        <th>Role ID</th>-->
                         <th>Citizen ID</th>
                         <th>Name</th>
                         <th>Photo</th>
@@ -44,7 +44,7 @@
                     <tbody>
                     <tr th:each="employee : ${employees}">
                         <td th:text="${employee.getEmployeeID()}"></td>
-                        <td th:text="${employee.roleID.getName()}"></td>
+<!--                        <td th:text="${employee.roleID.getName()}"></td>-->
                         <td th:text="${employee.getCitizenID()}"></td>
                         <td th:text="${employee.getName()}"></td>
                         <td th:text="${employee.getPhoto()}"></td>

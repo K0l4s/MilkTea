@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
+<head>
+    <meta charset="UTF-8">
+    <title>View User</title>
+</head>
+<body>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">User List</h6>
+
+            <!-- Button in line with card-header -->
+            <div class="d-flex align-items-center">
+                <div class="ml-auto">
+                    <a href="/admin/user/add" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        <span class="text">Add new user</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" style="width: 100%; border-spacing: 0;">
+                    <thead>
+                    <th>Username</th>
+                    <th>Mật khẩu</th>
+                    <th>Email</th>
+                    <th>Code</th>
+                    <th>Trạng thái tài khoản</th>
+                    <th>Vai trò trên trang</th>
+                    <th>Hành động</th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${list}">
+                        <td th:text="${user.getUsername()}"></td>
+                        <td>
+                            <p th:text="${user.getPassword()}"></p>
+                            <form method="post" th:action="@{'/admin/user/resetPssw?username=' + ${user.getUsername()}}">
+                                <input type="submit" value="Reset Mật Khẩu Mặc Định"/>
+                            </form>
+                        </td>
+                        <td th:text="${user.getEmail()}"></td>
+                        <td>
+                            <span th:if="${user.getCode()==null}">Không có code</span>
+                            <span th:text="${user.getCode()}"></span>
+                        </td>
+                        <td>
+                            <span th:if="${user.isEnable()}">Hoạt động</span>
+                            <span th:unless="${user.isEnable()}">Bị Vô Hiệu Hoá</span>
+                        </td>
+                        <td th:text="${user.getRole().getName()}"></td>
+                        <td>
+                            <a th:href="@{'/admin/user/edit?username=' + ${user.getUsername()}}"><button>Chỉnh sửa</button></a>
+
+                            <span th:if="${user.isEnable()}">
+                        <form method="post" th:action="@{'/admin/user/enable?username=' + ${user.getUsername()}}">
+                        <input type="submit" value="Vô Hiệu Hoá Tài Khoản"/>
+                        </form>
+                    </span>
+
+                            <span th:unless="${user.isEnable()}">
+                        <form method="post" th:action="@{'/admin/user/enable?username=' + ${user.getUsername()}}">
+                            <input type="submit" value="Kích hoạt tài khoản"/>
+                        </form>
+                    </span>
+
+                            <form method="post" th:action="@{'/admin/user/delete?username=' + ${user.getUsername()}}">
+                                <input type="submit" value="Xoá"/>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+</body>
+</html>

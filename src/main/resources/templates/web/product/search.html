@@ -62,7 +62,7 @@
             <div class="container-lg">
                 <div class="row" id = "productList">
                     <div th:each="product : ${products}" class="col-md-3">
-                        <div class="product-item mx-auto mb-5">
+                        <div class="product-item mx-auto mb-5 text-center">
                             <a th:href="@{'/getProductDetails/' + ${product.productID}}" class="text-dark">
                                 <img th:src="${product.imageURL != null ? '/product/images/' + product.imageURL : '/images/no_image.jpg'}"
                                      style="height: 332px" class="img-fluid" alt="">

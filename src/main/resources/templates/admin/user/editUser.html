@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layout-admin}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit user</title>
+</head>
+<body>
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">User Edit</h6>
+
+            <!-- Button in line with card-header -->
+            <div class="d-flex align-items-center">
+                <div class="ml-auto">
+                    <a href="/admin/user/view" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                        <span class="text">BACK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="POST" th:action="@{edit}" th:object="${user}" >
+                <label>Tên đăng nhập: </label>
+                <input type="text" id="username"  th:field="*{username}" required/>
+                <label>Mật khẩu: </label>
+                <input id="password" type="password" th:field="*{password}" required/>
+                <label>Email: </label>
+                <input id="email" type="email" th:field="*{email}" required/>
+                <label>Quyền hạn: </label>
+                <select id="role" th:field="*{role.roleId}" required>
+                    <option th:each="role : ${roles}" th:value="${role.roleId}" th:text="${role.getName()}"></option>
+                </select>
+                <input type="submit" value="Chỉnh sửa"/>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+</body>
+</html>

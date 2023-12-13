@@ -37,10 +37,10 @@
                     <option th:each="user : ${users}" th:value="${user.getUsername()}" th:text="${user.getUsername()}"></option>
                 </select><br><br>
 
-                <label for="roleID">Role ID:</label>
-                <select id="roleID" th:field="*{roleID.roleId}" required>
-                    <option th:each="role : ${roles}" th:value="${role.getRoleId()}" th:text="${role.getName()}"></option>
-                </select><br><br>
+<!--                <label for="roleID">Role ID:</label>-->
+<!--                <select id="roleID" th:field="*{roleID.roleId}" required>-->
+<!--                    <option th:each="role : ${roles}" th:value="${role.getRoleId()}" th:text="${role.getName()}"></option>-->
+<!--                </select><br><br>-->
                 <label for="citizenID">Citizen ID:</label>
                 <input type="text" id="citizenID" th:field="*{citizenID}" required/><br/><br/>
 
