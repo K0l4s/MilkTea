@@ -45,7 +45,7 @@
                         <td th:text="${product_ingredients.getId()}"></td>
                         <td th:text="${product_ingredients.getIngredients().getName()}"></td>
                         <td th:text="${product_ingredients.getProduct().getName()}"></td>
-                        <td><img th:src="${product_ingredients.getProduct().getImageURL() != null ? '/admin/product/images/' + product_ingredients.getProduct().getImageURL() : '/images/no_image.jpg'}"
+                        <td><img th:src="${product_ingredients.getProduct().getImageURL() != null ? '/product/images/' + product_ingredients.getProduct().getImageURL() : '/images/no_image.jpg'}"
                                  width="70" class="img-fluid" alt=""></td>
 <!--                        <td th:text="${product_ingredients.getProduct().getImageURL()}"></td>-->
                         <td th:text="${product_ingredients.getProduct().getDescription()}"></td>

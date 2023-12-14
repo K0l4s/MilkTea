@@ -33,17 +33,17 @@
                     <tr>
                         <th>ID</th>
                         <th>Role name</th>
-                        <th>Actions</th>
+<!--                        <th>Actions</th>-->
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="role : ${roles}">
                         <td th:text="${role.getRoleId()}"></td>
                         <td th:text="${role.getName()}"></td>
-                        <td>
-                            <a th:href="@{'role/edit/' + ${role.roleId}}"><button>Edit</button></a>
-<!--                            <a th:href="@{'role/delete/' + ${role.roleId}}"><button>Delete</button></a>-->
-                        </td>
+<!--                        <td>-->
+<!--                            <a th:href="@{'role/edit/' + ${role.roleId}}"><button>Edit</button></a>-->
+<!--&lt;!&ndash;                            <a th:href="@{'role/delete/' + ${role.roleId}}"><button>Delete</button></a>&ndash;&gt;-->
+<!--                        </td>-->
                     </tr>
                     </tbody>
                 </table>

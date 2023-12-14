@@ -1,5 +1,6 @@
 package alotra.milktea.service;
 
+import alotra.milktea.entity.Role;
 import alotra.milktea.entity.User;
 import alotra.milktea.model.ResetPasswordModel;
 import alotra.milktea.model.SendCodeModel;
@@ -29,4 +30,6 @@ public interface IUserService {
 	boolean enableAccount(String username);
 
 	boolean updateUser(User user);
+	List<Role> findRolesByUsername(String username);
+	boolean updateUserAuthentication(String username);
 }

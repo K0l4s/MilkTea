@@ -1,5 +1,6 @@
 package alotra.milktea.repository;
 
+import alotra.milktea.entity.Role;
 import alotra.milktea.entity.User;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,4 +26,6 @@ public interface IUserRepo extends JpaRepository<User, String>{
 
 	@Query("SELECT u FROM User u")
 	List<User> findAll(PageRequest pageRequest);
+	@Query("SELECT u.role FROM User u WHERE u.username = :username")
+	List<Role> findRolesByUsername(String username);
 }

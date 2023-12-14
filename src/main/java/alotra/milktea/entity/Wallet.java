@@ -18,5 +18,5 @@ public class Wallet {
     @JoinColumn(name ="customerID")
     private Customer customer;
 
-    private float balance;
+    private float balance = 0.0F;
 }

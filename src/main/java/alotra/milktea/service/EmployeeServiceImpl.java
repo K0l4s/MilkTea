@@ -2,6 +2,7 @@ package alotra.milktea.service;
 
 import alotra.milktea.entity.Employee;
 import alotra.milktea.repository.IEmployeeRepo;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +31,30 @@ public class EmployeeServiceImpl implements  IEmployeeService{
     }
 
     @Override
-    public void saveEmployee(Employee employee) {
-        employee.setStatus((short) 1);
-        employeeRepo.save(employee);
+    public <S extends Employee> S saveEmployee(S entity) {
+        entity.setStatus((short) 1);
+        if (entity.getEmployeeID() == 0) {
+            return employeeRepo.save(entity);
+        }
+        else {
+            Optional<Employee> optImages = findOne(entity.getEmployeeID());
+            if (optImages.isPresent()) {
+                if (StringUtils.isEmpty(entity.getPhoto())) {
+                    entity.setPhoto(optImages.get().getPhoto());
+                }
+                else {
+                    entity.setPhoto(entity.getPhoto());
+                }
+            }
+            return employeeRepo.save(entity);
+        }
     }
+
+//    @Override
+//    public void saveEmployee(Employee employee) {
+//        employee.setStatus((short) 1);
+//        employeeRepo.save(employee);
+//    }
 
     @Override
     public void deleteEmployee(int id) {

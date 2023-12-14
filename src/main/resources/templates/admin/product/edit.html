@@ -55,7 +55,7 @@
                         <label for="image">Image:</label>
                         <input type="file" id="image" name="imageFile" accept="image/*" /><br><br>
 
-                        <img th:src="${product.imageURL != null ? '/admin/product/images/' + product.imageURL : '/images/no_image.jpg'}"
+                        <img th:src="${product.imageURL != null ? '/product/images/' + product.imageURL : '/images/no_image.jpg'}"
                              width="300" class="img-fluid" alt="">
                         <br>
                     </div>
