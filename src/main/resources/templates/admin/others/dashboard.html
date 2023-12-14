@@ -4,6 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <script th:inline="javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#startTime').datetimepicker({
+                format: 'Y-m-d H:i',
+                step: 30,
+            });
+
+            $('#endTime').datetimepicker({
+                format: 'Y-m-d H:i',
+                step: 30,
+            });
+            // Bắt sự kiện khi submit form
+            $('form').submit(function (e) {
+                // Ngăn chặn sự kiện mặc định
+                e.preventDefault();
+
+                // Lấy giá trị từ datetimepicker
+                var startTime = $('#startTime').val();
+                var endTime = $('#endTime').val();
+
+                // Gửi yêu cầu AJAX đến phương thức /admin/revenue/data
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/revenue/data',
+                    data: {
+                        startTime: startTime,
+                        endTime: endTime
+                    },
+                    success: function (data) {
+                        // Hiển thị total revenue lên trang
+                        $('#totalRevenue').text('Total Revenue: ' + data.revenue);
+                    },
+                    error: function () {
+                        alert('Error fetching revenue data');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div layout:fragment="content">
