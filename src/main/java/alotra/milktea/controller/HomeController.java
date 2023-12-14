@@ -80,6 +80,7 @@ public class HomeController {
 	protected String insertInf(@RequestParam("username") String username, @ModelAttribute("customer") Customer cus){
 		try {
 			User user = userService.findOne(username);
+			System.out.println(username);
 			cus.setUser(user);
 			customerService.saveCustomer(cus);
 			Cart cart = new Cart();

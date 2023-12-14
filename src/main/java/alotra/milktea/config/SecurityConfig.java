@@ -22,8 +22,8 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import java.util.ArrayList;
 import java.util.List;
 
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig {
     @Autowired
     IUserRepo userRepo;
