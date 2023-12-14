@@ -66,7 +66,7 @@ public class HomeController {
 	}
 	@GetMapping("/forgotPassword")
 	protected  String forgotPassword() {
-		return "home/forgot";
+		return "home/forgotPassword";
 	}
 	@GetMapping("/register")
 	protected String showRegisterForm(HttpSession session, @CookieValue(value = "username", defaultValue = "") String username, Model model) {
