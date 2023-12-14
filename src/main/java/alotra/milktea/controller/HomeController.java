@@ -1,9 +1,6 @@
 package alotra.milktea.controller;
 
-import alotra.milktea.entity.Cart;
-import alotra.milktea.entity.CartProducts;
-import alotra.milktea.entity.Customer;
-import alotra.milktea.entity.User;
+import alotra.milktea.entity.*;
 import alotra.milktea.model.ResetPasswordModel;
 import alotra.milktea.model.SendCodeModel;
 import alotra.milktea.service.*;
@@ -34,6 +31,8 @@ public class HomeController {
 	ICartProductsService cartProductsService;
 	@Autowired
 	ICustomerService customerService;
+	@Autowired
+	IWalletService walletService;
 	@GetMapping("/home")
 	protected String home(HttpServletRequest request, Model model) {
 		int totalAmount = calculateTotalAmount(request);
@@ -86,6 +85,10 @@ public class HomeController {
 			Cart cart = new Cart();
 			cart.setCustomer(cus);
 			cartService.saveCart(cart);
+			Wallet wallet = new Wallet();
+			wallet.setBalance(0.0F);
+			wallet.setCustomer(cus);
+			walletService.saveWallet(wallet);
 			return "redirect:/home";
 		}catch (Exception ex){
 			return "redirect:/home?error";
