@@ -33,16 +33,16 @@ public class HomeController {
 	ICustomerService customerService;
 	@Autowired
 	IWalletService walletService;
-	@GetMapping("/home")
+	@GetMapping({"/home", "/"})
 	protected String home(HttpServletRequest request, Model model) {
 		int totalAmount = calculateTotalAmount(request);
 		model.addAttribute("totalAmount", totalAmount);
 		return "index";
 	}
-	@GetMapping("/")
-	protected String home2() {
-		return "home/login";
-	}
+//	@GetMapping("/")
+//	protected String home2() {
+//		return "home/login";
+//	}
 	@GetMapping("/admin")
 	protected  String admin() {
 		return "admin/others/dashboard";
