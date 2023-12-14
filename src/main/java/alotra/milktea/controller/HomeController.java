@@ -68,10 +68,10 @@ public class HomeController {
 	protected String error(){
 		return "home/403";
 	}
-	@GetMapping("/forgotPassword")
-	protected  String forgotPassword() {
-		return "home/forgot";
-	}
+//	@GetMapping("/forgotPassword")
+//	protected  String forgotPassword() {
+//		return "home/forgotPassword";
+//	}
 	@GetMapping("/register")
 	protected String showRegisterForm(HttpSession session, @CookieValue(value = "username", defaultValue = "") String username, Model model) {
 		// Check Session
@@ -157,6 +157,9 @@ public class HomeController {
 			Cookie usernameCookie = new Cookie("username", username);
 			usernameCookie.setMaxAge(3600);
 			response.addCookie(usernameCookie);
+
+			// Cập nhật thông tin xác thực trong bộ nhớ của Spring Security
+			userService.updateUserAuthentication(username);
 			return "redirect:/home";
 		}
 		return "redirect:/vetifyRegister?username=" + user.getUsername();

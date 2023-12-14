@@ -8,10 +8,16 @@ import alotra.milktea.repository.IRoleRepo;
 import alotra.milktea.repository.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService{
@@ -21,7 +27,6 @@ public class UserServiceImpl implements IUserService{
 	Email email = new Email();
 	@Autowired
 	IRoleRepo roleRepo;
-	
 	@Override
 //	@Transactional
 	public boolean register(User user) {
@@ -159,6 +164,36 @@ public class UserServiceImpl implements IUserService{
 			userRepo.save(user);
 			return true;
 		} catch(Exception exx){
+			return false;
+		}
+	}
+
+	@Override
+	public List<Role> findRolesByUsername(String username) {
+		return userRepo.findRolesByUsername(username);
+	}
+
+	@Override
+	public boolean updateUserAuthentication(String username) {
+		try {
+			// Lấy danh sách quyền của người dùng từ service
+			List<Role> roles = userRepo.findRolesByUsername(username);
+
+			// Chuyển đổi danh sách quyền thành danh sách GrantedAuthority
+			List<SimpleGrantedAuthority> authorities = roles.stream()
+					.map(role -> new SimpleGrantedAuthority(role.getName()))
+					.collect(Collectors.toList());
+
+			// Lấy thông tin người dùng từ repository hoặc service
+			User user = userRepo.findUserByUsername(username);
+
+			// Cập nhật thông tin xác thực trong bộ nhớ của Spring Security
+			SecurityContextHolder.getContext().setAuthentication(
+					new UsernamePasswordAuthenticationToken(user, user.getPassword(), authorities)
+			);
+
+			return true;
+		} catch (Exception ex) {
 			return false;
 		}
 	}
