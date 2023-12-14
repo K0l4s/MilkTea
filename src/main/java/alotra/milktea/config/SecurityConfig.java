@@ -65,6 +65,12 @@ public class SecurityConfig {
                         .requestMatchers("/delete/**").hasAuthority("ADMIN")
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/css/**", "/js/**").permitAll()
+                        .requestMatchers("/register").permitAll()
+                        .requestMatchers("/forgotPassword").permitAll()
+                        .requestMatchers("/vetifyRegister").permitAll()
+                        .requestMatchers("/forgot").permitAll()
+                        .requestMatchers("/sendReqPass").permitAll()
+                        .requestMatchers("/resources/templates/home/**").permitAll()
                         .anyRequest().authenticated()
 
                 )

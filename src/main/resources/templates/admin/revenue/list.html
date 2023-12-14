@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Revenue Result</title>
+    <!-- Add your stylesheet links or inline styles here -->
+</head>
+
+<body>
+<h1>Revenue Result</h1>
+
+<!-- Check if the startTime is present (indicating date range) -->
+<th:block th:if="${revenueModel.startTime}">
+    <p>Revenue from <span th:text="${revenueModel.startTime}"></span> to <span th:text="${revenueModel.endTime}"></span>:</p>
+</th:block>
+
+<!-- Check if the yearlyRevenueList is present (indicating yearly revenue) -->
+<th:block th:if="${yearlyRevenueList}">
+    <table>
+        <thead>
+        <tr>
+            <th>Month</th>
+            <th>Revenue</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="monthlyRevenue : ${yearlyRevenueList}">
+            <td th:text="${#temporals.format(monthlyRevenue.startTime, 'MMMM')}"></td>
+            <td th:text="${monthlyRevenue.revenue}"></td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+
+<!-- Display total revenue in both cases -->
+<p>Total Revenue: <span th:text="${revenueModel.revenue}"></span></p>
+
+<!-- Add additional content or styling as needed -->
+</body>
+
+</html>

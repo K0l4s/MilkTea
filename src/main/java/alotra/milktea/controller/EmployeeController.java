@@ -1,11 +1,21 @@
 package alotra.milktea.controller;
+import alotra.milktea.entity.Category;
 import alotra.milktea.entity.Employee;
+import alotra.milktea.entity.Product;
+import alotra.milktea.entity.Shop;
+import alotra.milktea.model.EmployeeModel;
 import alotra.milktea.service.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
+import java.util.UUID;
+
 @Controller
 public class EmployeeController {
     @Autowired
@@ -16,7 +26,8 @@ public class EmployeeController {
     IShopService shopService = new ShopServiceImpl();
     @Autowired
     IUserService userService = new UserServiceImpl();
-
+    @Autowired
+    IStorageService storageService;
     @GetMapping("/admin/employee")
     public String findAll(Model model){
         model.addAttribute("employees",employeeService.findAllByStatusNot((short) 0));
@@ -56,9 +67,26 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee/save")
-    public String saveEmployee(@ModelAttribute("employee") Employee employee)
+    public String saveEmployee(@ModelAttribute("employee") EmployeeModel empModel)
     {
-        employeeService.saveEmployee(employee);
+        Employee entity = new Employee();
+        //Copy model sang entity
+        BeanUtils.copyProperties(empModel, entity);
+
+        Shop shopEntity = new Shop();
+        shopEntity.setShopID(empModel.getShop().getShopID());
+        entity.setShop(shopEntity);
+
+        //Kiểm tra file
+        if (!empModel.getImageFile().isEmpty()) {
+            UUID uuid = UUID.randomUUID();
+            String uuString = uuid.toString();
+            //Lưu file vào ImageURL
+            entity.setPhoto(storageService.getStorageFilename(empModel.getImageFile(), uuString));
+            storageService.store(empModel.getImageFile(), entity.getPhoto());
+        }
+
+        employeeService.saveEmployee(entity);
         return "redirect:/admin/employee";
     }
     @GetMapping("/admin/employee/search")
@@ -72,5 +100,12 @@ public class EmployeeController {
             model.addAttribute("employees",employeeService.findAll());
             return "redirect:/admin/employee";
         }
+    }
+    @GetMapping("/employee/images/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> serverFile(@PathVariable String filename) {
+        Resource file = storageService.loadAsResource(filename);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                "attachment;filename=\"" + file.getFilename() + "\"").body(file);
     }
 }

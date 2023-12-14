@@ -47,7 +47,8 @@
 <!--                        <td th:text="${employee.roleID.getName()}"></td>-->
                         <td th:text="${employee.getCitizenID()}"></td>
                         <td th:text="${employee.getName()}"></td>
-                        <td th:text="${employee.getPhoto()}"></td>
+                        <td><img th:src="${employee.photo != null ? '/employee/images/' + employee.photo : '/images/no_image.jpg'}"
+                                 width="70" class="img-fluid" alt=""></td>
                         <td th:text="${employee.username.getUsername()}"></td>
                         <td th:text="${employee.shop.getName()}"></td>
                         <td>

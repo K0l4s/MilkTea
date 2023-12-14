@@ -27,32 +27,43 @@
             </div>
         </div>
         <div class="card-body">
-            <form th:action="@{/employee/save}" th:object="${employee}" method="POST">
+            <form th:action="@{/employee/save}" th:object="${employee}" method="POST" enctype="multipart/form-data">
 
                 <input type="hidden" th:field="*{employeeID}"/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" th:field="*{name}" required/><br/><br/>
 
-                <label for="name">Name:</label>
-                <input type="text" id="name" th:field="*{name}" required/><br/><br/>
+                        <label for="username">Username:</label>
+                        <select id="username" th:field="*{username.username}" required>
+                            <option th:each="user : ${users}" th:value="${user.getUsername()}" th:text="${user.getUsername()}"></option>
+                        </select><br><br>
 
-                <label for="username">Username:</label>
-                <select id="username" th:field="*{username.username}" required>
-                    <option th:each="user : ${users}" th:value="${user.getUsername()}" th:text="${user.getUsername()}"></option>
-                </select><br><br>
+                        <!--                <label for="roleID">Role ID:</label>-->
+                        <!--                <select id="roleID" th:field="*{roleID.roleId}" required>-->
+                        <!--                    <option th:each="role : ${roles}" th:value="${role.getRoleId()}" th:text="${role.getName()}"></option>-->
+                        <!--                </select><br><br>-->
+                        <label for="citizenID">Citizen ID:</label>
+                        <input type="text" id="citizenID" th:field="*{citizenID}" required/><br/><br/>
 
-<!--                <label for="roleID">Role ID:</label>-->
-<!--                <select id="roleID" th:field="*{roleID.roleId}" required>-->
-<!--                    <option th:each="role : ${roles}" th:value="${role.getRoleId()}" th:text="${role.getName()}"></option>-->
-<!--                </select><br><br>-->
-                <label for="citizenID">Citizen ID:</label>
-                <input type="text" id="citizenID" th:field="*{citizenID}" required/><br/><br/>
+                        <label for="shop">Shop:</label>
+                        <select id="shop" th:field="*{shop.shopID}" required>
+                            <option th:each="shop : ${shops}" th:value="${shop.getShopID()}" th:text="${shop.getName()}"></option>
+                        </select><br><br>
+                    </div>
+                    <div class="col-md-6">
+<!--                        <label for="photo">Photo:</label>-->
+<!--                        <input type="text" id="photo" name="photo"  th:field="*{photo}" required/><br/><br/>-->
 
-                <label for="photo">Photo:</label>
-                <input type="text" id="photo" name="photo"  th:field="*{photo}" required/><br/><br/>
+                        <label for="image">Photo:</label>
+                        <input type="file" id="image" name="imageFile" accept="image/*" /><br><br>
 
-                <label for="shop">Shop:</label>
-                <select id="shop" th:field="*{shop.shopID}" required>
-                    <option th:each="shop : ${shops}" th:value="${shop.getShopID()}" th:text="${shop.getName()}"></option>
-                </select><br><br>
+                        <img th:src="${employee.photo != null ? '/employee/images/' + employee.photo : '/images/no_image.jpg'}"
+                             width="300" class="img-fluid" alt="">
+                        <br>
+                    </div>
+
 
                 <button type="submit" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
