@@ -32,6 +32,8 @@ public class HomeController {
 	ICartService cartService;
 	@Autowired
 	ICartProductsService cartProductsService;
+	@Autowired
+	ICustomerService customerService;
 	@GetMapping("/home")
 	protected String home(HttpServletRequest request, Model model) {
 		int totalAmount = calculateTotalAmount(request);
@@ -59,6 +61,31 @@ public class HomeController {
         User user = new User();
 		model.addAttribute("user", user);
         return "home/login"; // Assuming you have a login template named "login.html"
+	}
+	@GetMapping("insertInf")
+	protected String insertInf(@RequestParam("username")String username, Model model, HttpSession session){
+//		String session_username = (String) session.getAttribute("username");
+//		if(session_username!=username)
+//			return "redirect:/home";
+		model.addAttribute("username",username);
+		Customer cus = new Customer();
+		model.addAttribute("customer",cus);
+		return "home/addCustomer";
+	}
+
+	@PostMapping("insertInf")
+	protected String insertInf(@RequestParam("username") String username, @ModelAttribute("customer") Customer cus){
+		try {
+			User user = userService.findOne(username);
+			cus.setUser(user);
+			customerService.saveCustomer(cus);
+			Cart cart = new Cart();
+			cart.setCustomer(cus);
+			cartService.saveCart(cart);
+			return "redirect:/home";
+		}catch (Exception ex){
+			return "redirect:/home?error";
+		}
 	}
 	@GetMapping("/error/403")
 	protected String error(){
@@ -105,10 +132,7 @@ public class HomeController {
 
 	}
 
-	@GetMapping("/registerInformation")
-	protected String insertInfor() {
-		return null;
-	}
+
 	@GetMapping("/forgotPassword/sendRequest")
 	protected String getRequestPassForm(Model model){
 		SendCodeModel sendCodeModel = new SendCodeModel();
@@ -153,7 +177,7 @@ public class HomeController {
 			Cookie usernameCookie = new Cookie("username", username);
 			usernameCookie.setMaxAge(3600);
 			response.addCookie(usernameCookie);
-			return "redirect:/home";
+			return "redirect:/insertInf?username="+user.getUsername();
 		}
 		return "redirect:/vetifyRegister?username=" + user.getUsername();
 	}

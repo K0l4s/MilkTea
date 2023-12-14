@@ -8,8 +8,12 @@ import alotra.milktea.repository.IRoleRepo;
 import alotra.milktea.repository.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +25,9 @@ public class UserServiceImpl implements IUserService{
 	Email email = new Email();
 	@Autowired
 	IRoleRepo roleRepo;
-	
+	@Autowired
+	private UserDetailsService userDetailsService;
+
 	@Override
 //	@Transactional
 	public boolean register(User user) {
@@ -38,7 +44,8 @@ public class UserServiceImpl implements IUserService{
 				user.setRole(role.get());
 //			Nếu không lặp username thì lưu user mới
 			userRepo.save(user);
-			return true;
+
+		return true;
 //		} catch(Exception e) {
 //			return false;
 //		}

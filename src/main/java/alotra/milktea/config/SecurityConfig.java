@@ -29,7 +29,6 @@ public class SecurityConfig {
     IUserRepo userRepo;
     @Autowired
     IRoleRepo roleRepo;
-
     @Bean
     public UserDetailsService userDetailsService() {
         List<alotra.milktea.entity.User> users = userRepo.findAll();
@@ -63,8 +62,9 @@ public class SecurityConfig {
                         .requestMatchers("/add/**").hasAnyAuthority("ADMIN","CREATOR")
                         .requestMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
                         .requestMatchers("/delete/**").hasAuthority("ADMIN")
-                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .requestMatchers("/css/**", "/js/**").permitAll()
+//                        .requestMatchers("/register/**").permitAll()
                         .anyRequest().authenticated()
 
                 )
