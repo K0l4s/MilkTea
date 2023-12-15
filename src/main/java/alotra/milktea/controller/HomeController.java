@@ -202,9 +202,9 @@ public class HomeController {
 		if (userService.register(user)) {
 			email.sendEmailCode(user);
 			// Tạo giỏ hàng cho người dùng mới đăng ký
-			Cart cart = new Cart();
-			cart.setCustomer(user.getCustomer());
-			cartService.saveCart(cart);
+//			Cart cart = new Cart();
+//			cart.setCustomer(user.getCustomer());
+//			cartService.saveCart(cart);
 			return "redirect:/vetifyRegister?username=" + user.getUsername();
 		} else {
 			return "redirect:/register?error";
