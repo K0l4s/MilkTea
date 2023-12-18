@@ -94,7 +94,7 @@
               >
                 Total: <span th:text="${total}"></span>
               </p>
-              <div>
+              <div th:if="${total} > 0">
                 <a
                   href="/checkout"
                   class="btn btn-secondary btn-icon-split"
