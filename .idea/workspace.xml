@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0caa726b-a9a6-4ddc-b120-d2ac534b433e" name="Changes" comment="Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/fragments/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/fragments/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/layout-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/layout-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/layout-web.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/layout-web.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="khai1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,10 +96,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.MilkTeaShopsChainManagementApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "khai",
+    "git-widget-placeholder": "khai__cloud",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/admin",
+    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/static/images",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -103,6 +111,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\static\images" />
       <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\admin" />
       <recent name="F:\MilkTea\src\main\resources\templates\home" />
       <recent name="F:\MilkTea\src\main\java\alotra\milktea\service" />
@@ -116,6 +125,7 @@
       <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\cart_products" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\static\images" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates" />
       <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\web" />

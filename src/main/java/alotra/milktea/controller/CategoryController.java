@@ -44,16 +44,4 @@ public class CategoryController {
         categoryService.deleteCategory(categoryID);
         return "redirect:/admin/category";
     }
-    @GetMapping("/admin/category/search")
-    public String searchCateByCateName(@RequestParam("name") String name, Model model){
-        if (name != "") {
-            model.addAttribute("name", name);
-            model.addAttribute("listcate",categoryService.findProductByName(name));
-            return "/category/list";
-        }
-        else {
-            model.addAttribute("listcate",categoryService.findAll());
-            return "redirect:/admin/category";
-        }
-    }
 }
