@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0caa726b-a9a6-4ddc-b120-d2ac534b433e" name="Changes" comment="Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/shop_products/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/shop_products/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/cart/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/cart/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,50 +76,31 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JavaScript Debug.detail.html.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.edit.html.executor": "Run",
+    "JavaScript Debug.list.html (2).executor": "Run",
+    "JavaScript Debug.list.html.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.MilkTeaShopsChainManagementApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "khai",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "0d090a4126dcdba6e9832e4cc7c1faee",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.edit.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.list.html (2).executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.list.html.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MilkTeaShopsChainManagementApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;thuan&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/admin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0d090a4126dcdba6e9832e4cc7c1faee&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\admin" />
@@ -206,11 +179,10 @@
       <created>1702570327666</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702570327666</updated>
+      <updated>1700317402125</updated>
       <workItem from="1702570335310" duration="301000" />
       <workItem from="1702576927431" duration="520000" />
       <workItem from="1702600401751" duration="3905000" />
-      <updated>1700317402125</updated>
       <workItem from="1700317403761" duration="604000" />
       <workItem from="1700318521756" duration="8000" />
       <workItem from="1701101817150" duration="619000" />
@@ -273,6 +245,7 @@
       <workItem from="1702600449157" duration="7385000" />
       <workItem from="1702830062768" duration="1100000" />
       <workItem from="1702880097623" duration="1465000" />
+      <workItem from="1702960941730" duration="1297000" />
     </task>
     <servers />
   </component>
