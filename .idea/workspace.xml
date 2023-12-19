@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0caa726b-a9a6-4ddc-b120-d2ac534b433e" name="Changes" comment="Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alotra/milktea/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/shop_products/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/shop_products/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/cart/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/cart/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/web/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/alotra/milktea/controller/HomeController.class" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +101,97 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.edit.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.list.html (2).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.list.html.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MilkTeaShopsChainManagementApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;thuan&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SourceCode/JAVA/MilkTea/src/main/resources/templates/admin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0d090a4126dcdba6e9832e4cc7c1faee&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\admin" />
+      <recent name="F:\MilkTea\src\main\resources\templates\home" />
+      <recent name="F:\MilkTea\src\main\java\alotra\milktea\service" />
+      <recent name="F:\MilkTea\src\main\java\alotra\milktea\entity" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\img" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\js" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\wallet" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\shop_products" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\shop_ingredients" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\product_ingredients" />
+      <recent name="D:\SourceCode\JAVA\MilkTea\src\main\resources\templates\cart_products" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\web" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\admin\others" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\js" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static\css" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\static" />
+      <recent name="E:\UTE\Docs\Web\Source\MilkTea\src\main\resources\templates\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="alotra.milktea.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MilkTeaShopsChainManagementApplication">
+    <configuration name="editEmployee.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/employee/editEmployee.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="list.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/customer/list.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="list.html (2)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/admin/product_ingredients/list.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="list.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/category/list.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="payment.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MilkTea/src/main/resources/templates/payment/payment.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="MilkTeaShopsChainManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="MilkTeaShopsChainManagement" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="alotra.milktea.MilkTeaShopsChainManagementApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.list.html (2)" />
+        <item itemvalue="JavaScript Debug.payment.html" />
+        <item itemvalue="JavaScript Debug.list.html (1)" />
+        <item itemvalue="JavaScript Debug.list.html" />
+        <item itemvalue="JavaScript Debug.editEmployee.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -111,6 +210,69 @@
       <workItem from="1702570335310" duration="301000" />
       <workItem from="1702576927431" duration="520000" />
       <workItem from="1702600401751" duration="3905000" />
+      <updated>1700317402125</updated>
+      <workItem from="1700317403761" duration="604000" />
+      <workItem from="1700318521756" duration="8000" />
+      <workItem from="1701101817150" duration="619000" />
+      <workItem from="1701110661389" duration="13857000" />
+      <workItem from="1701158978395" duration="4483000" />
+      <workItem from="1701395016996" duration="1333000" />
+      <workItem from="1701483367131" duration="1081000" />
+      <workItem from="1701521452341" duration="3203000" />
+      <workItem from="1701614794997" duration="690000" />
+      <workItem from="1701680762214" duration="5290000" />
+      <workItem from="1701744346006" duration="13076000" />
+      <workItem from="1701766404416" duration="2876000" />
+      <workItem from="1701769738892" duration="148000" />
+      <workItem from="1701796786505" duration="3045000" />
+      <workItem from="1701802349130" duration="7331000" />
+      <workItem from="1701876931048" duration="5567000" />
+      <workItem from="1701886612586" duration="224000" />
+      <workItem from="1701887022217" duration="3558000" />
+      <workItem from="1701934837851" duration="335000" />
+      <workItem from="1701935201938" duration="14962000" />
+      <workItem from="1701960141578" duration="5392000" />
+      <workItem from="1701965758973" duration="2659000" />
+      <workItem from="1701887022217" duration="3904000" />
+      <workItem from="1701933401578" duration="1703000" />
+      <workItem from="1702025053805" duration="6001000" />
+      <workItem from="1702038711898" duration="13980000" />
+      <workItem from="1702083852588" duration="8461000" />
+      <workItem from="1702099053565" duration="343000" />
+      <workItem from="1702117505244" duration="2884000" />
+      <workItem from="1702124830062" duration="5999000" />
+      <workItem from="1702132147441" duration="1209000" />
+      <workItem from="1702140641710" duration="54000" />
+      <workItem from="1702168345940" duration="11176000" />
+      <workItem from="1702218767739" duration="10587000" />
+      <workItem from="1702264411837" duration="28904000" />
+      <workItem from="1702303192996" duration="5324000" />
+      <workItem from="1702308567589" duration="9735000" />
+      <workItem from="1702264411837" duration="18112000" />
+      <workItem from="1702289053968" duration="19571000" />
+      <workItem from="1702264411837" duration="10133000" />
+      <workItem from="1702308303971" duration="5400000" />
+      <workItem from="1702365959817" duration="2072000" />
+      <workItem from="1702370098799" duration="27025000" />
+      <workItem from="1702434361826" duration="7378000" />
+      <workItem from="1702370098799" duration="16133000" />
+      <workItem from="1702437397927" duration="3327000" />
+      <workItem from="1702457001946" duration="4259000" />
+      <workItem from="1702461314907" duration="848000" />
+      <workItem from="1702462411483" duration="116000" />
+      <workItem from="1702462715815" duration="1513000" />
+      <workItem from="1702465841126" duration="10016000" />
+      <workItem from="1702447601083" duration="15992000" />
+      <workItem from="1702470530090" duration="10475000" />
+      <workItem from="1702518954003" duration="29045000" />
+      <workItem from="1702482066832" duration="594000" />
+      <workItem from="1702489449855" duration="633000" />
+      <workItem from="1702531010152" duration="7044000" />
+      <workItem from="1702577723358" duration="53000" />
+      <workItem from="1702600318506" duration="78000" />
+      <workItem from="1702600449157" duration="7385000" />
+      <workItem from="1702830062768" duration="1100000" />
+      <workItem from="1702880097623" duration="1465000" />
     </task>
     <servers />
   </component>

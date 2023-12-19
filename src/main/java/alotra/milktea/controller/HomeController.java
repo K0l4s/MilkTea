@@ -260,7 +260,6 @@ public class HomeController {
 					if (!username.isEmpty()) {
 						// Lấy thông tin người dùng từ username
 						User user = userService.findOne(username);
-
 						// Kiểm tra nếu người dùng tồn tại và có thông tin khách hàng
 						if (user != null && user.getCustomer() != null) {
 							Customer customer = user.getCustomer();
